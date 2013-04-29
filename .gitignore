@@ -1,4 +1,6 @@
 *.log
 *.pot
 *.pyc
+*.sl3
 local_settings.py
+secretkey.py

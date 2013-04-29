@@ -1,0 +1,12 @@
+{% load filters %}{{ object.name }}
+{{ object.description|striptags }}
+{{ object|same_db_tags }}
+{% for cat in object.all_categories %}{{ cat.name }}
+{% endfor %}
+{% for author in object.authors.all %}{{ author.get_full_name }} {{ author.username }}
+{% endfor %}
+{{ object.file_url }}
+{{ object.feed.name }}
+{{ object.saved_search.query_string }}
+{{ object.user.get_full_name }} {{ object.user.username }}
+{{ object.video_service_user }}

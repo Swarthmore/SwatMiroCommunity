@@ -1,0 +1,89 @@
+{% extends "localtv/__layouts/75_25.html" %}
+{% comment %}
+Copyright 2012 - Participatory Culture Foundation
+
+This file is part of Miro Community.
+
+Miro Community is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+Miro Community is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n daguerre pagetabs %}
+{% load url from future %}
+
+{% block title %}{{ block.super }} - {{ category.name }}{% endblock %}
+
+{% block body_classes %}{{ block.super }} category-detail-page{% endblock %}
+
+{% block top %}
+	<header class="page-header">
+		<h1 class="page-title">{{ category.name }}</h1>
+		<div class="page-actions">
+			<ul class="action-list">
+				<li><a class="rss" href="{% url 'localtv_feeds_category' category.slug %}">RSS</a></li>
+			</ul>
+		</div>
+	</header>
+{% endblock %}
+
+{% block side %}
+	<div class="padded">
+		{% if category.logo %}<img class="scaled" src="{% adjust category.logo width=700 adjustment="fit" %}">{% endif %}
+		{{ category.description|safe }}
+	</div>{# /.padded #}
+	{% with child_set=category.child_set.all %}
+		{% if child_set %}
+			<div class="pod">
+				<header class="pod-header">
+					<h1 class="pod-title">{% trans "Subcategories" %}</h1>
+				</header>
+				<div class="pod-content">
+					<ul class="category-list">
+						{% for subcat in child_set %}
+							<li>
+								<a title="{{ subcat.name }}" href="{{ subcat.get_absolute_url }}"><span>{{ subcat.name }}</span></a>
+								{% with subcat_child_set=subcat.child_set.all %}
+									{% if subcat_child_set %}
+										<ul>
+											{% for subsubcat in subcat_child_set %}
+												<li><a href="{{ subsubcat.get_absolute_url }}">{{ subsubcat.name }}</a></li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								{% endwith %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>{# /.pod-content #}
+			</div>{# /.pod #}
+		{% endif %}
+	{% endwith %}
+{% endblock %}
+
+{% block main %}
+	<div class="padded">
+		{% if page_obj.has_other_pages %}
+			<div class="pagination upper">
+				{% pagetabs page_obj %}
+			</div>
+		{% endif %}
+		
+		{% include "localtv/_grid/video_list.html" with columns=3 %}
+
+		{% if page_obj.has_other_pages %}
+			<div class="pagination lower">
+				{% pagetabs page_obj %}
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

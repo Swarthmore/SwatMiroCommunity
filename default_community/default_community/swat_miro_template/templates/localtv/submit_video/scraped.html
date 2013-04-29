@@ -1,0 +1,68 @@
+{% extends "localtv/submit_video/second.html" %}
+
+{% comment %}
+Copyright 2012 - Participatory Culture Foundation
+
+This file is part of Miro Community.
+
+Miro Community is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+Miro Community is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
+{% endcomment %}
+
+{% load i18n uploadtemplate_tags filters %}
+
+{% block form_action %}{% url localtv_submit_scraped_video %}{% endblock %}
+
+{% block inner_form %}
+	{% if user_is_admin %}
+		{% if not video.name or not video.description %}
+			<div class="message warning">Warning: not all information was received from the video service.  You may need to add the information manually once the video is added.</div>
+		{% endif %}
+	{% endif %}
+	<div class="row-nested">
+		<figure class="col-one-quarter">
+			<a href="{{ video.website_url }}" class="thumbnail">
+				{% if video.thumbnail_url %}<img src="{{ video.thumbnail_url }}" width="210" />{% else %}<img src="{% get_static_url "localtv/images/default.jpg" %}" />{% endif %}
+			</a>
+		</figure>{# /.col-two-quarters #}
+		<div class="col-three-quarters">
+			{% if video.name %}
+				<h2><a href="{{ video.website_url }}" title="{{ video.name }}">{{ video.name }}</a></h2>
+			{% else %}
+				<h2><a href="{{ video.website_url }}">{% trans "(no title)" %}</a></h2>
+			{% endif %}
+			
+			<div class="scraped-details">
+				<span class="credits">
+					{% if video.video_service_user %}
+						<span class="posted_by">
+				 			By <a href="{{ video.video_service_url }}">{{ video.video_service_user }}</a>
+						</span>
+					{% endif %}
+					{% if video.when_published %}
+						<span class="posted_at">Published {{ video.when_published|simpletimesince }} ago</span>
+					{% endif %}
+				</span>
+				{% if form.initial.tags %}
+					<div class="tags">
+						Tags: {{ form.initial.tags }}
+					</div>
+				{% endif %}
+				<div class="description">
+					{{ video.description }}
+				</div>
+			</div>{# /.scraped-details #}
+		</div>{# /.col-three-quarters #}
+	</div>{# /.row-nested #}
+	{{ block.super }}
+{% endblock %}

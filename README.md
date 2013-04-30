@@ -14,11 +14,12 @@ Swarthmore Install Instructions:
 2.) Issue the following commands from the newly created virtualenv
 
 	pip install -e git+git://github.com/pculture/mirocommunity.git@1.9.1#egg=mirocommunity --no-deps
-	pip install -e git+git://<username>@github.com/Swarthmore/SwatMiroCommunity.git --no-deps
-	cd src/SwatMiroCommunity/default_community
+	cd src
+	git clone https://<github-username>@github.com/Swarthmore/SwatMiroCommunity.git
+	cd SwatMiroCommunity/default_community
 	pip install -r requirements.txt
   
-3.) Create a file named secretkey.py in the directory /src/SwatMiroCommunity/default_community/default_community conating the following
+3.) Create a file named secretkey.py in the directory /src/SwatMiroCommunity/default_community/default_community containing the following
 
 	SECRET_KEY = "type_your_secret_key_here!"
 	

@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-__version__ = 0.5
+__version__ = '0.5a'
 
 description = ("A Django app for creating a video website which aggregates from"
                " various sources - blip, Vimeo, youtube, etc. - rather than "

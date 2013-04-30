@@ -24,17 +24,20 @@ Swarthmore Install Instructions:
 	
 4.) Setup the database and run the test server.
 
-	python manage.py syncdb # This will prompt you to create an admin use. ***Important*** if you are going to use CAS authentication, use your Swarthmore user ID as the username
+	python manage.py syncdb # This will prompt you to create an admin use. ***Important*** if you are going to use CAS authentication, use your Swarthmore user ID as the admin username
 	python manage.py runserver
 	
 CAS Authentication Configuration:
 ---------------------------------
+
 There are 3 possible authentication methods.  To set the method, change the AUTH_METHOD variable to one of the following:
+
 	'miro' = (default if not set) use the default Miro login, authenticates from the Miro database
 	'cas' = use CAS SSO login only
 	'both' = allow both CAS and Miro (local) logins. A "Swarthmore Login" tab is added to the accounts/login/ page that triggers CAS authentication.
 
 CAS_SERVER_URL settings:
+
 	testing = 'https://idp.test.swarthmore.edu:8443/cas/'
 	production = 'https://login.swarthmore.edu:8443/cas/'
 

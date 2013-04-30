@@ -58,7 +58,7 @@ else:
             }
         }
 
-#imported secret key from secretkey.py
+# ****IMPORTANT**** imported secret key from secretkey.py (file not included in GIT repo for security reasons)
 SECRET_KEY = secretkey.SECRET_KEY
 
 # Set the authentication method here options are:

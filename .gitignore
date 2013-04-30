@@ -4,3 +4,5 @@
 *.sl3
 local_settings.py
 secretkey.py
+media/
+whoosh_index/

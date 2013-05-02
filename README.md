@@ -10,13 +10,20 @@ Miro Community Default Install instructions are found here:
 https://mirocommunity.readthedocs.org/en/1.9.1/installation.html
 
 Swarthmore Install Instructions:
-1.) Install virtual environment as instructed in the URL above.
+1.) Create and activate a virtualenv as instructed in the URL above:
+
+	virtualenv testenv
+	cd testenv
+	source bin/activate
+
 2.) Issue the following commands from the newly created virtualenv
 
 	pip install -e git+git://github.com/pculture/mirocommunity.git@1.9.1#egg=mirocommunity --no-deps
-	cd src
-	git clone https://<github-username>@github.com/Swarthmore/SwatMiroCommunity.git
-	cd SwatMiroCommunity/default_community
+	cd src/mirocommunity/test_mc_project
+	pip install -r requirements.txt
+	cd ../../..
+	pip install -e git+https://<github-username>@github.com/Swarthmore/SwatMiroCommunity.git#egg=swatmirocommunity --no-deps
+	cd src/swatmirocommunity/default_community
 	pip install -r requirements.txt
   
 3.) Create a file named secretkey.py in the directory /src/SwatMiroCommunity/default_community/default_community containing the following

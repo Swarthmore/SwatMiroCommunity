@@ -3,20 +3,40 @@ SwatMiroCommunity
 
 Swarthmore Miro Community
 
-Installation:
--------------
+Installation
+============
 
-Miro Community Default Install instructions are found here:
-https://mirocommunity.readthedocs.org/en/1.9.1/installation.html
+.. note:: There are a couple of things that this installation guide assumes:
 
-Swarthmore Install Instructions:
-1.) Create and activate a virtualenv as instructed in the URL above:
+	* That you have installed `Mercurial`_ and `Git`_ on your system.
+	* That you have installed `Python`_ and `virtualenv`_ on your system.
 
-	virtualenv testenv
-	cd testenv
-	source bin/activate
+    These are basic instructions for installing a copy of Miro Community for local development and testing. You will need to modify the installation for a production environment - for example, you will need to draw up a requirements file that describes your production environment, and you will need to use your own settings file.
 
-2.) Issue the following commands from the newly created virtualenv
+.. _Mercurial: http://mercurial.selenic.com/
+.. _Git: http://git-scm.com/
+.. _Python: http://python.org
+.. _virtualenv: http://pypi.python.org/pypi/virtualenv
+
+Creating a virtualenv
++++++++++++++++++++++
+
+First up, you'll want to create and activate a virtual environment somewhere on your computer::
+
+    virtualenv testenv
+    cd testenv
+    source bin/activate
+
+
+Installing Miro Community
++++++++++++++++++++++++++
+
+.. note:: Miro Community Default Install instructions are found here:
+
+	* https://mirocommunity.readthedocs.org/en/1.9.1/installation.html
+
+Swarthmore Specific Install Instructions:
+1.) Issue the following commands from the newly created virtualenv
 
 	pip install -e git+git://github.com/pculture/mirocommunity.git@1.9.1#egg=mirocommunity --no-deps
 	cd src/mirocommunity/test_mc_project

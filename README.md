@@ -40,7 +40,7 @@ Swarthmore Specific Install Instructions:
 	cd src/mirocommunity/test_mc_project
 	pip install -r requirements.txt
 	cd ../../..
-	pip install -e git+https://<github-username>@github.com/Swarthmore/SwatMiroCommunity.git#egg=swatmirocommunity --no-deps
+	pip install -e git+https://<github-username>@github.com/Swarthmore/SwatMiroCommunity.git#egg=swatmirocommunity
 	cd src/swatmirocommunity/default_community
 	pip install -r requirements.txt
   

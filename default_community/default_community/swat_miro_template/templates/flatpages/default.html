@@ -1,0 +1,12 @@
+{% extends "localtv/__layouts/100.html" %}
+
+{% block title %}{{ block.super }} - {{ flatpage.title }}{% endblock %}
+
+{% block main %}
+	<header class="page-header">
+		<h1 class="page-title">{{ flatpage.title }}</h1>
+	</header>
+	<div class="page-content padded">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}

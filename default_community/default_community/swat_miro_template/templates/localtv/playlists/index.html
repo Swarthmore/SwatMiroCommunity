@@ -1,0 +1,118 @@
+{% extends "localtv/admin/bulk_edit.html" %}
+
+{% load filters uploadtemplate %}
+{% block body_id %}goodies{% endblock body_id %}
+{% block body_class %}playlists{% endblock body_class %}
+{% block subheader %}{% include "localtv/goodies/header.html" %}{% endblock %}
+{% block head %}
+  {{ block.super }}
+  <script type="text/javascript" src="{% static 'localtv/js/admin/urlify.js' %}"></script>
+  </script>
+  <script type="text/javascript">
+      $(document).ready(function() {
+          document.getElementById("id_slug").onchange = function() { this._changed = true; };
+          document.getElementById("id_name").onkeyup = function() {
+              var e = document.getElementById("id_slug");
+              if (!e._changed) { e.value = URLify(document.getElementById("id_name").value, 50); }
+          }
+      });
+</script>
+{% endblock %}
+{% block title %}Playlists{% endblock %}
+{% block pre-labels %}
+<h2>Goodies | Playlists</h2>
+<a href="#" class="add" rel="#label_sidebar"><span>Add Playlist</span></a>
+
+{% block helpful %}
+   <div class="helpful rounded">
+     <p>This page lists all the playlists you have created. Once you create a
+       playlist, you will need to go to the page of the video you want to add in order
+       to add it to that playlist. There is no way to add videos to playlists in bulk
+       at this time. Playlists are private by default. Users can request that their
+       playlists be made public by clicking the "Public" link under "Status" in the
+       list below.</p>
+     <p>If you are an administrator, you can also see all playlists on the site and
+       those awaiting moderation by clicking the given links at the top of the list.</p>
+     
+   </div>
+{% endblock %}
+
+
+<div id="label_sidebar" class="simple_overlay displaynone {% if form.errors %}errors{% endif %}">
+  <div class="close"></div>
+  <h2>Add a Playlist</h2>
+  <div class="input_field">
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    {% if request.POST.video %}
+    <input type="hidden" name="video" value="{{ request.POST.video }}" />
+    {% endif %}
+      <ul>
+        {% if form.non_field_errors %}
+        <li>
+          {% if form.non_field_errors|length_is:"1" %}
+          We're sorry, there was an error saving your changes:
+          {% else %}
+          We're sorry, there were errors saving your changes:
+          {% endif %}
+          {{ form.non_field_errors }}
+          Please make corrections and try saving again.
+        </li
+        {% endif %}
+        {% for field in form %}
+        <li>
+          {{ field.label_tag }}
+          {{ field.errors }}
+          {{ field }}
+          {% if field.help_text %}
+          <span class="form_help">{{ field.help_text }}</span>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <button type="submit" value="Add" class="approve_button" name="submit"><span>Add Playlist</span></button>
+  </form>
+</div>
+{% endblock %}
+
+{% block labels %}
+   {% if user_is_admin %}
+   <ul class="only_show">
+     <label>Show:</label>
+     <li{% if request.GET.show == 'all' %} class="selected"{% endif %}><a href="{% url localtv_playlist_index %}?show=all">All Playlists</a></li>
+     <li{% if request.GET.show == 'waiting' %} class="selected"{% endif %}><a href="{% url localtv_playlist_index %}?show=waiting">Playlists Waiting for Moderation</a></li>
+     <li{% if not request.GET.show %} class="selected"{% endif %}><a href="{% url localtv_playlist_index %}">My Playlists</a></li>
+</ul>
+     {% endif %}
+<div class="bulkedit_controls">
+  <select name="action" id="bulk_action_selector">
+    <option value="">Bulk Actions</option>
+    <option value="delete">Delete</option>
+    <option value="public">Make Public</option>
+    <option value="private">Make Private</option>
+  </select>
+  <button type="button" class="med_button" onclick="bulkAction();"><span>Apply</span></button>
+</div>
+{% endblock %}
+
+{% block massedit %}{% endblock %}
+
+{% block columns %}
+<td valign="middle">
+  <span>{{ form.instance.name }}</span>
+  <div class="actions">
+    <a href="{% url localtv_playlist_edit form.instance.pk %}">Edit</a> | <a href="#" class="delete_icon" onclick="return toggleDelete(this);">Delete</a> {{ form.DELETE.as_hidden }} | <a href="{{ form.instance.get_absolute_url }}" class="view_icon">View</a>
+  </div>
+</td>
+<td valign="middle">{{ form.instance.description|sanitize }}</td>
+<td valign="middle">{{ form.instance.slug }}</td>
+{% if user_is_admin and request.GET.show == 'all' %}<td valign="middle"><a href="{% url localtv_author form.instance.user.pk %}">{{ form.instance.user.username }}</a></td>{% endif %}
+<td>{% if form.instance.status %}{% if form.instance.status == 2 %}<strong class="public">Public{% else %}<strong class="waiting">Waiting for Moderation{% endif %}</strong> {% if user_is_admin and form.instance.status == 1 %}<a href="{% url localtv_playlist_public form.instance.pk %}">Public</a> {% endif %}<a href="{% url localtv_playlist_private form.instance.pk %}">Private</a>{% else %}{% if form.instance.user == request.user %}<a href="{% url localtv_playlist_public form.instance.pk %}">Public</a>{% else %}Public{% endif %} <strong class="private">Private</strong>{% endif %}</td>
+</td>
+{% with form.instance.video_set.count as count %}
+<td valign="middle">{% if not count %}{{ count }}{% else %}<a href="{{ form.instance.get_absolute_url }}">{{ count }}</a>{% endif %}</td>
+{% endwith %}
+{% endblock %}
+
+{% block quick-edit-fields %}
+{% endblock %}

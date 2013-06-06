@@ -1,0 +1,16 @@
+{% extends "localtv/admin/base.html" %}
+
+{% block body_class %}incomingvids{% endblock body_class %}
+
+{% load pagetabs i18n %}
+
+{% block title %}{{ block.super }} - {% block name %}{% trans "Admin - Confirm Clear" %}{% endblock %}{% endblock %}
+
+{% block content %}
+    <h1>Are you sure you want to reject {{ videos.count }} videos?</h1>
+    <br class="clear" />
+    <form method="POST" action="">{% csrf_token %}
+      <button class="approve_button" name="confirm" value="yes"><span>Yes, Clear Queue</span></button>
+      <a class="reject_button" href="{% url localtv_admin_approve_reject %}"><span>Cancel</span></a>
+    </form>
+{% endblock content %}

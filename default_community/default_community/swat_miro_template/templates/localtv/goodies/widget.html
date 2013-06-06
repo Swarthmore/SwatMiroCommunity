@@ -1,0 +1,274 @@
+{% extends "localtv/admin/base.html" %}
+
+{% block body_id %}goodies{% endblock body_id %}
+{% block body_class %}widgetcreater{% endblock body_class %}
+
+
+{% load i18n daguerre uploadtemplate %}
+
+{% block title %}{{ block.super }} - {% trans "Admin - Create a Widget" %}{% endblock %}
+{% block head %}
+{% if site_settings.site.widgetsettings.css and not site_settings.site.widgetsettings.css_editable %}
+<link rel="stylesheet" href="{{ site_settings.site.widgetsettings.css.url }}">{% else %}<link rel="stylesheet" href="{% static 'localtv/css/widget.css' %}">{% endif %}
+<script src="{% static 'localtv/js/widget.js' %}"></script>
+<script type="text/javascript">
+var embed_base = "{% filter escapejs %}{% include "localtv/goodies/widget_embed.html" %}{% endfilter %}";
+function full_url(path) {
+    if (!path) {
+        return;
+    }
+    if (!/https?:\/\//.exec(path)) {
+        // not a full URL
+        return'http://{{ site_settings.site.domain }}' + path;
+    }
+    return path;
+}
+
+function update_widget() {
+    display = $("#widget-display");
+    area = $("#widget-code textarea");
+    widget_title = $("input[name=title]").val();
+    widget_count = $("input[name=count]").val();
+    widget_source = $("select[name=source]").val();
+    if (widget_source === 'custom') {
+        widget_source = $("input[name=custom_source]").val();
+    }
+    widget_size = $("select[name=size]").val();
+    widget_css = full_url($("input[name=css]").val())
+    widget_bg = $("input[name=bg]").val();
+    widget_border = $("input[name=border]").val();
+    widget_text = $("input[name=text]").val()
+    {% if site_settings.site.widgetsettings.logo %}
+    if (widget_size == 'small') {
+        widget_logo = '{% adjust site_settings.site.widgetsettings.thumbnail_path width=88 height=68 %}';
+    } else if (widget_size == 'medium') {
+        widget_logo = '{% adjust site_settings.site.widgetsettings.thumbnail_path width=140 height=110 %}';
+    } else {
+        widget_logo = '{% adjust site_settings.site.widgetsettings.thumbnail_path width=222 height=169 %}';
+    }
+    widget_logo = full_url(widget_logo);
+    {% else %}
+    widget_logo = '';
+    {% endif %}
+    {% if site_settings.site.widgetsettings.icon_editable %}
+    if ($("input[name=icon]").val()) {
+        widget_logo = $("input[name=icon]").val();
+    }
+    {% endif %}
+    opts = {
+        version: 2,
+        domain: '{{ site_settings.site.domain }}',
+        source: widget_source,
+        size: widget_size,
+        count: widget_count,
+        title: widget_title
+    }
+    if (widget_logo) {
+        opts.logo = widget_logo;
+    }
+    if (widget_css) {
+        opts.stylesheet = widget_css;
+    }
+    if (widget_bg) {
+        opts.bg = widget_bg;
+    }
+    if (widget_border) {
+        opts.border = widget_border;
+    }
+    if (widget_text) {
+        opts.text = widget_text;
+    }
+    embed = embed_base;
+    embed = embed.replace(/JSON/g, JSON.stringify(opts));
+    area.val(embed);
+    $("#widget-example")[0].className = 'mc-widget-v2';
+    $("#widget-example").css('background', widget_border);
+    $("#widget-example > div").css('background', widget_bg)
+    $("#widget-example *").css('color', widget_text);
+    $("#widget-example .mc-footer img").remove();
+    if (widget_size == 'small') {
+        $('#widget-example').width(108).addClass('mc-widget-small');
+    } else if (widget_size == 'medium') {
+        $("#widget-example").width(160).addClass('mc-widget-medium');
+    } else if (widget_size == 'large') {
+        $("#widget-example").width(242).addClass('mc-widget-large');
+    }
+    $('#widget-example .mc-widget-title').html(widget_title);
+    $('#widget-example ul').empty();
+    if (widget_logo) {
+        a = $("<a/>");
+        a.attr('href', 'http://{{ site_settings.site.domain }}/');
+        img = $("<img/>");
+        img.attr('src', widget_logo);
+        a.append(img)
+        $("#widget-example .mc-footer").prepend(a);
+    }
+    example_widget = new MiroCommunity.Widget(opts);
+    example_widget.id = 'widget-example';
+    example_widget.load();
+}
+
+$(document).ready(update_widget);
+$(document).ready(function () {
+    $("select[name=source]").change(function() {
+        val = $("select[name=source]").val();
+        if (val === 'custom') {
+            $("#custom_source_input").show();
+        } else {
+            $("#custom_source_input").hide();
+        }
+    });
+});
+</script>
+{% endblock %}
+{% block content %}
+  {% include "localtv/goodies/header.html" %}
+  <h2>Goodies | Widget</h2>
+  <div style="clear: both"><div/>
+  {% if not site_settings.site.widgetsettings.title_editable %}
+  <input type="hidden" name="title" value="{{ site_settings.site.widgetsettings.get_title_or_reasonable_default }}" />
+  {% endif %}
+  {% if not site_settings.site.widgetsettings.css_editable and site_settings.site.widgetsettings.css %}
+  <input type="hidden" name="css" value="{{ site_settings.site.widgetsettings.css.url }}">
+  {% endif %}
+  {% if not site_settings.site.widgetsettings.bg_color_editable %}
+  <input type="hidden" name="bg" value="{{ site_settings.site.widgetsettings.bg_color }}" />
+  {% endif %}
+  {% if not site_settings.site.widgetsettings.text_color_editable %}
+  <input type="hidden" name="text" value="{{ site_settings.site.widgetsettings.text_color }}" />
+  {% endif %}
+  {% if not site_settings.site.widgetsettings.border_color_editable %}
+  <input type="hidden" name="border" value="{{ site_settings.site.widgetsettings.border_color }}" />
+  {% endif %}
+  <div id="widget-base">
+    <div>
+      <div id="widget-settings">
+        <table>
+          {% if site_settings.site.widgetsettings.title_editable %}
+          <tr>
+            <td>
+              <label for="count">Title</label>
+            </td>
+            <td>
+              <input name="title" value="{{ site_settings.site.widgetsettings.get_title_or_reasonable_default }}" />
+            </td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td>
+              <label for="count">Number of Videos:</label>
+            </td>
+            <td>
+              <input name="count" value="4" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="size">Widget Size:</label>
+            </td>
+            <td>
+              <select name="size">
+                <option value="small">Small</option>
+                <option value="medium" selected="selected">Medium</option>
+                <option value="large">Large</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="source">Video Source:</label>
+            </td>
+            <td>
+              <select name="source">
+                <option value="new">New</option>
+                <option value="popular">Popular</option>
+                <option value="featured">Featured</option>
+                <option value="custom">Custom</option>
+              </select>
+            </td>
+          </tr>
+          <tr id="custom_source_input" style="display: none;">
+            <td colspan="2">
+              <label for="custom_source">Source: http://{{ site_settings.site.domain }}/feeds/</label><input name="custom_source">
+              </div>
+            </td>
+          </tr>
+          {% if site_settings.site.widgetsettings.icon_editable %}
+          <tr>
+            <td>
+              <label for="icon">Icon URL (optional):</label>
+            </td>
+            <td>
+              <input name="icon" type="url" value=""/>
+            </td>
+          </tr>
+          {% endif %}
+          {% if site_settings.site.widgetsettings.css_editable %}
+          <tr>
+            <td>
+              <label for="icon">CSS URL (optional):</label>
+            </td>
+            <td>
+              <input name="css" type="url" value=""/>
+              <span class="help_text">Custom CSS won't be reflected in the preview</span>
+            </td>
+          </tr>
+          {% endif %}
+          {% if site_settings.site.widgetsettings.bg_color_editable %}
+          <tr>
+            <td>
+              <label for="bg">Background Color (optional):</label>
+            </td>
+            <td>
+              <input name="bg" type="text" value="{{ site_settings.site.widgetsettings.bg_color }}"/>
+            </td>
+          </tr>
+          {% endif %}
+          {% if site_settings.site.widgetsettings.border_color_editable %}
+          <tr>
+            <td>
+              <label for="border">Border Color (optional):</label>
+            </td>
+            <td>
+              <input name="border" type="text" value="{{ site_settings.site.widgetsettings.border_color }}"/>
+            </td>
+          </tr>
+          {% endif %}
+          {% if site_settings.site.widgetsettings.text_color_editable %}
+          <tr>
+            <td>
+              <label for="text">Text Color (optional):</label>
+            </td>
+            <td>
+              <input name="text" type="text" value="{{ site_settings.site.widgetsettings.text_color }}"/>
+            </td>
+          </tr>
+          {% endif %}
+        </table>
+        <button id="widget-submit" type="button" onclick="update_widget();">Update</button>
+      </div>
+      <div id="widget-code">
+        <div>
+          <h2>Widget Embed Code</h2>
+          <a href="https://develop.participatoryculture.org/trac/democracy/wiki/MiroCommunity/Widget">Documentation</a>
+        </div>
+        <textarea cols="40" rows="10"></textarea>
+        
+      </div>
+    </div>
+    <div id="widget-display">
+      <h2>Widget Preview</h2>
+      <div id="widget-example" class="mc-widget-v2 mc-widget-small">
+        <div>
+          <div class="mc-widget-title">Watch Videos From Miro Community</div>
+          <ul></ul>
+          <div class="mc-footer">
+            <div>
+              <a href="http://{{ site_settings.site.domain }}/">See More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

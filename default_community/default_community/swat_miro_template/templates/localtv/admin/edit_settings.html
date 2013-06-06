@@ -1,0 +1,45 @@
+{% extends "localtv/admin/__form.html" %}
+
+{% block body_class %}settings{% endblock body_class %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Edit Settings" %} – {{ block.super }}{% endblock %}
+
+{% block preform %}
+  {% include "localtv/admin/settings_header.html" %}
+
+  <h2>Settings | Design and Content</h2>
+  <div class="helpful rounded">
+    Use this page to customize your site and make it unique.<br/><br/>
+    Remember that your title and tagline, in particular, define your site for both
+    humans and search engines. Consider including key words such as "video" and the
+    name of your community or organization, so that people can easily find your
+    site.
+  </div>
+{% endblock %}
+
+{% block fields %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.title only %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.tagline only %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.logo only %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.background only %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.css only %}
+
+  {% include 'localtv/admin/_forms/field.html' with field=form.about_html only %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.sidebar_html only %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.footer_html only %}
+
+  <h2>Additional Settings</h2>
+  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.display_submit_button only %}
+  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.submission_requires_login only %}
+  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.submission_requires_email only %}
+  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.use_original_date only %}
+  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.screen_all_comments only %}
+  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.comments_required_login only %}
+  {% include 'localtv/admin/_forms/field.html' with field=form.playlists_enabled only %}
+{% endblock %}
+
+{% block buttons %}
+  <button type="submit" class="approve_button"><span>Save Changes</span></button>
+{% endblock %}

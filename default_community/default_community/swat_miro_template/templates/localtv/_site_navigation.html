@@ -1,22 +1,3 @@
-{% comment %}
-Copyright 2012 - Participatory Culture Foundation
-
-This file is part of Miro Community.
-
-Miro Community is free software: you can redistribute it and/or modify it
-under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
-
-Miro Community is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
-{% endcomment %}
-
 {% load url from future %}
 
 {% load i18n %}
@@ -25,7 +6,7 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 	<li class="nav-item nav-about">
 		<a href="{% url 'localtv_about' %}">{% trans 'About' %}</a>
 	</li>
-	{% if site_settings.display_submit_button %}
+	{% if site_settings.display_submit_button or request.user_is_admin %}
 		<li class="nav-item nav-submit">
 			<a href="{% url 'localtv_submit_video' %}">{% trans 'Submit' %}</a>
 		</li>
@@ -57,13 +38,13 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 					</li>
 				{% endif %}
 				<li class="nav-logout">
-					<a href="{{ settings.LOGOUT_URL }}?next={{ request.META.PATH_INFO }}">{% trans 'Logout' %}</a>
+					<a href="{% url 'auth_logout' %}?next={{ request.META.PATH_INFO }}">{% trans 'Logout' %}</a>
 				</li>
 			</ul>
 		</li>
 	{% else %}{# if not request.user.is_authentication #}
 		<li class="nav-item nav-login">
-			<a href="{{ settings.LOGIN_URL }}?next={{ request.META.PATH_INFO }}">{% trans 'Login' %}</a>
+			<a href="{% url 'auth_login' %}?next={{ request.META.PATH_INFO }}">{% trans 'Login' %}</a>
 		</li>
 	{% endif %}
 </ul>

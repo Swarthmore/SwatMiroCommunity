@@ -1,25 +1,6 @@
 {% extends "localtv/__layouts/75_25.html" %}
-{% comment %}
-Copyright 2012 - Participatory Culture Foundation
 
-This file is part of Miro Community.
-
-Miro Community is free software: you can redistribute it and/or modify it
-under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
-
-Miro Community is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
-{% endcomment %}
-
-
-{% load i18n comments filters uploadtemplate_tags editable_widget cache video_list email_share_tags daguerre compress %}
+{% load i18n comments filters uploadtemplate editable_widget cache video_list email_share_tags daguerre compress %}
 {% load url from future %}
 
 {% block meta %}
@@ -46,23 +27,23 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 	<meta property="og:type" content="video.other">
 
 	{# not DRY, but we can't store this. #}
-	{% if current_video.has_thumbnail %}
-		<meta property="og:image" content="http{% if request.is_secure %}s{% endif %}://{{ request.META.HTTP_HOST }}{% adjust current_video.thumbnail_path adjustment='fit' width=600 %}">
-		<link rel="image_src" href="http{% if request.is_secure %}s{% endif %}://{{ request.META.HTTP_HOST }}{% adjust current_video.thumbnail_path adjustment='fit' width=600 %}" />
+	{% if current_video.thumbnail %}
+		<meta property="og:image" content="http{% if request.is_secure %}s{% endif %}://{{ request.META.HTTP_HOST }}{% adjust current_video.thumbnail.name adjustment='fit' width=600 %}">
+		<link rel="image_src" href="http{% if request.is_secure %}s{% endif %}://{{ request.META.HTTP_HOST }}{% adjust current_video.thumbnail.name adjustment='fit' width=600 %}" />
 	{% endif %}
 {% endblock %}
 
 {% block scripts %}
 	{{ block.super }}
 	{% if current_video.contestvideo_set %}
-		<script src="{% get_static_url 'localtv/js/localtv.contests.js' %}"></script>
+		<script src="{% static 'localtv/js/localtv.contests.js' %}"></script>
 	{% endif %}
 {% endblock %}
 
 {% block styles %}
 	{{ block.super }}
 	{% if current_video.contestvideo_set %}
-		<link rel="stylesheet" type="text/css" href="{% get_static_url 'localtv/stylesheets/localtv.contests.screen.css' %}" media="screen" />
+		<link rel="stylesheet" type="text/css" href="{% static 'localtv/stylesheets/localtv.contests.screen.css' %}" media="screen" />
 	{% endif %}
 {% endblock %}
 
@@ -98,7 +79,6 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 	</section>{# /.video-stage #}
 {% endblock %}
 
-
 {% block main %}
 	<div class="social-media-share">
 		<ul class="social-link-list">
@@ -112,7 +92,7 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 				<g:plusone size="medium"></g:plusone>
 			</li>
 			<li class="pinterest-social">
-				<a href="http://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri|urlencode }}&amp;media={% filter urlencode %}http{% if request.is_secure %}s{% endif %}://{{ request.META.HTTP_HOST }}{% adjust current_video.thumbnail_path adjustment="fit" width=600 %}{% endfilter %}&amp;description={{ current_video.name|iriencode }}" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+				<a href="http://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri|urlencode }}&amp;media={% filter urlencode %}http{% if request.is_secure %}s{% endif %}://{{ request.META.HTTP_HOST }}{% adjust current_video.thumbnail.name adjustment="fit" width=600 %}{% endfilter %}&amp;description={{ current_video.name|iriencode }}" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
 			</li>
 			<li class="email-social"><a class="button" href="{% get_email_share_url_for current_video %}" rel="#overlay" class="email">{% trans "Email" %}</a></li>
 			{% if current_video.file_url %}
@@ -169,7 +149,7 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1{% if settings.FACEBOOK_APP_ID %}&appId={{ settings.FACEBOOK_APP_ID }}{% endif %}";
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1{% if FACEBOOK_APP_ID %}&appId={{ FACEBOOK_APP_ID }}{% endif %}";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	{# Twitter #}

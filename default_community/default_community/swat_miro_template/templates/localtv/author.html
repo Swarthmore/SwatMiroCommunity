@@ -1,29 +1,12 @@
 {% extends "localtv/__layouts/25_75.html" %}
 {% load comments daguerre author_comment %}
-{% comment %}
-Copyright 2012 - Participatory Culture Foundation
-
-This file is part of Miro Community.
-
-Miro Community is free software: you can redistribute it and/or modify it
-under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
-
-Miro Community is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
-{% endcomment %}
 
 {% load filters pagetabs %}
 
 {% block title %}{{ block.super }} - {% if author.first_name %}{{ author.get_full_name }} ({{ author.username }}){% else %}{{ author.username }}{% endif %}{% endblock %}
 
-{% block body_classes %}{{ block.super }} author-page{% endblock %}
+{# video-list-page is an infinitescroll trigger #}
+{% block body_classes %}{{ block.super }} author-page video-list-page{% endblock %}
 
 {% block top %}
 	<header class="page-header">

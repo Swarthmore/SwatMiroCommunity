@@ -37,7 +37,7 @@ Swarthmore Specific Install Instructions:
 1.) Issue the following commands from the newly created virtualenv
 
 	pip install -e git+git://github.com/pculture/mirocommunity.git@1.10.0#egg=mirocommunity --no-deps
-	cd src/mirocommunity/test_mc_project
+	cd src/mirocommunity/test_project
 	pip install -r requirements.txt
 	cd ../../..
 	pip install -e git+https://<github-username>@github.com/Swarthmore/SwatMiroCommunity.git#egg=swatmirocommunity

@@ -1,1 +1,2 @@
 https://bitbucket.org/cpcc/django-cas/get/2.1.1.tar.gz
+django-disqus==0.4.1a

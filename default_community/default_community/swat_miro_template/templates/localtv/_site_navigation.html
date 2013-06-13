@@ -42,7 +42,7 @@
 				</li>
 			</ul>
 		</li>
-	{% else %}{# if not request.user.is_authentication #}
+	{% else %}{# if not request.user.is_authenticated #}
 		<li class="nav-item nav-login">
 			<a href="{% url 'auth_login' %}?next={{ request.META.PATH_INFO }}">{% trans 'Login' %}</a>
 		</li>

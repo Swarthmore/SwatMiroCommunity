@@ -207,11 +207,12 @@ INSTALLED_APPS = (
     'mptt',
     'django_nose',
     'swat_additions',
+    'disqus',
 )
 
 if os.environ.get('MIGRATIONS'):
     if 'south' not in INSTALLED_APPS:
-        # South needs to come before django-nose for this to work right.
+        # South needs to come before django-nose for this to work correctly.
         INSTALLED_APPS = INSTALLED_APPS[:-1] + ('south',) + INSTALLED_APPS[-1:]
     SOUTH_TESTS_MIGRATE = True
 
@@ -243,8 +244,6 @@ LOGIN_REDIRECT_URL = '/'
 
 AUTHENTICATION_BACKENDS = (
     'localtv.auth_backends.MirocommunityBackend',
-    'social_auth.backends.twitter.TwitterBackend',
-    'social_auth.backends.facebook.FacebookBackend',
     'social_auth.backends.OpenIDBackend',
     'social_auth.backends.google.GoogleBackend',
 )
@@ -271,6 +270,11 @@ FLOWPLAYER_JS_URL = STATIC_URL + 'localtv/js/extern/flowplayer-3.2.4.min.js'
 
 CACHE_BACKEND = 'locmem://'
 
+# disqus keys
+DISQUS_PUBLIC_KEY = 'Rar4vj0zdEt4dQFtMHHZbHNQjAGUyeRWAv60mNJHfLqGvMh8R4uxmOhyJoo6JY8x'
+DISQUS_SECRET_KEY = 'i1nlbupybvKk5whgGuLIF0hTOc0bovjSVJiIz6ktqsZvGBUk9Jmv5Ai7qKmyHtbn'
+DISQUS_WEBSITE_SHORTNAME = 'swatmiro'
+
 # vimeo keys
 VIMEO_API_KEY = None
 VIMEO_API_SECRET = None
@@ -288,11 +292,3 @@ ACCOUNT_ACTIVATION_DAYS = 7
 # django-tagging
 FORCE_LOWERCASE_TAGS = True
 
-# Facebook options
-FACEBOOK_APP_ID = None
-FACEBOOK_API_SECRET = None
-FACEBOOK_EXTENDED_PERMISSIONS = ['email']
-
-# Twitter options
-TWITTER_CONSUMER_KEY = None
-TWITTER_CONSUMER_SECRET = None

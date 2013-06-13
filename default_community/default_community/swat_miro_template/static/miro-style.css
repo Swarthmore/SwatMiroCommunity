@@ -1,0 +1,122 @@
+#SiteTitle { 
+	color: gainsboro;
+	font-weight: normal;
+	margin-left: -150px;
+	font-family: Helvetica, Arial, Sans-serif;
+}
+
+#navigation {
+	background-color: darkgray;
+	border-radius: 5px;
+	font-weight: bold;
+	border-color: 2px solid black;
+}
+
+.nav-item {
+	background-color: transparent;
+	border-color: transparent;
+}
+.nav-about:hover {
+	text-decoration: underline;
+}.nav-submit:hover {
+	text-decoration: underline;
+}.nav-item-dropdown:hover {
+	text-decoration: underline;
+}.nav-auth:hover {
+	text-decoration: underline;
+}
+
+#header, #footer {
+	/* Header and Footer */
+	background-color: #671e18;
+	font-weight: bold;
+}
+
+#main {
+	/* Left and right 'flanks' */
+	background-color: #e5dece;
+}
+
+/* Browse/User dropdown menus */
+.nav-item-dropdown.open > a {
+	background-color: darkgray;
+	border-color: transparent;
+} .dropdown-list, .dropdown-box {
+	background-color: darkgray;
+	border-color: transparent;
+}
+
+#main > .container {
+	/* Main content panel */
+	background-color: #ebe3d6;
+	border-radius: 5px;
+}
+
+.pod-header a, .page-header a {
+	color: white;
+	/*background-color: black;*/
+}
+.pod-footer {
+	border-bottom-right-radius: 5px;
+}
+
+/* Bar with "New", "Popular", and social media links */
+.pod-header {
+	color: gainsboro;
+	margin-top: -1px;
+	background-color: black;
+	background-image: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+} .pod-header > h1 > a:hover {
+	color: gray;
+} .icon-16 {
+	/* RSS and Miro social media icons */
+	background-color: gray;
+} 
+
+/* "All New Videos" and "All Popular Videos" buttons */
+.button-wide {
+	border-color: none;
+	color: white;
+	font-weight: bold;
+	background: none;
+	background-color: darkgray;
+	box-shadow: none;	
+	text-shadow: none;
+}
+.button-wide:hover {
+	color: gainsboro;
+	font-weight: bold;
+	background: none;
+	background-color: darkgray;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.miro-footer p {
+	/* Footer */
+	color: gainsboro;
+}
+
+/* "Search Results" bar */
+.page-header {
+	margin-top: -1px;
+	background-color: black;
+	background-image: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: gainsboro;
+}
+
+/* Modify the commenting/social media stuff */
+
+.social-link-list {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+#disqus_thread {
+	margin-left: 10px;
+	margin-right: 10px;
+}

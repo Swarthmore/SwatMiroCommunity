@@ -18,6 +18,7 @@ if settings.AUTH_METHOD == 'cas':
     
 if settings.AUTH_METHOD == 'both':
     # TODO change template to present users with their login options
+    # Seems like I add SSO login options here
     urlpatterns += (
         patterns('',
             url(r'^cas/login/$', 'django_cas.views.login'),

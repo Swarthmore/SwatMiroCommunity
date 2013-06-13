@@ -1,6 +1,6 @@
 {% load i18n uploadtemplate %}
 {% if request.user.is_authenticated %}
-      <p class="posting-as">Posting as {{ request.user.username }}</p>
+      <p class="posting-as">Posting: {{ request.user.username }}</p>
 {% endif %}
   {% for field in form %}
     {% if field.is_hidden %}

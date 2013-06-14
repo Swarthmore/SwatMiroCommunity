@@ -1,0 +1,307 @@
+/*Header - Swarthmore Banner*/
+#header {
+	max-width: 960px;
+	height: 130px;
+	margin: 5px auto;
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/hdr_swarthmore4.jpg) no-repeat center;
+	padding: 5px 0px;
+}
+
+/*Messing with the title*/
+#SiteTitle, #SiteTagline {
+	font-size: 54px;
+	font-family: Georgia;
+	color: white;
+	font-weight: normal;
+	line-height: 1.4;
+}
+
+#SiteTagline {
+	font-size: 20px;
+}
+
+.container, .video-full {
+	padding: 0px;
+	max-width: 960px;
+	margin: 0px auto;
+}
+
+/*Getting rid of that awkward underlining in the title*/
+h1 a:hover {
+	border-bottom: none;
+}
+
+/*Top margin for the navigation/search bars*/
+.col-two-fifths, .col-one-fifth {
+	margin: 12px 0px;
+}
+
+
+/*
+ *Navigation bar color tweaking
+ */
+#navigation {
+	margin-top: 5px;
+}
+.nav-item {
+	position: relative;
+	z-index: 1; 
+}
+.nav-item a {
+	color: white;
+	font-family: Georgia;
+	text-transform: uppercase;
+}
+.nav-about a:hover, .nav-submit a:hover {
+	color: #EEEEEE;
+}
+.browse-box-section h1 a, .browse-box-section ul li a {
+	color: #444444;
+}
+.dropdown-box, .dropdown-list {
+	min-width: 0px;
+	overflow: hidden;
+}
+
+
+/*Main background*/
+body {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+}
+
+/*Footer*/
+#footer {
+	max-width: 960px;
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/footer_bg1.jpg) repeat;
+	margin: 10px auto;
+}
+
+/*Hide footer's navigational items*/
+.footer-nav-item {
+	display: none;
+}
+
+/*Inside texture*/
+.grid {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+}
+
+/*Black category bars*/
+.pod-header, .page-header {
+	margin: 0px;
+	padding: 0px;
+	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	height: 45px;
+	border: none;
+}
+
+/*Category headers*/
+.pod-header h1, .page-header h1, .pod-header h1 a {
+	color: #EEEEEE;
+	font-family: Georgia;
+	font-weight: normal;
+}
+.pod-header h1, .page-header h1 {
+	margin: 0px 0px 0px 20px;
+	line-height: 45px;
+	padding: 0px;
+}
+
+/*Fixing the hideous search bar D: */
+#search {
+	margin: 10px 20px 0px 0px;
+}
+#search #search_field {
+	width: 140px;
+	height: 29px;
+}
+.search-icon {
+	margin: 0px;
+}
+#search .btn-right {
+	width: 28px;
+	padding: 5px;
+}
+.video-detail #search {
+	margin-top: 5px;
+}
+
+/*Random fixes*/
+.pod-header h1 {
+	margin-bottom: 0px;
+}
+.video-detail-header {
+	padding-left: 20px;
+}
+
+/*Moving the header where the tagline isn't present*/
+.video-detail #SiteTitle, .video-list-page #SiteTitle {
+	position: relative;
+	top: 35px;
+}
+
+/*Hide the social media thing...*/
+.social-media-share {
+	display: none;
+}
+
+/*Beautiful buttons! :) */
+.button-wide, .button-wide:hover {
+	background: none;
+	box-shadow: none;
+	text-shadow: none;
+	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	color: #EEEEEE;
+}
+.button-wide:hover {
+	color: #5C86A0;
+}
+
+
+
+/*
+ *
+ *
+ * Making sure that everything is resizing nicely in browser
+ * There may be later conflicts! Always check here!
+ *
+ *
+ */
+@media screen and (min-width: 741px) {
+.container { width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.col-one-half, .miro-footer, .footer-nav { width: 50%; }
+.col-one-quarter { width: 25%; }
+.col-three-quarters { width: 75%; }
+.col-one-third, .precontent-details, .video-large-details { width: 33.33%; }
+.col-two-thirds { width: 66.67%; }
+.col-one-fifth { width: 192px; float: right;}
+.col-two-fifths { width: 55%; float: right;}
+.row .with-tagline { width: 45%; float: left; }
+.row .no-tagline { width: 45%; float: left;}
+.col-three-fifths { width: 60%; }
+.col-four-fifths { width: 80%; }
+}
+
+
+
+
+/*
+ *
+ *Media Query Time! :D 
+ *
+ */
+ 
+/*Resizing font to make it more readable*/
+@media screen and (min-width: 741px) and (max-width: 1020px) { .grid-1 .grid-item .grid-item-header > h1, .grid-4 .grid-item .grid-item-header > h1 { font-size: 12px; line-height: 20px; } }
+@media screen and (min-width: 401px) and (max-width: 520px) { h3, .grid-item .grid-item-header > h1 { font-size: 12px; line-height: 20px; } }
+@media screen and (max-width: 400px) { .nav-item a { font-size: 12px; } . }
+
+/*Shrink grid a bit before tablet mode*/
+@media screen and (max-width: 1020px) and (min-width: 741px) {
+	.home-page .grid-3 > li { width: 50%; float: left; }
+	.home-page .grid > li:nth-child(even) { clear: right; }
+	.home-page .grid > li:nth-child(odd) { clear: left; } }
+
+/*"More Videos" move early*/
+@media screen and (max-width: 940px) and (min-width: 741px) { .video-detail .col-one-quarter { display: block; width: 100%; } .video-detail .col-three-quarters { width: 100%; } .video-detail .grid-1 .grid-item { width: 50%; display: inline-block; } .video-detail .grid-1 > li:nth-child(even) { float: right; } .video-detail .grid > li:nth-child(odd) { float: left; } }
+
+/*Removing a completely random and annoying padding thing*/
+@media screen and (max-width: 960px) { #header > .container { padding: 0px; } }
+
+
+/*TABLET MODE ENGAGED*/
+@media screen and (max-width: 740px) {
+
+#header {
+	margin: 47px 0px;
+	padding: 0px;
+}
+
+#footer {
+	margin: 0px;
+}
+
+#SiteTitle {
+	margin-top: 20px;
+	line-height: normal;
+}
+
+.video-list-page #SiteTitle, .video-detail #SiteTitle {
+	top: 30px;
+}
+.video-list-page #navigation, .video-detail #navigation {
+	position: relative;
+	top: 25px;
+}
+
+#container {
+	padding-bottom: -47px;
+}
+
+#main, #footer {
+	width: 100%;
+	position: relative;
+	top: -47px;
+}
+
+
+.col-two-fifths {
+	position: relative;
+	top: -20px;
+	margin: 5px;
+	display: block;
+}
+
+#search {
+	background-color: black;
+	border-bottom: 0px;
+	margin: 0px;
+}
+#search #search_field {
+	width: 92%;
+}
+#search .btn-right {
+	width: 8%;
+	padding: 0% 2%;
+}
+
+
+#navigation {
+	margin: -3px 0px 0px 10px;
+}
+.nav-item {
+	position: relative;
+	margin-top: -10px;
+	display: inline-block;
+	border: none;
+	padding: 0px;
+}
+
+.browse-box, .dropdown-list {
+	position: absolute;
+}
+
+.browse-box-section ul, .browse-box-section li, .browse-box-section li a {
+	display: block;
+}
+
+.pod-header {
+	border: 0px;
+	display: block;
+}
+
+.pod-content { padding: 0px; }
+
+.precontent-header .title {
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+.precontent-header h2 {
+	font-size: 11px;
+}
+
+/*Fix for a pointless recoloring*/
+.nav-item:first-child {border: none;}
+
+}

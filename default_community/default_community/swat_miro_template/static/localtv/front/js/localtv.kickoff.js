@@ -93,11 +93,21 @@
 	
 	// Dropdowns
 	$('.nav-item-dropdown').dropdown()
-	$('body').on('mouseover.localtv.dropdown', '.nav-item-dropdown', function (e) {
-		$(this).dropdown('show')
+	//$('body').on('mouseover.localtv.dropdown', '.nav-item-dropdown', function (e) {
+		//$(this).dropdown('show')
+	//});
+	$('body').on('click.localtv.dropdown', '.nav-item-dropdown', function (e) {
+		if($(this).hasClass('open')){
+			$(this).dropdown('hide');
+			$('a', this).css('color', 'white');
+		}
+		else{
+			$(this).dropdown('show');
+			$('a', this).css('color', '#444444');
+		}
 	});
-	$('body').on('mouseout.localtv.dropdown', '.nav-item-dropdown', function (e) {
-		$(this).dropdown('hide')
-	});
+	//$('body').on('mouseout.localtv.dropdown', '.nav-item-dropdown', function (e) {
+		//$(this).dropdown('hide')
+	//});
 	
 });

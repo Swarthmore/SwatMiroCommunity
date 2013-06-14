@@ -42,6 +42,7 @@ def get_disqus_sso(request):
         email = str(request.user.email)
         uname = str(request.user.username)
         id = request.user.id
+        full_name = request.user.get_full_name()
         #return "Username:",uname,"Email:",email,"ID:",id
     
 	
@@ -51,19 +52,18 @@ def get_disqus_sso(request):
         'username': uname,
         'email': email,
     })
-
+    
     # encode the data to base64
     message = base64.b64encode(data)
     # generate a timestamp for signing the message
     timestamp = int(time.time())
     # generate our hmac signature
     sig = hmac.HMAC(settings.DISQUS_SECRET_KEY, '%s %s' % (message, timestamp), hashlib.sha1).hexdigest()
+    
  
 	# return a script tag to insert the sso message
-    # {{ template_variable }}
     return """<script type="text/javascript">
     var disqus_config = function() {
-        console.log(this)
         this.page.remote_auth_s3 = "%(message)s %(sig)s %(timestamp)s";
         this.page.api_key = "%(pub_key)s";
         

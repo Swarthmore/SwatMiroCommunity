@@ -124,8 +124,9 @@
 
 
 {% block bottom %}
-	{# Disqus comments#}
+	{# Disqus comments #}
     {% load disqus_tags %}
+	{% set_disqus_developer 1 %}
 	{% disqus_show_comments %}
 	{% load swattags %}
 	{{ disqus_sso|safe }}

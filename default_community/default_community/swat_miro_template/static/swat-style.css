@@ -1,18 +1,23 @@
 /*Header - Swarthmore Banner*/
 #header {
 	max-width: 960px;
-	max-height: 130px;
-	margin: 10px auto;
+	height: 130px;
+	margin: 5px auto;
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/hdr_swarthmore4.jpg) no-repeat center;
-	padding: 10px 0px;
+	padding: 5px 0px;
 }
 
 /*Messing with the title*/
 #SiteTitle, #SiteTagline {
+	font-size: 54px;
 	font-family: Georgia;
 	color: white;
 	font-weight: normal;
 	line-height: 1.4;
+}
+
+#SiteTagline {
+	font-size: 20px;
 }
 
 .container, .video-full {
@@ -35,6 +40,9 @@ h1 a:hover {
 /*
  *Navigation bar color tweaking
  */
+#navigation {
+	margin-top: 5px;
+}
 .nav-item {
 	position: relative;
 	z-index: 1; 
@@ -101,7 +109,7 @@ body {
 
 /*Fixing the hideous search bar D: */
 #search {
-	margin: 0px 20px 0px 0px;
+	margin: 10px 20px 0px 0px;
 }
 #search #search_field {
 	width: 140px;
@@ -113,6 +121,9 @@ body {
 #search .btn-right {
 	width: 28px;
 	padding: 5px;
+}
+.video-detail #search {
+	margin-top: 5px;
 }
 
 /*Random fixes*/
@@ -238,6 +249,7 @@ body {
 	position: relative;
 	top: -20px;
 	margin: 5px;
+	display: block;
 }
 
 #search {
@@ -253,6 +265,10 @@ body {
 	padding: 0% 2%;
 }
 
+
+#navigation {
+	margin: -3px 0px 0px 10px;
+}
 .nav-item {
 	position: relative;
 	margin-top: -10px;
@@ -283,14 +299,6 @@ body {
 
 .precontent-header h2 {
 	font-size: 11px;
-}
-
-.col-two-fifths {
-	display: block;
-}
-
-#navigation {
-	margin-left: 10px;
 }
 
 /*Fix for a pointless recoloring*/

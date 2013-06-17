@@ -110,7 +110,12 @@
 		</section>{# /.video-details #}
 	</div>
 	<div class="padded">
-		<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-num-posts="2"></div>
+		{# Disqus comments #}
+    	{% load disqus_tags %}
+		{% set_disqus_developer 1 %}
+		{% disqus_show_comments %}
+		{% load swattags %}
+		{{ disqus_sso|safe }}
 	</div>
 {% endblock %}
 
@@ -120,15 +125,4 @@
 			{% include module %}
 		{% endfor %}
 	</div>
-{% endblock %}
-
-
-{% block bottom %}
-	{# Disqus comments #}
-    {% load disqus_tags %}
-	{% set_disqus_developer 1 %}
-	{% disqus_show_comments %}
-	{% load swattags %}
-	{{ disqus_sso|safe }}
-
 {% endblock %}

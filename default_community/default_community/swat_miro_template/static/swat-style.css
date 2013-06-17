@@ -14,6 +14,16 @@
 	color: white;
 	font-weight: normal;
 	line-height: 1.4;
+	overflow: hidden;
+}
+
+/*Repositioning where there isn't a tagline*/
+#SiteTitle {
+	position: relative;
+	top: 35px;
+}
+.home-page #SiteTitle {
+	top: 0px;
 }
 
 #SiteTagline {
@@ -45,7 +55,8 @@ h1 a:hover {
 }
 .nav-item {
 	position: relative;
-	z-index: 1; 
+	z-index: 1;
+	border: 1px solid transparent;
 }
 .nav-item a {
 	color: white;
@@ -74,6 +85,7 @@ body {
 	max-width: 960px;
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/footer_bg1.jpg) repeat;
 	margin: 10px auto;
+	color: #EEEEEE;
 }
 
 /*Hide footer's navigational items*/
@@ -109,21 +121,40 @@ body {
 
 /*Fixing the hideous search bar D: */
 #search {
-	margin: 10px 20px 0px 0px;
+	margin: 14px 20px 0px 0px;
+	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
 }
 #search #search_field {
-	width: 140px;
-	height: 29px;
+	width: 168px;
+	height: 25px;
+	background: url(http://www.bloggermint.com/demos/css3searchbox/search-white.png) no-repeat 10px 6px #fcfcfc;
+    border: 1px solid #d1d1d1;
+    font: bold 12px Georgia, Arial,Helvetica,Sans-serif;
+    color: #444444;
+    width: 150px;
+    padding: 6px 15px 6px 30px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
 }
 .search-icon {
+	display: none;
 	margin: 0px;
 }
 #search .btn-right {
-	width: 28px;
+	display: none;
+	width: 0px;
+	/*width: 28px;*/
 	padding: 5px;
-}
-.video-detail #search {
-	margin-top: 5px;
+	box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.15) inset, 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 /*Random fixes*/
@@ -132,12 +163,6 @@ body {
 }
 .video-detail-header {
 	padding-left: 20px;
-}
-
-/*Moving the header where the tagline isn't present*/
-.video-detail #SiteTitle, .video-list-page #SiteTitle {
-	position: relative;
-	top: 35px;
 }
 
 /*Hide the social media thing...*/
@@ -199,21 +224,21 @@ body {
 /*Shrink grid a bit before tablet mode*/
 @media screen and (max-width: 1020px) and (min-width: 741px) {
 	.home-page .grid-3 > li { width: 50%; float: left; }
-	.home-page .grid > li:nth-child(even) { clear: right; }
-	.home-page .grid > li:nth-child(odd) { clear: left; } }
+	.home-page .grid > li:nth-child(even) { clear: right; padding-left: 20px;}
+	.home-page .grid > li:nth-child(odd) { clear: left; padding-left: 20px; } }
 
 /*"More Videos" move early*/
-@media screen and (max-width: 940px) and (min-width: 741px) { .video-detail .col-one-quarter { display: block; width: 100%; } .video-detail .col-three-quarters { width: 100%; } .video-detail .grid-1 .grid-item { width: 50%; display: inline-block; } .video-detail .grid-1 > li:nth-child(even) { float: right; } .video-detail .grid > li:nth-child(odd) { float: left; } }
+@media screen and (max-width: 940px) and (min-width: 741px) { .video-detail .col-one-quarter { display: block; width: 100%; } .video-detail .col-three-quarters { width: 100%; } .video-detail .grid-1 .grid-item { width: 50%; display: inline-block; } .video-detail .grid-1 > li:nth-child(even) { float: right; padding: 18px 20px; } .video-detail .grid-1 > li:nth-child(odd) { float: left; padding: 18px 20px; } }
 
 /*Removing a completely random and annoying padding thing*/
-@media screen and (max-width: 960px) { #header > .container { padding: 0px; } }
+@media screen and (max-width: 960px) { #container > #header > .container { padding: 0px; } }
 
 
 /*TABLET MODE ENGAGED*/
 @media screen and (max-width: 740px) {
 
 #header {
-	margin: 47px 0px;
+	margin: 44px 0px 0px 0px;
 	padding: 0px;
 }
 
@@ -224,31 +249,23 @@ body {
 #SiteTitle {
 	margin-top: 20px;
 	line-height: normal;
-}
-
-.video-list-page #SiteTitle, .video-detail #SiteTitle {
 	top: 30px;
 }
-.video-list-page #navigation, .video-detail #navigation {
-	position: relative;
-	top: 25px;
+
+#container > #header > .container {
+	margin-top: -3px;
 }
 
-#container {
-	padding-bottom: -47px;
-}
-
-#main, #footer {
+#main {
+	display: block;
 	width: 100%;
-	position: relative;
-	top: -47px;
 }
 
 
 .col-two-fifths {
 	position: relative;
-	top: -20px;
-	margin: 5px;
+	top: -23px;
+	margin: 5px 5px 5px 0px;
 	display: block;
 }
 
@@ -258,25 +275,29 @@ body {
 	margin: 0px;
 }
 #search #search_field {
-	width: 92%;
+	width: 100%;
 }
 #search .btn-right {
-	width: 8%;
+	width: 0%;
 	padding: 0% 2%;
 }
 
 
 #navigation {
-	margin: -3px 0px 0px 10px;
+	margin: 0px 0px 0px 10px;
+	position: relative;
+	top: 15px;
+}
+.home-page #navigation {
+	top: 0px;
 }
 .nav-item {
-	position: relative;
-	margin-top: -10px;
+	margin: 0px;
 	display: inline-block;
-	border: none;
 	padding: 0px;
 }
 
+/*Makes sure that the navigation doesn't freak out when a dropdown menu is opened*/
 .browse-box, .dropdown-list {
 	position: absolute;
 }
@@ -303,5 +324,8 @@ body {
 
 /*Fix for a pointless recoloring*/
 .nav-item:first-child {border: none;}
+
+/*Fixing weird padding*/
+.grid-3 > li, .grid-4 > li { padding-left: 20px; }
 
 }

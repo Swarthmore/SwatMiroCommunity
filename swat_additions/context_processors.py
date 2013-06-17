@@ -25,8 +25,7 @@ def swatcontext(request):
             #'timestamp': int(time.time()),
             #'settings.DISQUS_SECRET_KEY': settings.DISQUS_SECRET_KEY,
             #'pub_key': settings.DISQUS_PUBLIC_KEY,
-            #'sig': hmac.HMAC(settings.DISQUS_SECRET_KEY, '%s %s' % (message, timestamp), hashlib.sha1).hexdigest()
-            
+            #'sig': hmac.HMAC(settings.DISQUS_SECRET_KEY, '%s %s' % (message, timestamp), hashlib.sha1).hexdigest()  
     }
 
 # user will be a dictionary containing information from the current session

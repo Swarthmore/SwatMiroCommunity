@@ -99,14 +99,12 @@
 		</header>
 		
 		<!-- If no user is signed in, don't display this div (or display an alternate div telling the user to log in) -->
-		{% if request.user.is_authenticated or "accounts/login" in request.path %}
-			<div id="main" role="main">
-				{% block content %}
-				{% endblock %}
-			</div>
-			{% else %}
-			<p>Please log in</p>
-	    {% endif %}
+
+		<div id="main" role="main">
+			{% block content %}
+			{% endblock %}
+		</div>
+
 		
 		<footer id="footer">
 			<div class="container">

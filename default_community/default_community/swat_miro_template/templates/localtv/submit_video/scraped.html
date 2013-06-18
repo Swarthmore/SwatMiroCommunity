@@ -13,7 +13,7 @@
 	<div class="row-nested">
 		<figure class="col-one-quarter">
 			<a href="{{ video.website_url }}" class="thumbnail">
-				{% if video.thumbnail_url %}<img src="{{ video.thumbnail_url }}" width="210" />{% else %}<img src="{% static "localtv/images/default.jpg" %}" />{% endif %}
+				{% if video.thumbnail_url %}<img src="{{ video.thumbnail_url }}" width="480" />{% else %}<img src="{% static "localtv/images/default.jpg" %}" />{% endif %}
 			</a>
 		</figure>{# /.col-two-quarters #}
 		<div class="col-three-quarters">
@@ -46,4 +46,14 @@
 		</div>{# /.col-three-quarters #}
 	</div>{# /.row-nested #}
 	{{ block.super }}
+	<div class="control-group control-group-categories">
+		<label class="control-group control-group-categories" style="display: inline-block">Categories</label>
+		<div class="controls">
+		<form>
+			{% for category in categories %}
+				<input type="checkbox" name="categories" value="{{ category|cut:"<Category: "|cut:">"|cut:"["|cut:"]" }}" style="width: 29px;">{{ category|cut:"<Category: "|cut:">"|cut:"["|cut:"]" }}</br>
+			{% endfor %}
+		</form>
+		</div>
+    </div>
 {% endblock %}

@@ -232,7 +232,7 @@ form { margin-bottom: 18px; }
 .grid-item .grid-item-header > p { font-size: 11px; line-height: 18px; margin-bottom: 0; }
 .grid-item .grid-item-badge { height: 20px; min-width: 20px; padding: 10px; text-align: center; line-height: 20px; font-size: 20px; position: absolute; top: -10px; left: 20px; -webkit-border-radius: 43px; -moz-border-radius: 43px; -ms-border-radius: 43px; -o-border-radius: 43px; border-radius: 43px; }
 
-.replaced, .search-icon { text-indent: -9999px; display: block; }
+.replaced, .-icon { text-indent: -9999px; display: block; }
 
 .search-icon { background-image: url('/static/localtv/front/images/glyphicons_027_search.png?1345840025'); background-size: 16px 16px; background-position: center center; background-repeat: no-repeat; width: 16px; height: 16px; }
 

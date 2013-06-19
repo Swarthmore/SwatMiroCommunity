@@ -162,7 +162,13 @@ input { height: 29px; }
 
 input { line-height: 18px; }
 
+/* Checkbox */
+.checkbox { width: 3%; height: 11px}
+
 label { line-height: 27px; }
+
+/* Label for checkbox*/
+#categories-label { line-height: 18px; }
 
 form { margin-bottom: 18px; }
 
@@ -173,7 +179,7 @@ form { margin-bottom: 18px; }
 
 .form-horizontal .controls, form .controls { margin-left: 240px; }
 
-.form-horizontal > .form-actions, form > .form-actions { padding-left: 240px; }
+.form-horizontal > .form-actions, form > .form-actions { padding-left: 240px; padding-top: 9px; }
 
 .help-text { color: #888888; padding-top: 9px; padding-bottom: 9px; }
 

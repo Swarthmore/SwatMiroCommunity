@@ -7,6 +7,7 @@
 
 {% block title %}{{ block.super }} - {% block subtitle %}{% trans "Admin - Bulk Edit" %}{% endblock %}{% endblock %}
 {% block head %}{{ block.super }}
+  <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}localtv/css/expandable_list.css"/>
   <script type="text/javascript" src="{{ STATIC_URL }}localtv/js/inline_edit.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}localtv/js/admin/bulk_edit.js"></script>
 {% endblock %}
@@ -110,8 +111,75 @@
       {% pagetabs page %}
     </div>
     {% endif %}
+	
+ 	<!-- Expandable List -->
+		<div id="list_container">
+			
+			<ul id="exp_list">
+			{% for form in formset.initial_forms %}
+				
+				<!-- {{ form.instance.name }}
+				{{ form.instance.parent }} -->
+				{% if form.instance.parent == None %}
+					{{ "NONE" }}
+				{% else %}
+					{{ form.instance.name }}
+					<!-- Append to category -->
+					<script>
+					function addItem() {
+						/* 
+						   Create new id for outer list
+						   Create new li with form.instance.name and appendTo outer list
+						   		as defined by the id created earlier.
+						*/
+						var newId = '#category_'+form.instance.parent;
+						var newListItem = '<li>'++'</li>';
+					}
+					</script>
+				{% endif %}
+				
+				<!-- {{ form.instance.name|slugify|capfirst }} -->
 
-    <table class="rounded">
+				
+			{% endfor %}
+<!--			{% for form in formset.initial_forms %}
+				
+				<li>{{ form.instance.name }}
+            
+             {% if form.initial.categories %}
+            Hello
+            <ul class="categories_list">
+              {% for choice in form.categories.field.choices %}
+              {% if choice.0 in form.initial.categories %}<li>{{ choice.1 }}</li>{% endif %}
+              {% endfor %}
+            </ul>
+            {% endif %}
+				</li>
+			{% endfor %} -->
+			</ul>
+		</div>
+		<script>
+		function prepareList() {
+		    $('#exp_list').find('li:has(ul)')
+		    .click( function(event) {
+		        if (this == event.target) {
+		            $(this).toggleClass('expanded');
+		            $(this).children('ul').toggle('medium');
+		        }
+		        return false;
+		    })
+		    .addClass('collapsed')
+		    .children('ul').hide();
+		};
+		 
+		$(document).ready( function() {
+		    prepareList()
+		});
+		</script>
+
+		
+		
+<!-- 		   <table class="rounded">
       <thead>
         <tr>
           <th class="checkbox">
@@ -245,7 +313,7 @@
         </tr>
         {% endfor %}
       </tbody>
-    </table>
+    </table> -->
     {% if page %}
     <div class="pag bottom">
       {% pagetabs page %}

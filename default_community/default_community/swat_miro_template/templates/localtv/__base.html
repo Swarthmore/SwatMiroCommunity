@@ -23,6 +23,7 @@
 	
 	{% block styles %}
 		{#% compress css %#}
+			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.3/build/cssreset/cssreset-min.css">
 			<link rel="stylesheet" type="text/css" href="{% static 'localtv/front/stylesheets/screen.css' %}" media="screen" />
 			<link rel="stylesheet" type="text/css" href="{% static 'swat-style.css' %}" media="screen" />
 			{% if site_settings.css %}

@@ -42,11 +42,13 @@ else:
 
 # haystack search
 SEARCH = os.environ.get('SEARCH')
+# search still reverts to elasticsearch, look into this later.
 if SEARCH == 'elasticsearch':
     HAYSTACK_CONNECTIONS = {
         'default': {
             'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
             'URL': 'http://localhost:9200/',
+            'PATH': os.path.join(_PROJECT_DIR, 'elasticsearch-0.90.1'),
             'INDEX_NAME': 'mirocommunity'
             }
         }

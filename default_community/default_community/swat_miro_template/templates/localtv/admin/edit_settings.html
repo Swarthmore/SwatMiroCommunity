@@ -35,10 +35,11 @@
   {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.submission_requires_login only %}
   {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.submission_requires_email only %}
   {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.use_original_date only %}
-  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.screen_all_comments only %}
-  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.comments_required_login only %}
+  {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.protect_content only %}  
   {% include 'localtv/admin/_forms/field.html' with field=form.playlists_enabled only %}
-{% endblock %}
+ <!-- {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.screen_all_comments only %}     -->
+ <!-- {% include 'localtv/admin/_forms/checkbox_field.html' with field=form.comments_required_login only %} -->
+  {% endblock %}
 
 {% block buttons %}
   <button type="submit" class="approve_button"><span>Save Changes</span></button>

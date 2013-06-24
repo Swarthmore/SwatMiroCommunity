@@ -12,6 +12,7 @@
 	font-size: 54px;
 	font-family: Georgia;
 	color: white;
+	height: auto;
 	font-weight: normal;
 	line-height: 1.4;
 	overflow: hidden;
@@ -133,12 +134,12 @@ html, body {
 
 /*Fixing the hideous search bar D: */
 #search {
-	margin: 14px 20px 0px 0px;
+	margin: 12px 20px 0px 0px;
 	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
 }
 #search #search_field {
 	width: 168px;
-	height: 25px;
+	height: 28px;
 	background: url(http://www.bloggermint.com/demos/css3searchbox/search-white.png) no-repeat 10px 6px #fcfcfc;
     border: 1px solid #d1d1d1;
     font: 14px Georgia, Arial, Helvetica, Sans-serif;

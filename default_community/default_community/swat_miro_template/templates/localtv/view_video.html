@@ -109,6 +109,10 @@
 			</div>
 		</section>{# /.video-details #}
 	</div>
+	<form action="/playlists/add/{{ current_video.id }}" method="POST">{% csrf_token %}
+		<input type="hidden" name="playlist" value="1" />
+		<input type="submit" value="Add to Playlist" />
+	</form>
 	<div class="padded">
 		{# Disqus comments #}
     	{% load disqus_tags %}

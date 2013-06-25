@@ -109,10 +109,25 @@
 			</div>
 		</section>{# /.video-details #}
 	</div>
-	<form action="/playlists/add/{{ current_video.id }}" method="POST">{% csrf_token %}
-		<input type="hidden" name="playlist" value="1" />
-		<input type="submit" value="Add to Playlist" />
+	
+	<!-- Text field for adding new playlists -->
+	<div>
+	<form>
+		New Category: <input type="text" name="newcategory">
 	</form>
+	<button type="submit" class="approve_button">
+		<span>Save and add to new playlist</span>
+	</button>
+	</div>
+	
+	<!-- Create a nice, wittle dwop-down menu for pwaywists -->
+	<select name="playlist">
+		{% for playlist in playlists %}
+			{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
+		{% endfor %}
+		</select>
+		
+
 	<div class="padded">
 		{# Disqus comments #}
     	{% load disqus_tags %}

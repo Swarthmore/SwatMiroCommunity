@@ -117,28 +117,6 @@
 			</div>
 		</section>{# /.video-details #}
 	</div>
-<<<<<<< HEAD
-	
-	<!-- Text field for adding new playlists -->
-	<div>
-	<form>
-		New Category: <input type="text" name="newcategory">
-	</form>
-	<button type="submit" class="approve_button">
-		<span>Save and add to new playlist</span>
-	</button>
-	</div>
-	
-	<!-- Create a nice, wittle dwop-down menu for pwaywists -->
-	<select name="playlist">
-		{% for playlist in playlists %}
-			{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
-		{% endfor %}
-	</select>
-		
-
-=======
->>>>>>> fc18d1feb1af61396a94e95a5543aac494474c93
 	<div class="padded">
 		{# Disqus comments #}
     	{% load disqus_tags %}

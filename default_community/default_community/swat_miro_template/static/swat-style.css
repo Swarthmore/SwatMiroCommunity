@@ -37,6 +37,18 @@
 	margin: 0px auto;
 }
 
+/*Fixing featured videos */
+.home-page .precontent, .precontent-content {
+	max-width: 960px;
+	margin: 0px auto;
+}
+.home-page .video-large-preview a {
+	line-height: normal;
+}
+.home-page .video-large-details h1 > a {
+	font-size: 24px;
+}
+
 /*Getting rid of that awkward underlining in the title*/
 h1 a:hover {
 	border-bottom: none;
@@ -56,7 +68,7 @@ h1 a:hover {
 }
 .nav-item {
 	position: relative;
-	z-index: 1;
+	z-index: 1337;
 	border: 1px solid transparent;
 }
 .nav-item a {
@@ -183,6 +195,36 @@ html, body {
 	display: none;
 }
 
+/*Add to Playlist stuff! :D*/
+.video-detail #playlists {
+	width: auto;
+	text-align: center;
+	padding: 18px 20px 0px 20px;
+	margin: 0px auto;
+}
+.video-detail #playlist_select {
+	min-width: 80px;
+	width: auto;
+	margin-right: 20px;
+	display: inline-block;
+}
+.video-detail #playlist_submit {
+	width: 120px;
+	height: 29px;
+	padding: 4.5px 9px;
+	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	color: #EEEEEE;
+	display: inline-block;
+	border-radius: 5px;
+	border-color: #a2a2a2;
+}
+.video-detail #playlist_submit:hover {
+	color: #5C86A0;
+}
+.playlist-videos .playlist-description {
+	display: none;
+}
+
 /*Beautiful buttons! :) */
 .button-wide, .button-wide:hover {
 	background: none;
@@ -266,7 +308,6 @@ html, body {
 /*Removing a completely random and annoying padding thing*/
 @media screen and (max-width: 960px) { #container > #header > .container { padding: 0px; } }
 
-
 /*TABLET MODE ENGAGED*/
 @media screen and (max-width: 740px) {
 
@@ -283,6 +324,15 @@ html, body {
 	margin-top: 20px;
 	line-height: normal;
 	top: 30px;
+}
+
+.home-page .video-large-details h1 > a {
+	font-size: 18px;
+	line-height: 64px;
+}
+.home-page .video-large-details h1 {
+	margin: 0px;
+	height: 64px;
 }
 
 #container > #header > .container {

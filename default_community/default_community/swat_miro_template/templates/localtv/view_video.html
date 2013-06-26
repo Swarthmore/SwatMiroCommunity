@@ -81,6 +81,14 @@
 
 {% block main %}
 
+	<form action="/playlists/add/{{ current_video.id }}" method="POST" id="playlists">{% csrf_token %}
+		<select name="playlist" id="playlist_select">
+		{% for playlist in playlists %}
+			{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
+		{% endfor %}
+		</select>
+		<input type="submit" value="Add to Playlist" id="playlist_submit"/>
+	</form>
 	<div class="padded">
 		<section class="video-details">
 			{{ current_video.description|safe }}
@@ -109,6 +117,7 @@
 			</div>
 		</section>{# /.video-details #}
 	</div>
+<<<<<<< HEAD
 	
 	<!-- Text field for adding new playlists -->
 	<div>
@@ -128,6 +137,8 @@
 	</select>
 		
 
+=======
+>>>>>>> fc18d1feb1af61396a94e95a5543aac494474c93
 	<div class="padded">
 		{# Disqus comments #}
     	{% load disqus_tags %}

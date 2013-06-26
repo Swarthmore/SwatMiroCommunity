@@ -125,7 +125,7 @@
 		{% for playlist in playlists %}
 			{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
 		{% endfor %}
-		</select>
+	</select>
 		
 
 	<div class="padded">

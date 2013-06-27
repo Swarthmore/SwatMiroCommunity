@@ -1,3 +1,4 @@
+
 <a href="{{ object.get_absolute_url }}" class="popover-trigger grid-item-link" data-content="
     {% filter force_escape %}
         {% if object.description %}
@@ -12,9 +13,18 @@
 ">
     {% include "localtv/_grid/_item_figure.html" with image=image only %}
     <div class="grid-item-content">
-        <header class='grid-item-header'>
-            <h1>{{ object.name }}</h1>
-            <p>{% include "localtv/_when_published.html" with instance=object %}</p>
-        </header>
-    </div>
+
+	<form action="/playlists/add/{{ current_video.id }}" method="POST" id="playlists">{% csrf_token %}
+		<select name="playlist" id="playlist_select">
+		{% for playlist in playlists %}
+			{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
+		{% endfor %}
+		</select>
+		<input type="submit" value="Add to Playlist" id="playlist_submit"/>
+	</form>
+		<header class='grid-item-header'>
+			<h1>{{ object.name }}</h1>
+			{% include "localtv/_when_published.html" with instance=object %}
+		</header>
+	</div>
 </a>

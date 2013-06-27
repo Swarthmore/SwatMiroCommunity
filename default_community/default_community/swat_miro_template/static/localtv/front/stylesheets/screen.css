@@ -162,18 +162,24 @@ input { height: 29px; }
 
 input { line-height: 18px; }
 
+/* Checkbox */
+.checkbox { width: 3%; height: 11px}
+
 label { line-height: 27px; }
+
+/* Label for checkbox*/
+#categories-label { line-height: 18px; }
 
 form { margin-bottom: 18px; }
 
 /* modular form styles */
 .control-group { overflow: hidden; *zoom: 1; margin-bottom: 9px; }
 
-.form-horizontal label, form label { width: 200px; float: left; text-align: right; }
+.form-horizontal label, form label { width: 200px; text-align: right; }
 
 .form-horizontal .controls, form .controls { margin-left: 240px; }
 
-.form-horizontal > .form-actions, form > .form-actions { padding-left: 240px; }
+.form-horizontal > .form-actions, form > .form-actions { padding-left: 240px; padding-top: 9px; }
 
 .help-text { color: #888888; padding-top: 9px; padding-bottom: 9px; }
 
@@ -232,7 +238,7 @@ form { margin-bottom: 18px; }
 .grid-item .grid-item-header > p { font-size: 11px; line-height: 18px; margin-bottom: 0; }
 .grid-item .grid-item-badge { height: 20px; min-width: 20px; padding: 10px; text-align: center; line-height: 20px; font-size: 20px; position: absolute; top: -10px; left: 20px; -webkit-border-radius: 43px; -moz-border-radius: 43px; -ms-border-radius: 43px; -o-border-radius: 43px; border-radius: 43px; }
 
-.replaced, .-icon { text-indent: -9999px; display: block; }
+.replaced, .search-icon { text-indent: -9999px; display: block; }
 
 .search-icon { background-image: url('/static/localtv/front/images/glyphicons_027_search.png?1345840025'); background-size: 16px 16px; background-position: center center; background-repeat: no-repeat; width: 16px; height: 16px; }
 

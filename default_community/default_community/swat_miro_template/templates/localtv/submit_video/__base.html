@@ -14,6 +14,10 @@
 			{% csrf_token %}
 			{% block inner_form %}
 			{% endblock %}
+			<label for="categories" id="categories-label">Categories</label>
+				<div class="controls" id="categories-div">
+					<input class="checkbox" type="checkbox" name="category" value="Category_1" >Category1
+				</div>
 			<footer class="form-actions">
 				<button>Submit</button>
 			</footer>

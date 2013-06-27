@@ -1,7 +1,6 @@
 {# takes image and video_list. image has priority. #}
 
-{% load uploadtemplate daguerre %}
-
+{% load uploadtemplate daguerre swattags %}
 <figure class='grid-item-figure'>
     <div class="tiles-wrapper">
         <div class="tiles-shim">
@@ -35,13 +34,3 @@
     </div>
 </figure>
 	
-	<form action="/playlists/add/{{ video }}" method="POST" id="playlists">{% csrf_token %}
-		<select name="playlist" id="playlist_select">
-			{% for playlist in playlists %}			
-				<option value="sample">Sample</option>
-				<!-- <option value="{{ playlist.pk }}">{{ playlist.name }}</option> -->
-				<!-- {% if playlist not in video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %} -->
-			{% endfor %}
-		</select>
-		<input type="submit" value="Add to Playlist" id="playlist_submit"/>
-	</form>

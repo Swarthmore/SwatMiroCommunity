@@ -81,29 +81,9 @@
 
 {% block main %}
 	<!-- Playlist drop-down menu and button -->
-	<form action="/playlists/add/{{ current_video.id }}" method="POST" id="playlists">{% csrf_token %}
-		<label for="playlists">Playlists without this video</label>
-		<select name="playlist" id="playlist_select">
-			{% for playlist in playlists %}
-				{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
-			{% endfor %}
-		</select>
-		<input type="submit" value="Add to Playlist" id="playlist_submit"/>
-		<script>
-			var options_len = $('#playlist_select option').length;
-
-			if (options_len < 1) {
-				$("#playlist_submit").val("This video exists in all playlists");
-				$("#playlist_submit").prop("disabled", true);
-				//console.log("This video exists in all playlists");
-			} else {
-				//console.log("Add to playlist");
-				$("#playlist_submit").val("Add to Playlist");
-				$("#playlist_submit").prop("disabled", false);
-			}
-		</script>
-	</form>
-	
+	{% with video=current_video %}
+		{% include "localtv/playlist_form.html" %}
+	{% endwith %}	
 	
 	<div class="padded">
 		<section class="video-details">

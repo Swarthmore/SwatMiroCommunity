@@ -196,19 +196,19 @@ html, body {
 }
 
 /*Add to Playlist stuff! :D*/
-.video-detail #playlists {
+.video-detail .playlists {
 	width: auto;
 	text-align: center;
 	padding: 18px 20px 0px 20px;
 	margin: 0px auto;
 }
-.video-detail #playlist_select {
+.video-detail .playlist_select {
 	min-width: 80px;
 	width: auto;
 	margin-right: 20px;
 	display: inline-block;
 }
-.video-detail #playlist_submit {
+.video-detail .playlist_submit {
 	width: auto;
 	height: 29px;
 	padding: 4.5px 9px;
@@ -218,7 +218,7 @@ html, body {
 	border-radius: 5px;
 	border-color: #a2a2a2;
 }
-.video-detail #playlist_submit:hover {
+.video-detail .playlist_submit:hover {
 	color: #5C86A0;
 }
 .playlist-videos .playlist-description {

@@ -1,4 +1,6 @@
 
+{% load swattags %}
+
 <a href="{{ object.get_absolute_url }}" class="popover-trigger grid-item-link" data-content="
     {% filter force_escape %}
         {% if object.description %}
@@ -20,3 +22,8 @@
 		</header>
 	</div>
 	</a>
+	
+	{% with video=object %}
+		{% include "localtv/playlist_form.html" %}
+	{% endwith %}
+

@@ -18,15 +18,7 @@
                 </li>
             {% elif video_list|length == 1 %}
                 {% for video in video_list %}
-                    <li class="tiles-item"><img src="{% adjust video.thumbnail_path width=300 height=216 adjustment="fill" %}" /></li>
-<!-- 					<form action="/playlists/add/{{ video.name }}" method="POST" id="playlists">{% csrf_token %}
-						<select name="playlist" id="playlist_select">
-						{% for playlist in playlists %}
-							{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
-						{% endfor %}
-						</select>
-						<input type="submit" value="Add to Playlist" id="playlist_submit"/>
-					</form> -->                
+                    <li class="tiles-item"><img src="{% adjust video.thumbnail_path width=300 height=216 adjustment="fill" %}" /></li>            
                 {% endfor %}
             {% elif video_list|length < 6 %}
                 {% adjust_bulk video_list|slice:":2" "thumbnail" width=150 height=216 adjustment="fill" as adjusted_list %}
@@ -45,10 +37,11 @@
 	
 	<form action="/playlists/add/{{ video }}" method="POST" id="playlists">{% csrf_token %}
 		<select name="playlist" id="playlist_select">
-		{% for playlist in playlists %}
-			<option value="{{ playlist.pk }}">{{ playlist.name }}</option>
-			<!-- {% if playlist not in video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %} -->
-		{% endfor %}
+			{% for playlist in playlists %}			
+				<option value="sample">Sample</option>
+				<!-- <option value="{{ playlist.pk }}">{{ playlist.name }}</option> -->
+				<!-- {% if playlist not in video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %} -->
+			{% endfor %}
 		</select>
 		<input type="submit" value="Add to Playlist" id="playlist_submit"/>
 	</form>

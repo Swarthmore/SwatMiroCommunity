@@ -11,16 +11,6 @@
         {% endwith %}
     {% endfilter %}
 ">
- <!-- 	{% for video in video_list %}
-	<form action="/playlists/add/{{ video.name }}" method="POST" id="playlists">{% csrf_token %}
-		<select name="playlist" id="playlist_select">
-		{% for playlist in playlists %}
-			{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
-		{% endfor %}
-		</select>
-		<input type="submit" value="Add to Playlist" id="playlist_submit"/>
-	</form>
-	{% endfor %} -->   
     
     {% include "localtv/_grid/_item_figure.html" with image=image only %}
 	<div class="grid-item-content">

@@ -80,7 +80,7 @@
 {% endblock %}
 
 {% block main %}
-
+	<!-- Playlist drop-down menu and button -->
 	<form action="/playlists/add/{{ current_video.id }}" method="POST" id="playlists">{% csrf_token %}
 		<label for="playlists">Playlists without this video</label>
 		<select name="playlist" id="playlist_select">
@@ -92,7 +92,7 @@
 		<script>
 			var options_len = $('#playlist_select option').length;
 
-			if (options_len < 2) {
+			if (options_len < 1) {
 				$("#playlist_submit").val("This video exists in all playlists");
 				$("#playlist_submit").prop("disabled", true);
 				//console.log("This video exists in all playlists");
@@ -103,6 +103,8 @@
 			}
 		</script>
 	</form>
+	
+	
 	<div class="padded">
 		<section class="video-details">
 			{{ current_video.description|safe }}

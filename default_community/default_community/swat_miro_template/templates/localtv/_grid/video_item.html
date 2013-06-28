@@ -1,4 +1,3 @@
-
 {% load swattags %}
 
 <a href="{{ object.get_absolute_url }}" class="popover-trigger grid-item-link" data-content="
@@ -13,16 +12,17 @@
         {% endwith %}
     {% endfilter %}
 ">
-    
+
     {% include "localtv/_grid/_item_figure.html" with image=image only %}
 	<div class="grid-item-content">
 		<header class='grid-item-header'>
-			<h1>{{ object.name }}</h1>
+			<p><h1 class="title">{{ object.name }}</h1></p>
 			{% include "localtv/_when_published.html" with instance=object %}
 		</header>
 	</div>
 	</a>
 	
+	<!-- Playlist addition form -->
 	{% with video=object %}
 		{% include "localtv/playlist_form.html" %}
 	{% endwith %}

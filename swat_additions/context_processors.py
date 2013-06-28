@@ -16,7 +16,6 @@ from django.contrib.auth.models import User
 from localtv.playlists.models import Playlist, PlaylistItem
 from localtv.models import SiteSettings
 
-# What is calling swatcontext? What is request? How is it used?
 def swatcontext(request):
     "Returns context variables helpful for swarthmore's workflow."
     return {

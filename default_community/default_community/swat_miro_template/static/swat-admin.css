@@ -1,0 +1,538 @@
+/* My apologies forever. I've used quite a few !important tags, so search for those in case something isn't working like it should. For the record, Miro started it. */
+
+
+#header {
+	max-width: 960px;
+	height: 130px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/hdr_swarthmore4.jpg) no-repeat center;
+	border: none;
+	padding: 10px 0px;
+}
+
+#logo {
+	position: relative;
+	top: 3px;
+	width: 100%;
+}
+
+#header #logo a span {
+	font-size: 54px;
+	font-family: Georgia;
+	color: #EEEEEE;
+	font-weight: normal;
+	line-height: 1.4;
+	margin-left: 20px;
+	padding: 0px;
+	position: absolute;
+}
+
+#header #logo a:hover {
+	opacity: 1;
+}
+
+#header #logo img {
+	display: none;
+}
+
+#header #user_panel {
+	margin: 20px 20px 0px 0px;
+}
+
+#header #user_panel span, #header #user_panel a {
+	font-size: 13px;
+	font-family: Georgia;
+	font-weight: normal;
+	color: #EEEEEE;
+	border: 1px solid transparent;
+	padding: 0px 10px;
+	margin: 5.5px 0px;
+	-webkit-box-shadow: none;
+	text-transform: uppercase;
+	text-shadow: none;
+	background: none;
+}
+
+body, #wrapper {
+	width: auto;
+	max-width: 960px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+html, body {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	min-height: 100%;
+	line-height: normal;
+}
+
+#labels {
+	min-width: 0px;
+}
+
+/*Fixing these ridiculous tables*/
+#labels > form {
+	max-width: 100%;
+}
+#labels > form > table, #labels > form > table thead, #labels > form > table tbody {
+	width: 100%;
+	max-width: 700px;
+	margin: 5px;
+}
+.only_show { width: auto; }
+#labels > form > table tr > td:nth-child(1), #labels > form > table tr > th:nth-child(1) { width: 24px; text-align: center; }
+#labels > form > table tr > td:nth-child(2), #labels > form > table tr > th:nth-child(2) { width: auto; padding-left: 8px; overflow: hidden; }
+#labels > form > table tr > td:nth-child(3), #labels > form > table tr > th:nth-child(3) { padding-left: 8px; }
+#labels > form > table tr > td:nth-child(4), #labels > form > table tr > th:nth-child(4) { width: auto; padding-left: 8px; overflow: hidden; }
+#labels > form > table tr > td:nth-child(5), #labels > form > table tr > th:nth-child(5) { width: auto; padding-left: 8px; padding-right: 8px; text-align: center; }
+#labels > form > table tr > td:nth-child(6), #labels > form > table tr > th:nth-child(6) { width: auto; text-align: center; }
+.category_admin #labels > form > table tr > td:nth-child(2), .category_admin #labels > form > table tr > th:nth-child(2) { width: 90px; }
+.category_admin #labels > form > table tr > td:nth-child(4), .category_admin #labels > form > table tr > th:nth-child(4) { width: 80px; }
+.category_admin #labels > form > table tr > td:nth-child(5), .category_admin #labels > form > table tr > th:nth-child(5) { width: 30px; }
+.category_admin #labels > form > table tr > td:nth-child(6), .category_admin #labels > form > table tr > th:nth-child(6) { width: 90px; }
+.bulkedit #labels > form > table tr > td:nth-child(5), .bulkedit #labels > form > table tr > th:nth-child(5) { width: 90px; }
+.managesources #labels > form > table tr > td:nth-child(7), .managesources #labels > form > table tr > th:nth-child(7) { text-align: center; }
+.playlists #labels > form > table tr > td:nth-child(5), .playlists #labels > form > table tr > th:nth-child(5) { text-align: left; }
+.flatpages #labels > form > table tr > td:nth-child(2), .flatpages #labels > form > table tr > th:nth-child(2) { overflow: visible; word-wrap: break-word; }
+.flatpages #labels > form > table tr > td:nth-child(3), .flatpages #labels > form > table tr > th:nth-child(3) { padding-right: 8px;  overflow: visible; word-wrap: break-word; }
+
+
+/*Fixing some forms that aren't resizing*/
+.edit_feed .input_field > ul > li > label:first-child { width: 70px; }
+.edit_feed .input_field ul li.scrollable > label:first-child, .edit_feed .input_field > ul > li:last-child > label:first-child { width: auto; line-height: 1.5em; font-weight: bold; }
+.edit_feed .input_field ul li input[type=text] { width: 82%; }
+.edit_feed .input_field ul li.scrollable { width: 50%; }
+.edit_feed .input_field > ul > li:last-child > label:first-child { line-height: 31px; margin: 3px 20px 20px 0px; }
+
+/*Fixing up them buttons*/
+.edit_feed .reject_button, .edit_feed .approve_button { margin: 0px; }
+.playlists #labels > form > button { top: -50px; }
+.playlists .editable > .simple_overlay > form > button > span, .editable .input_field .done span { padding: 8px 0px 8px 35px !important; margin-top: -2px; }
+
+#content h2, .add { min-width: 0px; margin-top: 10px; }
+
+body.admin_dash #content, #content {
+	max-width: 765px;
+	width: calc(100% - 242px);
+	float: right;
+	min-height: 0px;
+	margin: 35px 20px 0px 0px !important;
+	padding: 20px;
+	display: inline;
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+}
+
+#account_stats > .clear > div {
+	line-height: 24px;
+}
+
+
+/*Activity*/
+#account_stats {
+	border: none !important;
+}
+#content #dashboard #account_stats #videos_pending, #content #dashboard #account_stats #comments_pending, #content #dashboard #account_stats #videos_week {
+	border: none;
+	display: inline-block;
+	float: none;
+	width: 26.5%;
+	padding: 15px;
+}
+#dashboard #account_stats #comments_pending h2, #dashboard #account_stats #videos_pending h2, #dashboard #account_stats #videos_week h2, #dashboard #account_stats #comments_pending h3, #dashboard #account_stats #videos_pending h3, #dashboard #account_stats #videos_week h3 {
+	float: left !important;
+	text-align: left !important;
+	margin-bottom: 5px !important;
+}
+#dashboard #account_stats #comments_pending h2, #dashboard #account_stats #videos_pending h2, #dashboard #account_stats #videos_week h2 {
+	font-size: 20px !important;
+}
+#dashboard #account_stats #videos_pending #btn_comment_moderate, #dashboard #account_stats #comments_pending #btn_comment_moderate, #dashboard #account_stats #videos_week #btn_comment_moderate {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/footer_bg1.jpg) repeat;
+	padding: 0px 4px;
+	box-shadow: none;
+	border: 0px;
+	border-radius: 5px;
+	margin: 20px 0px 0px 0px;
+	line-height: 35px;
+	text-shadow: none;
+	text-indent: 0px !important;
+	text-align: center;
+	color: #FAF6ED;
+	font-size: 14px;
+}
+#dashboard #account_stats #videos_pending #btn_comment_moderate:hover, #dashboard #account_stats #comments_pending #btn_comment_moderate:hover, #dashboard #account_stats #videos_week #btn_comment_moderate:hover {
+	color: #5C86A0;
+}
+
+/*Navigation crud*/
+.admin_nav_btn {
+	display: none;
+	text-decoration: none;
+	color: #EEEEEE;
+	font-size: 40px;
+	font-family: Georgia;
+}
+body.admin_dash ul#new_admin_nav, #new_admin_nav, ul#new_admin_nav {
+	width: 135px;
+	height: 100%;
+	margin: 20px !important;
+	border: none;
+	float: left;
+	display: inline;
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+}
+ul#new_admin_nav li a {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	opacity: 1;
+	transition-property: background;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+	border: none;
+	text-align: center;
+}
+
+
+/*Hovering over a navigation choice*/
+ul#new_admin_nav li a:hover {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+	text-decoration: none;
+}
+
+/*Active navigation choice*/
+body#tier.account ul#new_admin_nav li#admin_account a:active, body#admin.admin_dash ul#new_admin_nav li#admin_dash a, body#admin.incomingvids ul#new_admin_nav li#admin_videos a, body#admin.settings ul#new_admin_nav li#admin_settings a, body#admin.user_admin ul#new_admin_nav li#admin_users a, body#admin.comments ul#new_admin_nav li#admin_comments a, body#user_profile ul#new_admin_nav li#admin_profile a, body#goodies ul#new_admin_nav li#admin_goodies a, ul#new_admin_nav li.active a {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+	border: none;
+	-webkit-box-shadow: none;
+	z-index: 0;
+}
+
+#get_started {
+	display: none;
+}
+
+#admin.admin_dash #content, #admin.user_admin #content, #admin.comments #content {
+	margin-top: 20px !important;
+}
+
+/*Videos for Review Sprucing Up... SO MANY !important TAGS ;_;*/
+.incomingvids #admin_table {
+	height: 912px;
+	direction: rtl;
+	text-align: left;
+}
+.incomingvids #labels, .incomingvids #admin_videolisting_row .video.selected {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+	border: none;
+}
+.incomingvids #admin_videolisting_row .video.unselected {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	border: none;
+	transition-property: background;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+}
+.incomingvids #admin_videolisting_row .video.unselected:hover {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+}
+.incomingvids #admin_leftpane, .incomingvids #admin_videolisting_row {
+	max-width: 400px !important;
+	min-width: 0px !important;
+	height: 100% !important;
+	background: none;
+	border: 0px;
+}
+.incomingvids #admin_rightpane {
+	position: absolute !important;
+	top: 0px !important;
+	left: -20px !important;
+	max-width: 305px !important;
+	min-width: 255px !important;
+	width: calc(22.8%+141.1px) !important;
+	background: none;
+	overflow: hidden;
+	word-wrap: break-word; /*Fixes really long urls from overflowing*/
+	right: 0px !important;
+	border: 0px;
+}
+#admin_rightpane .preview_inner {
+	padding: 10px 15px;
+}
+.incomingvids .video.hoverable > a.thumbnail {
+	width: 160px !important;
+	height: 120px !important;
+	background-size: 100% 100% !important;
+}
+#admin_rightpane .description {
+	max-height: 200px;
+	width: 100%;
+	overflow: hidden;
+	white-space: pre-line;
+}
+#admin_rightpane h4, #admin_rightpane h3, #admin_rightpane ul.meta_listing li h3 {
+	margin-top: 5px;
+}
+#admin_rightpane ul.meta_listing li .floatleft .url {
+	width: 100%;
+	overflow: hidden;
+	white-space: pre-line;
+}
+.incomingvids #admin_videolisting_row .video.hoverable > p.submitted {
+	margin: 0px !important;
+}
+.incomingvids #video_wrapper > iframe {
+	width: 100% !important;
+	height: 200px !important;
+}
+#admin_videolisting_row .approve_reject a.feature, #admin_videolisting_row .approve_reject a.approve, #admin_videolisting_row .approve_reject a { height: 40px; width: 160px; padding: 0px; border: 0px; line-height: 40px; }
+#admin_videolisting_row .approve_reject a.feature { background: #631919; }
+#admin_videolisting_row .approve_reject a.approve { background: #0E3A3C; }
+#admin_videolisting_row .approve_reject a.reject { background: #124F16; }
+#admin_rightpane h2.preview_heading { display: none; }
+#admin_rightpane ul.meta_listing li {
+	display: block;
+}
+/*Fixing the pre-tablet mode version of the ridiculous video listing*/
+@media screen and (max-width: 960px) {
+.incomingvids #admin_leftpane {
+	width: 63.8% !important;
+}
+.incomingvids #admin_rightpane {
+	width: 24.3% !important;
+	right: 0px !important;
+}
+}
+
+/*Fixing the stupid overlay... The Miro people seemed to forget that z-index requires absolute positioning =___= */
+.incomingvids > div:last-child { z-index: -1 !important; }
+
+
+/*All of the tabs in the admin submenus*/
+#admin_subnav {
+	z-index: 0;
+	margin-top: -25px;
+}
+#admin_subnav ul {
+	white-space: nowrap;
+}
+#admin_subnav li {
+	display: inline-block;
+	float: none;
+	margin: 0px 0px 0px 5px;
+}
+#admin_subnav li a {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	border: none;
+	color: #444444;
+	transition-property: background;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+}
+#admin_subnav li a span {
+	border: 0px;
+	padding: 0px 9px;
+}
+body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulkedit, #admin.category_admin a.categories, #admin.themes a.themes, #admin.settings a.settings, #admin.widget_settings a.widget_settings, #admin.searches a.watched, #admin.incomingvids #admin_subnav a.sub, #admin.managesources a.watched, #user_profile.user_profile #admin_subnav a.profile, #user_profile.notifications a.notifications, #goodies.widgetcreater a.widget, #goodies.bookmarklet a.bookmarklet, #goodies.playlists a.playlists {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+	border: none;
+}
+#admin_subnav li a:hover {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+	border: none;
+}
+
+/*All of the buttons!*/
+.plain_button span { color: #EEEEEE; }
+.add, .add:hover, .reject_button, .reject_button:hover, .approve_button, .approve_button:hover, .plain_button, .plain_button:hover {
+	background: none;
+}
+.add span, .add span:hover, .add:hover span, .approve_button span, .approve_button span:hover, .approve_button:hover span, .reject_button span, .reject_button span:hover, .reject_button:hover span, .plain_button span, .plain_button span:hover, .plain_button:hover span {
+	text-shadow: none;
+	padding: 8px 22px;
+	border-radius: 5px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+}
+.add span, .add span:hover, .add:hover span {
+	background: #631919;
+}
+.add span:hover, .approve_button span:hover, .reject_button span:hover, .plain_button span:hover {
+	color: #5c86a0;
+}
+
+.approve_button span, .approve_button span:hover, .approve_button:hover span {
+	background: #0E3A3C;
+}
+
+.reject_button span, .reject_button span:hover, .reject_button:hover span {
+	background: #124F16;
+}
+
+.plain_button span, .plain_button span:hover, .plain_button:hover span {
+	background: #643B17;
+}
+.settings .approve_button {
+	margin: 10px 0px;
+}
+.user_profile .approve_button, .user_profile .plain_button, .notifications .approve_button { margin: 10px 0px 0px 0px; }
+
+.pag li a {
+	background: #641917;
+	border: none;
+	border-radius: 0px;
+	color: #EEEEEE;
+	font-family: "Helvetica Neue";
+	font-size: 12px;
+	padding: 5px 10px;
+}
+.pag li:first-child a {
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.pag li:last-child a {
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.pag li a:hover {
+	background: #744947;
+	border: none;
+	color: #EEEEEE;
+}
+.pag li.selected a {
+	border: none;
+}
+.pag li.selected a:hover {
+	background: #dedede;
+	color: #ccc;
+}
+
+
+/*Footer*/
+#admin_footer {
+	max-width: 960px;
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/footer_bg1.jpg) repeat;
+	margin: 10px auto;
+	padding: 10px 0px;
+}
+
+#admin_footer > .clear {
+	width: 440px;
+	text-align: center;
+	margin: 0px auto;
+}
+
+#admin_footer > .clear > li > a, #footer_help {
+	font-family: 'Helvetica Neue', Georgia;
+	font-size: 13px;
+	font-weight: normal;
+	color: #EEEEEE;
+	-webkit-box-shadow: none;
+	text-shadow: none;
+}
+
+#admin_footer > .clear > li > a:hover {
+	color: #5C86A0;
+}
+
+#footer_help {
+	display: none;
+}
+
+
+
+/*Mobile mode engaged*/
+@media screen and (max-width: 740px) {
+#header {
+	width: 100%;
+	padding: 0px;
+}
+
+#wrapper, #admin.admin_dash #content, #admin.user_admin #content, #admin.comments #content {
+	margin: 0px !important;
+	min-height: 375px;
+	width: 100%;
+	position: relative;
+	transition: left 0.3s linear;
+}
+
+#admin.admin_dash #content, #content {
+	/*Makes sure that padding doesn't affect the dimensions*/
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.admin_nav_btn { display: block; }
+
+#admin_nav_open {
+	display: inline;
+	position: absolute;
+	left: 20px;
+}
+
+#admin_nav_close {
+	position: absolute;
+	left: 75px;
+	top: 460px;
+	color: #444444;
+}
+#admin_nav_close:hover {
+	color: #5c86a0;
+}
+
+#user_panel { display: inline; }
+
+#admin_off_nav {
+	height: 375px;
+	width: 175px;
+	overflow: hidden;
+	position: fixed;
+	top: 0px;
+	left: -175px;
+	transition: left 0.3s linear;
+	padding-top: 129px;
+}
+
+#admin_off_nav:target {
+	left: 0%;
+}
+
+#admin_off_nav:target + #wrapper {
+	left: 175px !important;
+	overflow: hidden;
+}
+
+#admin_footer {
+	margin: 0px;
+	width: 100%;
+}
+
+#content #dashboard #account_stats #videos_pending, #content #dashboard #account_stats #comments_pending, #content #dashboard #account_stats #videos_week {
+	width: 40%;
+}
+
+#admin_subnav {
+	margin: 10px 0px 0px 0px;
+	max-width: 300px;
+}
+
+#admin_subnav li {
+	margin: 0px 0px 0px 10px;
+}
+
+#admin_subnav li a {
+	-webkit-border-radius: 0px;
+}
+
+
+}

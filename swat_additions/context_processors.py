@@ -13,21 +13,28 @@ import simplejson
 import time
 from django.conf import settings
 from django.contrib.auth.models import User
+from localtv.playlists.models import Playlist, PlaylistItem
+from localtv.models import SiteSettings
 
-# What is calling swatcontext? What is request? How is it used?
 def swatcontext(request):
     "Returns context variables helpful for swarthmore's workflow."
     return {
             'authmethod': settings.AUTH_METHOD,
             'authnextpage': settings.CAS_REDIRECT_URL,
             'disqus_sso': get_disqus_sso(request),
-            #'message': base64.b64encode(data),
-            #'timestamp': int(time.time()),
-            #'settings.DISQUS_SECRET_KEY': settings.DISQUS_SECRET_KEY,
-            #'pub_key': settings.DISQUS_PUBLIC_KEY,
-            #'sig': hmac.HMAC(settings.DISQUS_SECRET_KEY, '%s %s' % (message, timestamp), hashlib.sha1).hexdigest()  
+            'playlists': get_playlists(request),
     }
 
+def get_playlists(request):
+	site_settings = SiteSettings.objects.get_current()
+	if site_settings.playlists_enabled:
+		# showing playlists                                                                 
+		if request.user.is_authenticated():
+			if request.user_is_admin() or site_settings.playlists_enabled == 1:
+				# user can add videos to playlists                                          
+				return Playlist.objects.filter(user=request.user)
+	return None
+	
 # user will be a dictionary containing information from the current session
 def get_disqus_sso(request):
 

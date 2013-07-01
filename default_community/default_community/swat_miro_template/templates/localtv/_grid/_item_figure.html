@@ -1,7 +1,6 @@
 {# takes image and video_list. image has priority. #}
 
 {% load uploadtemplate daguerre %}
-
 <figure class='grid-item-figure'>
     <div class="tiles-wrapper">
         <div class="tiles-shim">
@@ -18,7 +17,7 @@
                 </li>
             {% elif video_list|length == 1 %}
                 {% for video in video_list %}
-                    <li class="tiles-item"><img src="{% adjust video.thumbnail_path width=300 height=216 adjustment="fill" %}" /></li>
+                    <li class="tiles-item"><img src="{% adjust video.thumbnail_path width=300 height=216 adjustment="fill" %}" /></li>            
                 {% endfor %}
             {% elif video_list|length < 6 %}
                 {% adjust_bulk video_list|slice:":2" "thumbnail" width=150 height=216 adjustment="fill" as adjusted_list %}
@@ -34,3 +33,4 @@
         </ul>
     </div>
 </figure>
+	

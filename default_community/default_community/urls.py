@@ -1,8 +1,12 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.conf.urls.static import static
 from django.conf import settings
-
-
+from django.core.urlresolvers import reverse_lazy
+from localtv.submit_video.views import can_submit_video, SubmitVideoView
+from localtv.submit_video.forms import ScrapedSubmitVideoForm, EmbedSubmitVideoForm, DirectLinkSubmitVideoForm
+from swat_additions.views import CatSubmitURLView, CatSubmitVideoView
+from swat_additions.forms import CatScrapedSubmitVideoForm
+                                       
 urlpatterns = ( 
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) +
     static(settings.UPLOADTEMPLATE_MEDIA_URL,document_root=settings.UPLOADTEMPLATE_MEDIA_ROOT)
@@ -25,7 +29,45 @@ if settings.AUTH_METHOD == 'both':
             url(r'^cas/logout/$', 'django_cas.views.logout'),
         )
     ) 
-    
+
+#lets pass the category name to the submission page
+urlpatterns += (
+	patterns('',
+		url(r'^submit_video/categories/(?P<categories>[-\w/]+)+$', can_submit_video(CatSubmitURLView.as_view(
+            scraped_url=reverse_lazy('localtv_submit_scraped_video'),
+            direct_url=reverse_lazy('localtv_submit_directlink_video'),
+            embed_url=reverse_lazy('localtv_submit_embedrequest_video'),
+        )),
+    	name='localtv_submit_video'), 
+		url(r'^submit_video/scraped/$', can_submit_video(CatSubmitVideoView.as_view(
+            submit_video_url=reverse_lazy('localtv_submit_video'),
+            thanks_url_name='localtv_submit_thanks',
+            form_class=CatScrapedSubmitVideoForm,
+            template_name='localtv/submit_video/scraped.html',
+            form_fields=('tags', 'contact', 'notes'),
+        )),
+        name='localtv_submit_scraped_video'),
+    url(r'^submit_video/embed/$', can_submit_video(SubmitVideoView.as_view(
+            submit_video_url=reverse_lazy('localtv_submit_video'),
+            thanks_url_name='localtv_submit_thanks',
+            form_class=EmbedSubmitVideoForm,
+            template_name='localtv/submit_video/embed.html',
+            form_fields=('tags', 'contact', 'notes', 'name', 'description',
+                         'thumbnail_url', 'embed_code'),
+        )),
+        name='localtv_submit_embedrequest_video'),
+    url(r'^submit_video/directlink/$', can_submit_video(SubmitVideoView.as_view(
+            submit_video_url=reverse_lazy('localtv_submit_video'),
+            thanks_url_name='localtv_submit_thanks',
+            form_class=DirectLinkSubmitVideoForm,
+            template_name='localtv/submit_video/direct.html',
+            form_fields=('tags', 'contact', 'notes', 'name', 'description',
+                         'thumbnail_url', 'website_url'),
+        )),
+        name='localtv_submit_directlink_video'),
+    )
+)
+   
 urlpatterns += (
     patterns('',
         url(r'^', include('localtv.contrib.contests.urls')),

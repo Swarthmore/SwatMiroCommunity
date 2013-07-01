@@ -80,15 +80,11 @@
 {% endblock %}
 
 {% block main %}
-
-	<form action="/playlists/add/{{ current_video.id }}" method="POST" id="playlists">{% csrf_token %}
-		<select name="playlist" id="playlist_select">
-		{% for playlist in playlists %}
-			{% if playlist not in current_video.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
-		{% endfor %}
-		</select>
-		<input type="submit" value="Add to Playlist" id="playlist_submit"/>
-	</form>
+	<!-- Playlist addition form -->
+	{% with video=current_video %}
+		{% include "localtv/playlist_form.html" %}
+	{% endwith %}	
+	
 	<div class="padded">
 		<section class="video-details">
 			{{ current_video.description|safe }}

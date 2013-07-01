@@ -75,6 +75,7 @@ h1 a:hover {
 	font-family: Georgia;
 	text-transform: uppercase;
 }
+
 .nav-about a:hover, .nav-submit a:hover {
 	color: #EEEEEE;
 }
@@ -84,6 +85,25 @@ h1 a:hover {
 .dropdown-box, .dropdown-list {
 	min-width: 0px;
 	overflow: hidden;
+}
+
+/* Overlay for adding playlists */
+.simple_overlay {
+	display: none;
+	padding: 20px;
+	width: 600px !important;
+	margin: 0 !important;
+	top: auto;
+	left: auto;
+	background: #fff !important;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	float: none !important;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	overflow: inherit !important;
+	z-index: 9999;
 }
 
 /*Prevents categories from being on the same line*/
@@ -198,20 +218,20 @@ html, body {
 }
 
 /*Add to Playlist stuff! :D*/
-.video-detail #playlists {
+.video-detail .playlists {
 	width: auto;
 	text-align: center;
 	padding: 18px 20px 0px 20px;
 	margin: 0px auto;
 }
-.video-detail #playlist_select {
+.video-detail .playlist_select {
 	min-width: 80px;
 	width: auto;
 	margin-right: 20px;
 	display: inline-block;
 }
-.video-detail #playlist_submit {
-	width: 120px;
+.video-detail .playlist_submit {
+	width: auto;
 	height: 29px;
 	padding: 4.5px 9px;
 	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
@@ -220,7 +240,7 @@ html, body {
 	border-radius: 5px;
 	border-color: #a2a2a2;
 }
-.video-detail #playlist_submit:hover {
+.video-detail .playlist_submit:hover {
 	color: #5C86A0;
 }
 .playlist-videos .playlist-description {

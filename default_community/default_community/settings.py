@@ -42,11 +42,13 @@ else:
 
 # haystack search
 SEARCH = os.environ.get('SEARCH')
+# search still reverts to elasticsearch, look into this later.
 if SEARCH == 'elasticsearch':
     HAYSTACK_CONNECTIONS = {
         'default': {
             'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
             'URL': 'http://localhost:9200/',
+            'PATH': os.path.join(_PROJECT_DIR, 'elasticsearch-0.90.1'),
             'INDEX_NAME': 'mirocommunity'
             }
         }
@@ -254,7 +256,7 @@ if AUTH_METHOD == 'cas' or AUTH_METHOD == 'both':
 SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
 SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.social_auth_user',
-    #'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.associate.associate_by_email',
     'social_auth.backends.pipeline.user.get_username',
     'social_auth.backends.pipeline.user.create_user',
     'social_auth.backends.pipeline.social.associate_user',

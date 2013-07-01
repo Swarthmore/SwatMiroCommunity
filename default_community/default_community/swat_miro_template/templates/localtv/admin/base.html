@@ -65,10 +65,14 @@
               <span class="site_name">{{ site_settings.site.name }}</span>
             </a>
         </div><!-- // logo -->
+      	<a class="admin_nav_btn" id="admin_nav_open" href="#admin_off_nav">≡</a>
         </div><!-- // clear -->
       </div><!-- // header -->
-      <div id="wrapper">
-      {% block nav %}{% include "localtv/admin/new_header.html" %}{% endblock %}
+      <div id="admin_off_nav">
+      	{% block nav %}{% include "localtv/admin/new_header.html" %}{% endblock %}
+      	<a class="admin_nav_btn" id="admin_nav_close" href="#header">&lt;</a>
+      </div><!-- // admin_off_nav -->
+	  <div id="wrapper">
       <div id="content">
       {% endif %}
         {% block content %}

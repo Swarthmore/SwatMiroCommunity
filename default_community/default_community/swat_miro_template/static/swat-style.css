@@ -11,11 +11,12 @@
 #SiteTitle, #SiteTagline {
 	font-size: 54px;
 	font-family: Georgia;
-	color: white;
+	color: #EEEEEE;
 	height: auto;
 	font-weight: normal;
 	line-height: 1.4;
-	overflow: hidden;
+	width: auto;
+	white-space: nowrap;
 }
 
 /*Repositioning where there isn't a tagline*/
@@ -47,6 +48,7 @@
 }
 .home-page .video-large-details h1 > a {
 	font-size: 24px;
+	color: #EEEEEE;
 }
 
 /*Getting rid of that awkward underlining in the title*/
@@ -61,18 +63,15 @@ h1 a:hover {
 
 
 /*
- *Navigation bar color tweaking
+ *Navigation bar tweaking
  */
-#navigation {
-	margin-top: 5px;
-}
 .nav-item {
 	position: relative;
 	z-index: 1337;
 	border: 1px solid transparent;
 }
 .nav-item a {
-	color: white;
+	color: #EEEEEE;
 	font-family: Georgia;
 	text-transform: uppercase;
 }
@@ -150,7 +149,7 @@ html, body {
 
 /*Fixing the hideous search bar D: */
 #search {
-	margin: 12px 20px 0px 0px;
+	margin: 18px 20px 0px 0px;
 	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
 }
 #search #search_field {
@@ -192,6 +191,9 @@ html, body {
 }
 .video-detail-header {
 	padding-left: 20px;
+}
+.precontent-header .title {
+	color: #EEEEEE;
 }
 
 /*Hide the social media thing...*/
@@ -327,6 +329,7 @@ html, body {
 #SiteTitle {
 	margin-top: 20px;
 	line-height: normal;
+	overflow: hidden;
 	top: 30px;
 }
 

@@ -1,0 +1,34 @@
+#list_container{
+  margin-top:15px;
+}
+ 
+#exp_list ul, li {
+    list-style: none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+}
+#exp_list p {
+    margin:0;
+    display:block;
+}
+#exp_list p:hover {
+    background-color:#121212;
+}
+#exp_list li {
+    line-height:140%;
+    text-indent:0px;
+    background-position: 1px 8px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+}
+ 
+/* Collapsed state for list element */
+#exp_list .collapsed {
+    background-image: url(../img/collapsed.png);
+}
+/* Expanded state for list element
+/* NOTE: This class must be located UNDER the collapsed one */
+#exp_list .expanded {
+    background-image: url(../img/expanded.png);
+}

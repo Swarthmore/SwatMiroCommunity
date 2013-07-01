@@ -1,0 +1,14 @@
+{% load swattags %}
+<div class="playlist_form">
+		{% if object.playlists.all|length < playlists|length %}
+			<form action="/playlists/add/{{ video.id }}" method="POST" class="playlists">{% csrf_token %}
+				<select name="playlist" class="playlist_select">
+					{% for playlist in playlists %}			
+						{% if playlist not in object.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
+					{% endfor %}
+				</select>
+				<input type="submit" value="Add to Playlist" class="playlist_submit"/>
+					
+			</form>
+		{% endif %}
+</div>

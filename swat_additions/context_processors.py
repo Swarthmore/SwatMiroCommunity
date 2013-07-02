@@ -23,6 +23,7 @@ def swatcontext(request):
             'authnextpage': settings.CAS_REDIRECT_URL,
             'disqus_sso': get_disqus_sso(request),
             'playlists': get_playlists(request),
+            'playlists_enabled': SiteSettings.objects.get_current().playlists_enabled,
     }
 
 def get_playlists(request):

@@ -82,16 +82,17 @@
 {% block main %}
 	
 	<!-- Show playlists the video is in -->
-	<p id="show-playlists">In these playlists: 
-		{% for playlist in playlists %}
-			<a href="/playlists/{{ playlist.id }}/{{ playlist }}">{{ playlist }}</a>
-		{% endfor %}
-	</p>
-	
-	<!-- Playlist addition form -->
-	{% with video=current_video %}
-		{% include "localtv/playlist_form.html" %}
-	{% endwith %}	
+	{% if playlists != None %}
+		<p id="show-playlists">In these playlists: 
+			{% for playlist in playlists %}
+				<a href="/playlists/{{ playlist.id }}">{{ playlist }}</a>
+			{% endfor %}
+		</p>	 
+		<!-- Playlist addition form -->
+		{% with video=current_video %}
+			{% include "localtv/playlist_form.html" %}
+		{% endwith %}
+	{% endif %}
 	
 	<div class="padded">
 		<section class="video-details">

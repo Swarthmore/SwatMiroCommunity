@@ -1,13 +1,26 @@
 {% load swattags %}
 <div class="playlist_form">
 		{% if object.playlists.all|length < playlists|length %}
-			<form action="/playlists/add/{{ video.id }}" method="POST" class="playlists">{% csrf_token %}
-				<select name="playlist" class="playlist_select">
+			<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
+				<select " name="playlist" class="playlist_select">
 					{% for playlist in playlists %}			
 						{% if playlist not in object.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
 					{% endfor %}
 				</select>
-				<input type="submit" value="Add to Playlist" class="playlist_submit"/>
+				<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
+				<script>
+					$('#add_to_playlist_{{video.id}}').click(function(){
+						console.log($('#playlist_form_{{video.id}}').serialize());
+						$.post("/playlists/add/{{video.id}}",$('#playlist_form_{{video.id}}').serialize(),function(data, textStatus, jqXHR){
+							console.log(textStatus);
+							if (textStatus === "success") {
+								document.location.reload();
+							}
+						});
+												
+					});
+				</script>
+
 					
 			</form>
 		{% endif %}

@@ -1,27 +1,29 @@
 {% load swattags %}
 <div class="playlist_form">
-		{% if object.playlists.all|length < playlists|length %}
-			<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
-				<select " name="playlist" class="playlist_select">
-					{% for playlist in playlists %}			
-						{% if playlist not in object.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>{% endif %}
-					{% endfor %}
-				</select>
-				<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
-				<script>
-					$('#add_to_playlist_{{video.id}}').click(function(){
-						console.log($('#playlist_form_{{video.id}}').serialize());
-						$.post("/playlists/add/{{video.id}}",$('#playlist_form_{{video.id}}').serialize(),function(data, textStatus, jqXHR){
-							console.log(textStatus);
-							if (textStatus === "success") {
-								document.location.reload();
-							}
-						});
-												
+		
+	<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
+		<select name="playlist" class="playlist_select">
+			<option value="-1">Select Playlist</option>
+			{% for playlist in playlists %}			
+				{% if playlist not in object.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>
+				{% else %}<option value="{{ playlist.pk }}" disabled="disabled">{{ playlist.name }}</option>{% endif %}
+			{% endfor %}
+		</select>
+		<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
+		<script>
+			$('#add_to_playlist_{{video.id}}').click(function(){
+				//console.log($('#playlist_form_{{video.id}}').serialize());
+				if ($('#playlist_form_{{video.id}}').val() != -1) {
+					$.post("/playlists/add/{{video.id}}",$('#playlist_form_{{video.id}}').serialize(),function(data, textStatus, jqXHR){
+						//console.log(textStatus);
+						if (textStatus === "success") {
+							document.location.reload();
+						}
 					});
-				</script>
+				}
+										
+			});
+		</script>				
+	</form>
 
-					
-			</form>
-		{% endif %}
 </div>

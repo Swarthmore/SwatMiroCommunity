@@ -47,9 +47,7 @@
 	<div class="pod new">
 		{% url 'localtv_feeds_new' as new_rss%}
 		<header class="pod-header">
-			<!-- Re-skin to emphasize "New Videos" -->
 			<h1 id="new-videos"><a href="{% url 'localtv_list_new' %}">{% trans "New Videos" %}</a></h1>
-			<h1 id="manage-playlists"><a href="/playlists/">{% trans "Manage Playlists" %}</a></h1>
 			<ul class="pod-actions">
 				<li><a href="{{ new_rss }}" class="rss" title="{% trans "RSS" %}"><i class="icon-16 icon-16-rss">{% trans "RSS" %}</i></a></li>
 				<li><a href="http://subscribe.getmiro.com/?url1=http%3A//{{ site_settings.site.domain|urlencode }}{{ new_rss|urlencode }}" class="miro-subscribe" title="{% trans "Subscribe with Miro" %}"><i class="icon-16 icon-16-miro">{% trans "Subscribe with Miro" %}</i></a></li>

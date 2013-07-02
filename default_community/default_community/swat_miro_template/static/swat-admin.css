@@ -72,16 +72,31 @@ html, body {
 	min-width: 0px;
 }
 
+.helpful { margin: 10px 0px; }
+
 /*Fixing these ridiculous tables*/
-#labels > form {
+#labels, #labels > form {
 	max-width: 100%;
+	background: transparent;
+	border: none;
+}
+#labels > form > table {
+	border: none;
+	background: transparent;
+}
+#labels > form > table thead * {
+	background-color: #631919;
+	vertical-align: center;
+}
+tr.grey {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
 }
 #labels > form > table, #labels > form > table thead, #labels > form > table tbody {
 	width: 100%;
 	max-width: 700px;
 	margin: 5px;
 }
-.only_show { width: auto; }
+.only_show { width: auto; float: left; }
 #labels > form > table tr > td:nth-child(1), #labels > form > table tr > th:nth-child(1) { width: 24px; text-align: center; }
 #labels > form > table tr > td:nth-child(2), #labels > form > table tr > th:nth-child(2) { width: auto; padding-left: 8px; overflow: hidden; }
 #labels > form > table tr > td:nth-child(3), #labels > form > table tr > th:nth-child(3) { padding-left: 8px; }
@@ -347,12 +362,16 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 .add, .add:hover, .reject_button, .reject_button:hover, .approve_button, .approve_button:hover, .plain_button, .plain_button:hover {
 	background: none;
 }
+
+.incomingvids .reject_button, .incomingvids .approve_button, .incomingvids .plain_button {
+	margin: 10px 0 25px 0px;
+}
+
 .add span, .add span:hover, .add:hover span, .approve_button span, .approve_button span:hover, .approve_button:hover span, .reject_button span, .reject_button span:hover, .reject_button:hover span, .plain_button span, .plain_button span:hover, .plain_button:hover span {
 	text-shadow: none;
 	padding: 8px 22px;
 	border-radius: 5px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: bold;
 }
 .add span, .add span:hover, .add:hover span {
 	background: #631919;
@@ -377,12 +396,14 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 }
 .user_profile .approve_button, .user_profile .plain_button, .notifications .approve_button { margin: 10px 0px 0px 0px; }
 
+
+/*Fixing the paginator*/
 .pag li a {
 	background: #641917;
 	border: none;
 	border-radius: 0px;
 	color: #EEEEEE;
-	font-family: "Helvetica Neue";
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 12px;
 	padding: 5px 10px;
 }
@@ -414,7 +435,6 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 	background: #dedede;
 	color: #ccc;
 }
-
 
 /*Footer*/
 #admin_footer {

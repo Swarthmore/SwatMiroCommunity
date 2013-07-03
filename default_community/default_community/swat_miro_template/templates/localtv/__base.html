@@ -1,11 +1,18 @@
 {% load uploadtemplate i18n daguerre compress %}
 {% load url from future %}
 
+<!-- CSS for dropdown menu styling -->
+<link rel="stylesheet" type="text/css" href="{% static 'localtv/front/stylesheets/fancy_header.css' %}" />
+
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Some scripts for styling the dropdown menu -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script src="{% static 'localtv/js/fancy_menu.js' %}"></script>
 
 <head>
 	<meta charset="utf-8">

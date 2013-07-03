@@ -1,28 +1,41 @@
+<!-- This form contains the dropdown menu and button used to add videos to playlists -->
+
+
+
 {% load swattags %}
 <div class="playlist_form">
+		<!-- Playlist dropdown menu. Imma add some sick CSS/JQuery styling. -->
+		<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
+			<select name="playlist" class="playlist_select">
+				<option value="-1" data-skip="1">Select Playlist</option>
+				{% for playlist in playlists %}			
+					{% if playlist not in object.playlists.all %}
+						<option value="{{ playlist.pk }}" data-html-text="{{ playlist.name }}">{{ playlist.name }}</option>
+					{% else %}
+						<option value="{{ playlist.pk }}" disabled="disabled">{{ playlist.name }}</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+	
+
 		
-	<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
-		<select name="playlist" class="playlist_select">
-			<option value="-1">Select Playlist</option>
-			{% for playlist in playlists %}			
-				{% if playlist not in object.playlists.all %}<option value="{{ playlist.pk }}">{{ playlist.name }}</option>
-				{% else %}<option value="{{ playlist.pk }}" disabled="disabled">{{ playlist.name }}</option>{% endif %}
-			{% endfor %}
-		</select>
+		<!-- Button (it's really an input, but it works like a button, so there) -->
 		<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
 		<script>
-			$('#add_to_playlist_{{video.id}}').click(function(){
-				//console.log($('#playlist_form_{{video.id}}').serialize());
-				if ($('#playlist_form_{{video.id}}').val() != -1) {
-					$.post("/playlists/add/{{video.id}}",$('#playlist_form_{{video.id}}').serialize(),function(data, textStatus, jqXHR){
-						//console.log(textStatus);
-						if (textStatus === "success") {
-							document.location.reload();
-						}
-					});
-				}
-										
-			});
+			// $('#add_to_playlist_{{video.id}}').click(function(){
+// 				//console.log($('#playlist_form_{{video.id}}').serialize());
+// 				if ($('#playlist_form_{{video.id}}').val() != -1) {
+// 					$.post("/playlists/add/{{video.id}}",
+// 					$('#playlist_form_{{video.id}}').serialize(),
+// 					function(data, textStatus, jqXHR){
+// 						//console.log(textStatus);
+// 						if (textStatus === "success") {
+// 							document.location.reload();
+// 						}
+// 					});
+// 				}
+// 										
+// 			});
 		</script>				
 	</form>
 

@@ -18,6 +18,9 @@
 				{% for module in browse_modules %}
 					{% include module %}
 				{% endfor %}
+				<section class="browse-box-section">
+					<h1><a href="{%url 'localtv_playlist_index' %}">{% trans "Playlists" %}</a></h1>
+				</section>
 			</div>
 		</li>
 	{% else %}

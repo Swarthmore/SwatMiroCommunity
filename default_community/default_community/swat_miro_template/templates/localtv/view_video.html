@@ -80,10 +80,15 @@
 {% endblock %}
 
 {% block main %}
-	<!-- Playlist addition form -->
-	{% with video=current_video %}
-		{% include "localtv/playlist_form.html" %}
-	{% endwith %}	
+	
+	{% if playlists != None %} 
+		<!-- Playlist addition form -->
+		{% with video=current_video %}
+			{% include "localtv/playlist_form.html" %}
+		{% endwith %}
+	{% endif %}
+
+
 	
 	<div class="padded">
 		<section class="video-details">
@@ -95,6 +100,15 @@
 							{% include "localtv/inline_edit/video_categories.html" %}
 						{% endwith %}
 					</div>{# /.video-full-categories #}
+				{% endif %}
+					
+					<!-- Show playlists the video is in -->
+				{% if current_video.playlists.count > 0 %}
+				<div class="compact"><h4>{% trans "In the playlists" %}:</h4>
+					{% for playlist in playlists %}
+						<a href="/playlists/{{ playlist.id }}">{{ playlist }}</a>
+					{% endfor %}
+				</div>
 				{% endif %}
 				{% if current_video.tags %}
 					<div class="video-full-tags compact">

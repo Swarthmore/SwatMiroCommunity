@@ -13,6 +13,7 @@
     {% endfilter %}
 ">
 
+	
     {% include "localtv/_grid/_item_figure.html" with image=image only %}
 	<div class="grid-item-content">
 		<header class='grid-item-header'>
@@ -23,7 +24,9 @@
 	</a>
 	
 	<!-- Playlist addition form -->
-	{% with video=object %}
-		{% include "localtv/playlist_form.html" %}
-	{% endwith %}
+	{% if playlists != None %}
+		{% with video=object %}
+			{% include "localtv/playlist_form.html" %}
+		{% endwith %}
+	{% endif %}
 

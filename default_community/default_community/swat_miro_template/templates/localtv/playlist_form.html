@@ -1,9 +1,10 @@
 <!-- This form contains the dropdown menu and button used to add videos to playlists -->
 
-
-
 {% load swattags %}
 <div class="playlist_form">
+		<!-- Button (it's really an input, but it works like a button, so there) -->
+		<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
+		
 		<!-- Playlist dropdown menu. Imma add some sick CSS/JQuery styling. -->
 		<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
 			<select name="playlist" class="playlist_select">
@@ -16,27 +17,71 @@
 					{% endif %}
 				{% endfor %}
 			</select>
-	
 
-		
-		<!-- Button (it's really an input, but it works like a button, so there) -->
-		<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
 		<script>
-			// $('#add_to_playlist_{{video.id}}').click(function(){
-// 				//console.log($('#playlist_form_{{video.id}}').serialize());
-// 				if ($('#playlist_form_{{video.id}}').val() != -1) {
-// 					$.post("/playlists/add/{{video.id}}",
-// 					$('#playlist_form_{{video.id}}').serialize(),
-// 					function(data, textStatus, jqXHR){
-// 						//console.log(textStatus);
-// 						if (textStatus === "success") {
-// 							document.location.reload();
-// 						}
-// 					});
-// 				}
-// 										
-// 			});
+			$('#add_to_playlist_{{video.id}}').click(function(){
+				//console.log($('#playlist_form_{{video.id}}').serialize());
+				if ($('#playlist_form_{{video.id}}').val() != -1) {
+					$.post("/playlists/add/{{video.id}}",
+					$('#playlist_form_{{video.id}}').serialize(),
+					function(data, textStatus, jqXHR){
+						//console.log(textStatus);
+						if (textStatus === "success") {
+							document.location.reload();
+						}
+					});
+				}
+										
+			});
 		</script>				
 	</form>
 
 </div>
+
+
+<!-- 
+{% load swattags %}
+<div class="playlist_form">
+		
+		<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
+		<ul class="nav nav-pills">
+		  <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				Select Playlist
+				<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				{% for playlist in playlists %}
+					{% if playlist not in object.playlists.all %}
+						<li><a tabindex="-1" href="#" class="value" list-style="none">{{ playlist.name }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		  </li>
+		</ul>
+
+</div>	
+ -->
+
+<!-- 
+		<div class="dropdown">
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+				{% for playlist in playlists %}
+					{% if playlist not in object.playlists.all %}
+						<li><a tabindex="-1" href="#" class="value">{{ playlist.name }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+ -->
+
+<!-- 
+		<select id="source">
+			<option selected="selected" value="" disabled="disabled">Select a Playlist</option>
+			{% for playlist in playlists %}
+				{% if playlist not in object.playlists.all %}
+					<option value="{{ playlist.pk }}">{{ playlist.name }}</option>
+				{% endif %}
+			{% endfor %}		
+		</select>
+ -->

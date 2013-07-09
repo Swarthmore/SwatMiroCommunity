@@ -2,7 +2,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, .grid-item .grid-item
 
 html { line-height: 1; }
 
-ol, ul { list-style: none; }
+ol, ul, { list-style: none; }
+
+/* Playlist form dropdown menu */       
+
 
 table { border-collapse: collapse; border-spacing: 0; }
 
@@ -242,7 +245,7 @@ form { margin-bottom: 18px; }
 
 .search-icon { background-image: url('/static/localtv/front/images/glyphicons_027_search.png?1345840025'); background-size: 16px 16px; background-position: center center; background-repeat: no-repeat; width: 16px; height: 16px; }
 
-ul, ol { padding-left: 1.5em; }
+/*ul, ol { padding-left: 1.5em; }*/
 
 ul > li { list-style-type: disc; }
 
@@ -469,7 +472,7 @@ ol > li { list-style-type: decimal; }
 
 .icon-base, .icon-16, .icon-32 { display: inline-block; vertical-align: top; line-height: 0; text-indent: -9999px; }
 
-.icon-16 { width: 16px; height: 16px; }
+.icon-16 { width: 16px; height: 16px; display: none;}
 
 .icon-32 { width: 32px; height: 32px; }
 
@@ -529,9 +532,10 @@ blockquote { border-left-color: #999999; }
 }
 
 input, textarea {   border-color: #cccccc;
-				    background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+				    background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
 					width: auto;
 					height: 29px;
+					width: 100%;
 					padding: 4.5px 9px;
 					color: #EEEEEE;
 					border-radius: 5px;

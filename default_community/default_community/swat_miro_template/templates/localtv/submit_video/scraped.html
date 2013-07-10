@@ -46,15 +46,7 @@
 		</div>{# /.col-three-quarters #}
 	</div>{# /.row-nested #}
 	{{ block.super }}
+	
+	<!-- Categories form -->
 	{{ form.categories}}
-<!--
-	<div class="control-group control-group-categories">
-		<label class="control-group control-group-categories" style="display: inline-block">Categories</label>
-		<div class="controls">
-		{% for category in categories %}
-			<input type="checkbox" name="form-0-categories" value="{{ category }}" style="width: 29px;">{{ category }}</br>
-		{% endfor %}
-		</div>
-    </div>
-//-->
 {% endblock %}

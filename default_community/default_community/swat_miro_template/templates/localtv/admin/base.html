@@ -33,6 +33,21 @@
           })();
         </script>
       {% endif %}
+      
+      <script>
+      $(document).ready(function(){
+      	$(".admin_nav_btn").toggle(
+      			function(){
+      				$("#admin_off_nav").css("left","0px");
+      				$("#wrapper").css("left","175px");
+      			},
+      			function(){
+      				$("#admin_off_nav").css("left","-175px");
+      				$("#wrapper").css("left","0px");
+      			}
+      	);
+      });
+      </script>
     <title>{% block title %}{% trans "Admin" %} – {{ site_settings.site.name }}{% endblock title %}</title>
     {% block extrahead %}
     {% endblock extrahead %}
@@ -65,12 +80,11 @@
               <span class="site_name">{{ site_settings.site.name }}</span>
             </a>
         </div><!-- // logo -->
-      	<a class="admin_nav_btn" id="admin_nav_open" href="#admin_off_nav">≡</a>
+      	<div class="admin_nav_btn">≡</div>
         </div><!-- // clear -->
       </div><!-- // header -->
       <div id="admin_off_nav">
       	{% block nav %}{% include "localtv/admin/new_header.html" %}{% endblock %}
-      	<a class="admin_nav_btn" id="admin_nav_close" href="#header">&lt;</a>
       </div><!-- // admin_off_nav -->
 	  <div id="wrapper">
       <div id="content">

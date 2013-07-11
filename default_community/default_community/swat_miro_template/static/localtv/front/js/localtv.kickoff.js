@@ -96,7 +96,16 @@
 	//$('body').on('mouseover.localtv.dropdown', '.nav-item-dropdown', function (e) {
 		//$(this).dropdown('show')
 	//});
-	$('body').on('click.localtv.dropdown', '.nav-item-dropdown', function (e) {
+	$('html').click(function() {
+		$('.nav-item-dropdown').dropdown('hide');
+		$('.nav-item-dropdown > a').css('color', 'white');
+	});
+	$('.nav-item-dropdown').click(function() {
+		$('.nav-item-dropdown').dropdown('hide');
+		$('.nav-item-dropdown > a').css('color', 'white');
+	});
+	$('body').on('click.localtv.dropdown', '.nav-item-dropdown', function (event) {
+		event.stopPropagation();
 		if($(this).hasClass('open')){
 			$(this).dropdown('hide');
 			$('a', this).css('color', 'white');

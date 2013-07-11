@@ -2,7 +2,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, .grid-item .grid-item
 
 html { line-height: 1; }
 
-ol, ul { list-style: none; }
+ol, ul, { list-style: none; }
+
+/* Playlist form dropdown menu */       
+
 
 table { border-collapse: collapse; border-spacing: 0; }
 
@@ -230,7 +233,7 @@ form { margin-bottom: 18px; }
 .grid-item { float: left; padding-left: 40px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; }
 .grid-item > a { display: block; }
 .grid-item > a:hover { border: 0; }
-.grid-item .grid-item-link { padding-bottom: 0; overflow: hidden; margin-bottom: 9px; display: block; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; height: 280px;}
+.grid-item .grid-item-link { padding-bottom: 0; overflow: hidden; margin-bottom: 9px; display: block; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; height: 300px;}
 .grid-item .grid-item-link:hover { background: rgba(150, 150, 150, 0.25); border: 0; }
 .grid-item .grid-item-header, .grid-item .grid-item-figure { margin-bottom: 9px; }
 .grid-item .grid-item-figure { overflow: hidden; border: 4px solid black; background: black; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
@@ -242,7 +245,7 @@ form { margin-bottom: 18px; }
 
 .search-icon { background-image: url('/static/localtv/front/images/glyphicons_027_search.png?1345840025'); background-size: 16px 16px; background-position: center center; background-repeat: no-repeat; width: 16px; height: 16px; }
 
-ul, ol { padding-left: 1.5em; }
+/*ul, ol { padding-left: 1.5em; }*/
 
 ul > li { list-style-type: disc; }
 
@@ -469,7 +472,7 @@ ol > li { list-style-type: decimal; }
 
 .icon-base, .icon-16, .icon-32 { display: inline-block; vertical-align: top; line-height: 0; text-indent: -9999px; }
 
-.icon-16 { width: 16px; height: 16px; }
+.icon-16 { width: 16px; height: 16px; display: none;}
 
 .icon-32 { width: 32px; height: 32px; }
 
@@ -524,7 +527,20 @@ blockquote { border-left-color: #999999; }
 
 .popover.right .arrow, .popover.precontent-details .arrow, .popover.video-large-details .arrow { margin-top: -4px; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 0; border-right: 8px solid #cccccc; }
 
-input, textarea { border-color: #cccccc; background: white; }
+.playlist_select {
+	
+}
+
+input, textarea {   border-color: #cccccc;
+				    background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+					width: auto;
+					height: 29px;
+					width: 100%;
+					padding: 4.5px 9px;
+					color: #EEEEEE;
+					border-radius: 5px;
+					border-color: #a2a2a2;
+}
 input:focus, textarea:focus { border-color: #344f6d; -webkit-box-shadow: 0 0 6px 0 rgba(52, 79, 109, 0.35), 1px 1px 3px 0 rgba(0, 0, 0, 0.15) inset; -moz-box-shadow: 0 0 6px 0 rgba(52, 79, 109, 0.35), 1px 1px 3px 0 rgba(0, 0, 0, 0.15) inset; box-shadow: 0 0 6px 0 rgba(52, 79, 109, 0.35), 1px 1px 3px 0 rgba(0, 0, 0, 0.15) inset; }
 
 .pagetabs .ellipse span { color: #777777; border-color: #c4c4c4; }

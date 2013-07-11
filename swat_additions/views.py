@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from localtv import models
 from django.conf import settings
+from tagging.utils import parse_tag_input
 
 class CatSubmitURLView(SubmitURLView):
 	form_class = forms.CatSubmitURLForm
@@ -22,10 +23,10 @@ class CatSubmitVideoView(SubmitVideoView):
 	categories_list = []
 	
 	def get(self, request, *args, **kwargs):
+		print "self.form_class",self.form_class
 		# Pulls in categories from request, and splits
 		if "categories" in request.GET:
 			temp_categories = request.GET["categories"].split('/')
-			
 			allCats = models.Category.objects.filter(site=settings.SITE_ID)
 			self.categories_list = []
 			for thisCat in allCats:
@@ -35,16 +36,14 @@ class CatSubmitVideoView(SubmitVideoView):
 			# for category in self.categories_list:
 			#	print 'Category:',category
 		return super(CatSubmitVideoView, self).get(request, *args, **kwargs)
-		
+	
 	
 	def get_initial(self):
 		# Checks checkboxes
 		initial = super(CatSubmitVideoView, self).get_initial()
 		#print ("INITIAL?", request.GET)
 		#print "CATEGORIES", self.categories_list
-		initial.update({
-        	'categories': self.categories_list,
-        })
+		initial.update({'categories': self.categories_list})
 		return initial
 """
 	def get_form(self, form_class):

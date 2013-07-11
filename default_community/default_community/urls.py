@@ -44,7 +44,7 @@ urlpatterns += (
             thanks_url_name='localtv_submit_thanks',
             form_class=CatScrapedSubmitVideoForm,
             template_name='localtv/submit_video/scraped.html',
-            form_fields=('tags', 'contact', 'notes'),
+            form_fields=('tags', 'categories', 'contact', 'notes'),
         )),
         name='localtv_submit_scraped_video'),
     url(r'^submit_video/embed/$', can_submit_video(SubmitVideoView.as_view(
@@ -67,7 +67,7 @@ urlpatterns += (
         name='localtv_submit_directlink_video'),
     )
 )
-   
+
 urlpatterns += (
     patterns('',
         url(r'^', include('localtv.contrib.contests.urls')),

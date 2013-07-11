@@ -25,8 +25,8 @@ if settings.AUTH_METHOD == 'both':
     # Seems like I add SSO login options here
     urlpatterns += (
         patterns('',
-            url(r'^cas/login/$', 'django_cas.views.login'),
-            url(r'^cas/logout/$', 'django_cas.views.logout'),
+            url(r'^cas/login/$', 'django_cas.views.login', name="cas_login_url"),
+            url(r'^cas/logout/$', 'django_cas.views.logout', name="cas_logout_url"),
         )
     ) 
 

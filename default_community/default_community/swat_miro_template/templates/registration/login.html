@@ -39,7 +39,7 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 		<ul class="tabs">
 			<li class="active"><a href="#login">{% trans "Login" %}/{% trans "Sign Up" %}</a></li>
 			{% if authmethod == "both" %}
-				<li><a href="/cas/login/?next={{ authnextpage }}">Swarthmore Login</a></li>
+				<li><a href="{% url cas_login_url %}?next={% url localtv_index %}">Swarthmore Login</a></li>
 			{% endif %}
 			
 			<li><a href="#facebook">Facebook</a></li>

@@ -4,32 +4,28 @@ from localtv import models
 from localtv.models import Video
 from django.conf import settings
 
+#class CategoriesField(forms.Form):
+	
+
 def categoriesField():
 	# Defines a categories field for SubmitVideoFormBase
 	# Possible error
-	print '\ncategoriesField'
 	allCats = models.Category.objects.filter(site=settings.SITE_ID)
-	print 'allCats',allCats
 	CAT_CHOICES = []
 	for thisCat in allCats:
-		print 'thisCat',thisCat
 		CAT_CHOICES.append((thisCat.id,thisCat.name))
-	print 'CAT_CHOICES',CAT_CHOICES
-	print 'returned',forms.MultipleChoiceField(choices=CAT_CHOICES, widget=forms.CheckboxSelectMultiple()),'\n'
-	return forms.MultipleChoiceField(required=False, choices=CAT_CHOICES, widget=forms.CheckboxSelectMultiple())
+	return forms.MultipleChoiceField(required=False, choices=CAT_CHOICES, widget=forms.CheckboxSelectMultiple(), label="Video Categories")
 
 class CatSubmitURLForm(SubmitURLForm):
 	"""Accepts submission of a URL with categories."""
 	# This class is being created
-	# print "CatSubmitURLForm(SubmitURLForm)" widget=forms.HiddenInput()
-	categories = forms.CharField()
+	# print "CatSubmitURLForm(SubmitURLForm)" 
+	categories = forms.CharField(widget=forms.HiddenInput())
 
 class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
-	print "\nHELLO!"
 	categories = categoriesField()
-	print '\ncategories',categories
+	print 'categories',categories
 	def save(self, commit=True):
-		print "SAVING VIDEO"
 		instance = super(SubmitVideoFormBase, self).save(commit=False)
 		
 		# Checks for admin settings
@@ -47,7 +43,7 @@ class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
 		old_m2m = self.save_m2m
 	
 		def save_m2m():
-			print "save_m2m"
+			print "self.cleaned_data",self.cleaned_data
 		# Saves the categories and tags for display on video viewing page
 			if self.cleaned_data.get('tags'):		
 				instance.tags = self.cleaned_data['tags']

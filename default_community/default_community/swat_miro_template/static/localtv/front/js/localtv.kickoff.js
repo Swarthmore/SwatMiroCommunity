@@ -98,17 +98,17 @@
 	//});
 	$('html').click(function() {
 		$('.nav-item-dropdown').dropdown('hide');
-		$('.nav-item-dropdown > a').css('color', 'white');
+		$('.nav-item-dropdown > a').css('color', '#EEEEEE');
 	});
 	$('.nav-item-dropdown').click(function() {
 		$('.nav-item-dropdown').dropdown('hide');
-		$('.nav-item-dropdown > a').css('color', 'white');
+		$('.nav-item-dropdown > a').css('color', '#EEEEEE');
 	});
 	$('body').on('click.localtv.dropdown', '.nav-item-dropdown', function (event) {
 		event.stopPropagation();
 		if($(this).hasClass('open')){
 			$(this).dropdown('hide');
-			$('a', this).css('color', 'white');
+			$('a', this).css('color', '#EEEEEE');
 		}
 		else{
 			$(this).dropdown('show');

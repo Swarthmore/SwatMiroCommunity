@@ -53,6 +53,7 @@
 	text-shadow: none;
 	background: none;
 }
+#header #user_panel a:active { top: 0px; }
 
 body, #wrapper {
 	width: auto;
@@ -135,7 +136,6 @@ tr.grey {
 /*Fixing up them buttons*/
 .edit_feed .reject_button, .edit_feed .approve_button { margin: 0px; }
 .playlists #labels > form > button { top: -50px; }
-.playlists .editable > .simple_overlay > form > button > span, .editable .input_field .done span { padding: 8px 0px 8px 35px !important; margin-top: -2px; }
 
 #content h2, .add { min-width: 0px; margin-top: 10px; margin-bottom: 10px; }
 #content h2 { line-height: 30px; }
@@ -363,10 +363,6 @@ body#tier.account ul#new_admin_nav li#admin_account a:active, body#admin.admin_d
 #admin_rightpane ul.meta_listing li.item { max-height: 140px; overflow: hidden; }
 }
 
-/*Fixing the stupid overlay... The Miro people seemed to forget that z-index requires absolute positioning =___= */
-.incomingvids > div:last-child { z-index: -1 !important; }
-
-
 /*All of the tabs in the admin submenus*/
 #admin_subnav {
 	z-index: 0;
@@ -406,6 +402,7 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 .plain_button span { color: #EEEEEE; }
 .add, .add:hover, .reject_button, .reject_button:hover, .approve_button, .approve_button:hover, .plain_button, .plain_button:hover {
 	background: none;
+	color: #EEEEEE;
 	padding: 0px;
 }
 
@@ -441,7 +438,9 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 	margin: 10px 0px 0px 0px;
 }
 .user_profile .approve_button, .user_profile .plain_button, .notifications .approve_button { margin: 15px 10px 0px 0px; }
-
+.edit_feed .approve_button {
+	margin-right: 10px;
+}
 
 /*Fixing the paginator*/
 .pag { padding: 0px 0px 15px 0px; }
@@ -485,7 +484,7 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 
 /*Fixing the dropdowns and stuff*/
 .bulkedit_controls { padding: 0px; width: auto; }
-#admin.bulkedit .search_sources select.behave, form.search_sources select.behave, .search_sources select.behave, form.search_sources select[name=category] { margin: 0px 5px 5px 0px; }
+#admin.bulkedit .search_sources select.behave, form.search_sources select.behave, .search_sources select.behave, form.search_sources select[name=category] { margin: 0px 10px 5px 0px; }
 form.search_sources .small_field { margin: 0px; }
 #labels .only_show { padding: 0px !important; }
 .only_show * { height: auto; line-height: 22px; }
@@ -493,8 +492,99 @@ form.search_sources .small_field { margin: 0px; }
 /*Fixing the overlays*/
 .simple_overlay {
 	left: 50% !important;
-	margin-left: -300px !important;
+	margin-left: -320px !important;
 }
+.editable .simple_overlay h2 {
+	line-height: normal !important;
+	margin-top: 0px !important;
+}
+.editable .simple_overlay .input_field .done, .editable .simple_overlay .input_field .done:hover {
+	background: none;
+	padding: 0px;
+}
+.editable .simple_overlay .input_field .done span, .editable .simple_overlay .input_field .done span:hover {
+	background: #0E3A3C;
+	padding: 8px 22px;
+	border-radius: 5px;
+	text-shadow: none;
+	color: #EEEEEE;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+.editable .simple_overlay .input_field .done span:hover { color: #5c86a0 }
+
+.simple_overlay .input_field ul li label:first-child, .simple_overlay .input_field ul li label {
+	width: auto;
+	margin-right: 15px;
+}
+.simple_overlay .input_field ul li input[type=text], .simple_overlay .input_field ul li textarea {
+	width: 96%;
+}
+.incomingvids .editable .simple_overlay .input_field {
+	width: 100%;
+}
+.incomingvids .simple_overlay .input_field ul li input[type=text], .incomingvids .simple_overlay .input_field ul li textarea {
+	width: 96%;
+	direction: ltr;
+}
+.incomingvids .simple_overlay form[action="/admin/edit_attributes/video/105/categories/"] .scrollable input[name="categories"] {
+	width: 20px;
+}
+.simple_overlay span.form_help {
+	padding: 0px;
+}
+.simple_overlay .input_field ul li.scrollable.right, .simple_overlay .input_field ul li.scrollable {
+	border: none;
+	width: 45% !important;
+	display: block;
+}
+
+/*THIS IS RIDICULOUS. TEXT DIRECTION RIGHT TO LEFT WITH ALL OF THE OVERLAP. Z-INDEX WUT. MIRO WHYYYYYY*/
+.simple_overlay .thumbnail_changer {
+	width: auto !important;
+	padding-top: 10px !important;
+}
+.simple_overlay .thumbnail_changer .thumbnail {
+	float: none !important;
+	margin: 0px auto;
+}
+.simple_overlay .thumbnail_changer .form {
+	width: 100% !important;
+	padding: 0px !important;
+	margin: 10px 0px 0px !important;
+}
+.simple_overlay .thumbnail_changer .form p {
+	height: auto !important;
+	width: 100% !important;
+	margin: 0px !important;
+}
+.simple_overlay .thumbnail_changer .form p label {
+	width: auto !important;
+	margin-right: 10px;
+	line-height: normal !important;
+}
+.simple_overlay .thumbnail_changer .form p label:first-child {
+	width: 100% !important;
+}
+.simple_overlay .thumbnail_changer .form * {
+	direction: ltr;
+	display: block !important;
+}
+.simple_overlay .thumbnail_changer .form  p:first-child a {
+	display: inline-block;
+}
+.simple_overlay .thumbnail_changer .form  p:first-child input:nth-child(3), .simple_overlay .thumbnail_changer .form  p:first-child label:nth-child(4) {
+	display: inline !important;
+	float: none;
+}
+.simple_overlay .thumbnail_changer .form p:nth-child(2) input {
+	width: 98.5%;
+}
+.simple_overlay .thumbnail_changer .form  p:first-child a, .simple_overlay .thumbnail_changer .form  p:first-child input:nth-child(3), .simple_overlay .thumbnail_changer .form  p:first-child #id_thumbnail {
+	margin-bottom: 10px;
+}
+
+
 
 /*Footer*/
 #admin_footer {
@@ -641,6 +731,24 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 }
 #admin_subnav li a:hover {
 	background: #744947;
+}
+
+.simple_overlay {
+	right: 6.75% !important;
+	left: 6.75% !important;
+	top: -10px !important;
+	width: auto !important;
+	margin: 0px !important;
+}
+.incomingvids .simple_overlay {
+	top: 83.3px !important;
+}
+
+.simple_overlay form.input_field {
+	width: 100%;
+}
+.editable .simple_overlay .input_field ul li input, .editable .simple_overlay .input_field ul li textarea {
+	width: 96%;
 }
 
 }

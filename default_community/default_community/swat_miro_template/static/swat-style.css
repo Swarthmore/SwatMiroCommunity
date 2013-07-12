@@ -293,30 +293,28 @@ form[action="/submit_video/scraped/"] > ul > li > label > input { vertical-align
 }
 
 /*Add to Playlist stuff! :D*/
-.video-detail .playlists {
+.playlists {
+	display: inline-block;
 	width: auto;
-	text-align: center;
-	padding: 18px 20px 0px 20px;
 	margin: 0px auto;
 }
+.playlist_form {
+	margin: 15px 0px 0px 20px;
+}
 .playlist_select {
-	min-width: 80px;
 	width: auto;
-	margin-right: 20px;
-	display: inline-block;
+	margin-right: 15px;
 }
 .playlist_submit {
+	font-size: 12px;
 	width: auto;
-	height: 29px;
-	padding: 4.5px 9px;
+	height: 24px;
+	padding: 0px 9px;
 	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
 	color: #EEEEEE;
 	display: inline-block;
 	border-radius: 5px;
 	border-color: #a2a2a2;
-}
-.playlist_submit:hover {
-	color: #5C86A0;
 }
 .playlist-videos .playlist-description {
 	display: none;
@@ -358,6 +356,9 @@ button:hover, .button-wide:hover {
 	width: 100%;
 }
 
+/*Resizing the grid items for consistency with the playlist button*/
+.grid-item .grid-item-link { height: 308.234375px; }
+
 
 /*
  *
@@ -390,7 +391,6 @@ button:hover, .button-wide:hover {
  */
  
 /*Resizing font to make it more readable*/
-@media screen and (min-width: 741px) and (max-width: 1020px) { .grid-1 .grid-item .grid-item-header > h1, .grid-4 .grid-item .grid-item-header > h1 { font-size: 12px; line-height: 20px; } }
 @media screen and (min-width: 401px) and (max-width: 520px) { .grid-item .grid-item-header > h1 { font-size: 12px; line-height: 20px; } }
 @media screen and (max-width: 400px) { .nav-item a { font-size: 12px; } . }
 

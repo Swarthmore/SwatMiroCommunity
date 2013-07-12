@@ -111,7 +111,7 @@
 					
 					<!-- Show playlists the video is in -->
 				{% if current_video.playlists.count > 0 %}
-				<div class="compact"><h4>{% trans "In the playlists" %}:</h4>
+				<div class="compact"><h4>{% trans "Playlists" %}:</h4>
 					{% for playlist in playlists %}
 						<a href="/playlists/{{ playlist.id }}">{{ playlist }}</a>
 					{% endfor %}

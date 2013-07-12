@@ -2,9 +2,6 @@
 
 {% load swattags %}
 <div class="playlist_form">
-		<!-- Button (it's really an input, but it works like a button, so there) -->
-		<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
-		
 		<!-- Playlist dropdown menu. Imma add some sick CSS/JQuery styling. -->
 		<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
 			<select name="playlist" class="playlist_select">
@@ -35,7 +32,8 @@
 			});
 		</script>				
 	</form>
-
+	<!-- Button (it's really an input, but it works like a button, so there) -->
+	<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>
 </div>
 
 

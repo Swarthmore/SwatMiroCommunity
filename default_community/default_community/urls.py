@@ -25,8 +25,8 @@ if settings.AUTH_METHOD == 'both':
     # Seems like I add SSO login options here
     urlpatterns += (
         patterns('',
-            url(r'^cas/login/$', 'django_cas.views.login'),
-            url(r'^cas/logout/$', 'django_cas.views.logout'),
+            url(r'^cas/login/$', 'django_cas.views.login', name="cas_login_url"),
+            url(r'^cas/logout/$', 'django_cas.views.logout', name="cas_logout_url"),
         )
     ) 
 
@@ -44,7 +44,7 @@ urlpatterns += (
             thanks_url_name='localtv_submit_thanks',
             form_class=CatScrapedSubmitVideoForm,
             template_name='localtv/submit_video/scraped.html',
-            form_fields=('tags', 'contact', 'notes'),
+            form_fields=('tags', 'categories', 'contact', 'notes'),
         )),
         name='localtv_submit_scraped_video'),
     url(r'^submit_video/embed/$', can_submit_video(SubmitVideoView.as_view(
@@ -67,7 +67,7 @@ urlpatterns += (
         name='localtv_submit_directlink_video'),
     )
 )
-   
+
 urlpatterns += (
     patterns('',
         url(r'^', include('localtv.contrib.contests.urls')),

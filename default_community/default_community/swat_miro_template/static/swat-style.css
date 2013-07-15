@@ -262,10 +262,11 @@ form[action="/submit_video/scraped/"] > ul > li > label { line-height: 29px; }
 form[action="/submit_video/scraped/"] > ul > li > label > input { vertical-align: bottom; width: 29px; }
 .control-group-tags { margin-top: 20px; }
 .control-group > label { line-height: 29px; margin-right: 20px; vertical-align: top; }
-.control-group > .controls { display: inline-block; margin-left: 0px; width: 80%; }
+.control-group > .controls { display: inline-block; margin-left: 0px; width: 60%; }
 .controls > input { width: 100%; }
 
 /*Login page fixes*/
+.login-page .page-content { border: 1px solid #dfdfdf; }
 .login-page form .controls { display: block; width: 100%; }
 .login-page .tabs {
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;

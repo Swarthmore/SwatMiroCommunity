@@ -1,19 +1,17 @@
 from django import forms
+from django.db import models
 from localtv.submit_video.forms import SubmitURLForm, ScrapedSubmitVideoForm, SubmitVideoFormBase
 from localtv import models
 from localtv.models import Video
 from django.conf import settings
 
-#class CategoriesField(forms.Form):
-	
 
 def categoriesField():
 	# Defines a categories field for SubmitVideoFormBase
 	# Possible error
 	allCats = models.Category.objects.filter(site=settings.SITE_ID)
-	CAT_CHOICES = []
-	for thisCat in allCats:
-		CAT_CHOICES.append((thisCat.id,thisCat.name))
+	CAT_CHOICES = [(thisCat.id,thisCat.name) for thisCat in allCats] # LIST COMPREHENSIONS! :D
+	
 	return forms.MultipleChoiceField(required=False, choices=CAT_CHOICES, widget=forms.CheckboxSelectMultiple(), label="Video Categories")
 
 class CatSubmitURLForm(SubmitURLForm):
@@ -24,7 +22,6 @@ class CatSubmitURLForm(SubmitURLForm):
 
 class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
 	categories = categoriesField()
-	print 'categories',categories
 	def save(self, commit=True):
 		instance = super(SubmitVideoFormBase, self).save(commit=False)
 		
@@ -44,12 +41,13 @@ class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
 	
 		def save_m2m():
 			print "self.cleaned_data",self.cleaned_data
-		# Saves the categories and tags for display on video viewing page
-			if self.cleaned_data.get('tags'):		
-				instance.tags = self.cleaned_data['tags']
-				
+			
+			# Saves the categories for display on video viewing page		
 			if self.cleaned_data.get('categories'):
 				instance.categories = self.cleaned_data['categories']
+				print 'type(instance.categories):',instance.categories
+				
+				# More legwork for saving categories here
 				
 			old_m2m()
 		print 'commit',commit

@@ -308,7 +308,6 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 }
 .playlist_select {
 	width: auto;
-	margin-right: 15px;
 }
 .playlist_submit {
 	font-size: 12px;
@@ -323,6 +322,18 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 }
 .playlist-videos .playlist-description {
 	display: none;
+}
+.grid-item .playlist_form {
+	margin: 0px;
+	text-align: center;
+}
+.grid-item .playlists, .grid-item .playlist_submit {
+	margin: 0px auto;
+	display: block;
+}
+.grid-item .playlist_select {
+	display: inline-block;
+	margin: 0px auto 5px;
 }
 
 /*Beautiful buttons! :) */
@@ -362,8 +373,14 @@ button:hover, .button-wide:hover {
 }
 
 /*Resizing the grid items for consistency with the playlist button*/
-.grid-item .grid-item-link { height: 308.234375px; }
-
+.grid-3 .grid-item .grid-item-header > h1 { max-height: 81px; overflow: hidden; }
+.grid-3 .grid-item .grid-item-link { height: 255px; }
+@media screen and (max-width: 960px) {
+.grid-1 .grid-item .grid-item-link, .grid-3 .grid-item .grid-item-link, .grid-4 .grid-item .grid-item-link { height: 27.27%; }
+}
+@media screen and (max-width: 740px) {
+.grid-1 .grid-item .grid-item-header > h1, .grid-3 .grid-item .grid-item-header > h1, .grid-4 .grid-item .grid-item-header > h1 { max-height: 54px; overflow: hidden; }
+}
 
 /*
  *
@@ -395,14 +412,7 @@ button:hover, .button-wide:hover {
  */
  
 /*Resizing font to make it more readable*/
-@media screen and (min-width: 401px) and (max-width: 520px) { .grid-item .grid-item-header > h1 { font-size: 12px; line-height: 20px; } }
 @media screen and (max-width: 400px) { .nav-item a { font-size: 12px; } . }
-
-/*Shrink grid a bit before tablet mode*/
-@media screen and (max-width: 1020px) and (min-width: 741px) {
-	.home-page .grid-3 > li { width: 50%; float: left; }
-	.home-page .grid > li:nth-child(even) { clear: right; padding-left: 20px;}
-	.home-page .grid > li:nth-child(odd) { clear: left; padding-left: 20px; } }
 
 /*"More Videos" move early*/
 @media screen and (max-width: 940px) and (min-width: 741px) { .video-detail .col-one-quarter { display: block; width: 100%; } .video-detail .col-three-quarters { width: 100%; } .video-detail .grid-1 .grid-item { width: 50%; display: inline-block; } .video-detail .grid-1 > li:nth-child(even) { float: right; } .video-detail .grid-1 > li:nth-child(odd) { float: left; } }

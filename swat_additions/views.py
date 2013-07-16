@@ -45,6 +45,7 @@ class CatSubmitVideoView(SubmitVideoView):
 		#print "CATEGORIES", self.categories_list
 		initial.update({'categories': self.categories_list})
 		return initial
+		
 """
 	def get_form(self, form_class):
 		# Initialize the form with initial category values 

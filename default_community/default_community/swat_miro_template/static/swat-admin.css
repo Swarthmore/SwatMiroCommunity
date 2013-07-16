@@ -53,6 +53,7 @@
 	text-shadow: none;
 	background: none;
 }
+#header #user_panel a:active { top: 0px; }
 
 body, #wrapper {
 	width: auto;
@@ -76,6 +77,7 @@ html, body {
 
 /*Fixing these ridiculous tables*/
 #labels, #labels > form {
+	clear: left;
 	max-width: 100%;
 	background: transparent;
 	border: none;
@@ -86,7 +88,6 @@ html, body {
 }
 #labels > form > table thead * {
 	background-color: #631919;
-	vertical-align: center;
 }
 tr.grey {
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
@@ -97,19 +98,26 @@ tr.grey {
 	margin: 5px;
 }
 .only_show { width: auto; float: left; }
+#labels > form > table tr > th { vertical-align: middle; }
+.playlists #labels > form > table tr > th:nth-child(6), .managesources #labels > form > table tr > th:nth-child(4), .managesources #labels > form > table tr > th:nth-child(7), .bulkedit #labels > form > table tr > th:nth-child(5), .bulkedit #labels > form > table tr > th:nth-child(6) { background-position: 0px 5px; line-height: normal; padding: 2px 0px 2px 8px; }
 #labels > form > table tr > td:nth-child(1), #labels > form > table tr > th:nth-child(1) { width: 24px; text-align: center; }
 #labels > form > table tr > td:nth-child(2), #labels > form > table tr > th:nth-child(2) { width: auto; padding-left: 8px; overflow: hidden; }
 #labels > form > table tr > td:nth-child(3), #labels > form > table tr > th:nth-child(3) { padding-left: 8px; }
 #labels > form > table tr > td:nth-child(4), #labels > form > table tr > th:nth-child(4) { width: auto; padding-left: 8px; overflow: hidden; }
 #labels > form > table tr > td:nth-child(5), #labels > form > table tr > th:nth-child(5) { width: auto; padding-left: 8px; padding-right: 8px; text-align: center; }
 #labels > form > table tr > td:nth-child(6), #labels > form > table tr > th:nth-child(6) { width: auto; text-align: center; }
+#labels th a.sortdown { background-position: 0-34px; }
 .category_admin #labels > form > table tr > td:nth-child(2), .category_admin #labels > form > table tr > th:nth-child(2) { width: 90px; }
 .category_admin #labels > form > table tr > td:nth-child(4), .category_admin #labels > form > table tr > th:nth-child(4) { width: 80px; }
 .category_admin #labels > form > table tr > td:nth-child(5), .category_admin #labels > form > table tr > th:nth-child(5) { width: 30px; }
 .category_admin #labels > form > table tr > td:nth-child(6), .category_admin #labels > form > table tr > th:nth-child(6) { width: 90px; }
 .bulkedit #labels > form > table tr > td:nth-child(5), .bulkedit #labels > form > table tr > th:nth-child(5) { width: 90px; }
+.bulkedit #labels > form > table tr > td:nth-child(6), .bulkedit #labels > form > table tr > th:nth-child(6) { padding-right: 8px; }
 .managesources #labels > form > table tr > td:nth-child(7), .managesources #labels > form > table tr > th:nth-child(7) { text-align: center; }
+.playlists #labels > form > table tr > th:nth-child(6) { padding: 2px 0px; }
+.playlists #labels > form > table tr > td:nth-child(2), .playlists #labels > form > table tr > th:nth-child(2) { padding-right: 8px; width: 105px; }
 .playlists #labels > form > table tr > td:nth-child(5), .playlists #labels > form > table tr > th:nth-child(5) { text-align: left; }
+.playlists #labels > form > table tr > td:nth-child(6), .playlists #labels > form > table tr > th:nth-child(6) { padding-right: 8px; }
 .flatpages #labels > form > table tr > td:nth-child(2), .flatpages #labels > form > table tr > th:nth-child(2) { overflow: visible; word-wrap: break-word; }
 .flatpages #labels > form > table tr > td:nth-child(3), .flatpages #labels > form > table tr > th:nth-child(3) { padding-right: 8px;  overflow: visible; word-wrap: break-word; }
 
@@ -120,17 +128,53 @@ tr.grey {
 .edit_feed .input_field ul li input[type=text] { width: 82%; }
 .edit_feed .input_field ul li.scrollable { width: 50%; }
 .edit_feed .input_field > ul > li:last-child > label:first-child { line-height: 31px; margin: 3px 20px 20px 0px; }
+.user_profile form[action="/accounts/profile/"] { width: 100%; }
+.user_profile .input_field ul li input[type=text], .user_profile .input_field ul li textarea { display: inline-block; margin: 0px 20px 0px 0px; width: 96%; }
+.user_profile span.form_help { padding-left: 0px; }
+
 
 /*Fixing up them buttons*/
 .edit_feed .reject_button, .edit_feed .approve_button { margin: 0px; }
 .playlists #labels > form > button { top: -50px; }
-.playlists .editable > .simple_overlay > form > button > span, .editable .input_field .done span { padding: 8px 0px 8px 35px !important; margin-top: -2px; }
 
-#content h2, .add { min-width: 0px; margin-top: 10px; }
+#content h2, .add { min-width: 0px; margin-top: 10px; margin-bottom: 10px; }
+#content h2 { line-height: 30px; }
+.incomingvids #content h2 { line-height: normal; }
+
+/*Fixing settings*/
+.settings .input_field > ul > li:nth-child(15) > label:first-child, .settings .input_field > ul > li:nth-child(10) > label:first-child, .settings .input_field > ul > li:nth-child(11) > label:first-child, .settings .input_field > ul > li:nth-child(12) > label:first-child, .settings .input_field > ul > li:nth-child(13) > label:first-child, .settings .input_field > ul > li:nth-child(14) > label:first-child {
+	display: none;
+}
+
+.settings .input_field > ul > li:nth-child(12) {
+	margin-bottom: 8px;
+}
+
+.settings .input_field > ul > li:nth-child(13) > span.form_help, .settings .input_field > ul > li:nth-child(14) > span.form_help, .settings .input_field > ul > li:nth-child(15) > span.form_help { padding: 0px; }
+
+.settings .input_field > ul > li:nth-child(13) > input, .settings .input_field > ul > li:nth-child(14) > input, .settings .input_field > ul > li:nth-child(15) > input { float: left; margin-top: 0px; }
+
+.settings .input_field > ul > li > input[type=text], .settings .input_field > ul > li > textarea {
+	display: inline-block;
+	margin: 0px;
+	width: 350px;
+}
+@media screen and (max-width: 740px) {
+.settings .input_field > ul > li > input[type=text], .settings .input_field > ul > li > textarea {
+	width: 96%;
+}
+.settings .input_field > ul > li > span.form_help { padding: 0px; }
+}
+
+.settings .input_field > ul > li > textarea {
+	margin-bottom: 10px;
+}
 
 body.admin_dash #content, #content {
 	max-width: 765px;
 	width: calc(100% - 242px);
+	width: -webkit-calc(100% - 242px);
+	width: -moz-calc(100% - 242px);
 	float: right;
 	min-height: 0px;
 	margin: 35px 20px 0px 0px !important;
@@ -142,6 +186,8 @@ body.admin_dash #content, #content {
 #account_stats > .clear > div {
 	line-height: 24px;
 }
+
+form.search_sources .small_field { width: auto; }
 
 
 /*Activity*/
@@ -201,9 +247,9 @@ body.admin_dash ul#new_admin_nav, #new_admin_nav, ul#new_admin_nav {
 ul#new_admin_nav li a {
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
 	opacity: 1;
-	transition-property: background;
-	transition-duration: 1s;
-	transition-timing-function: linear;
+	transition: background 1s;
+	-moz-transition: background 1s;
+	-webkit-transition: background 1s;
 	border: none;
 	text-align: center;
 }
@@ -244,27 +290,26 @@ body#tier.account ul#new_admin_nav li#admin_account a:active, body#admin.admin_d
 .incomingvids #admin_videolisting_row .video.unselected {
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
 	border: none;
-	transition-property: background;
-	transition-duration: 1s;
-	transition-timing-function: linear;
+	transition: background 1s;
+	-moz-transition: background 1s;
+	-webkit-transition: background 1s;
 }
 .incomingvids #admin_videolisting_row .video.unselected:hover {
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
 }
 .incomingvids #admin_leftpane, .incomingvids #admin_videolisting_row {
-	max-width: 400px !important;
+	max-width: 430px !important;
 	min-width: 0px !important;
 	height: 100% !important;
 	background: none;
 	border: 0px;
 }
 .incomingvids #admin_rightpane {
-	position: absolute !important;
+	position: relative !important;
 	top: 0px !important;
 	left: -20px !important;
-	max-width: 305px !important;
-	min-width: 255px !important;
-	width: calc(22.8%+141.1px) !important;
+	width: 275px !important;
+	min-width: 0px;
 	background: none;
 	overflow: hidden;
 	word-wrap: break-word; /*Fixes really long urls from overflowing*/
@@ -300,6 +345,7 @@ body#tier.account ul#new_admin_nav li#admin_account a:active, body#admin.admin_d
 	width: 100% !important;
 	height: 200px !important;
 }
+#admin_rightpane .preview_inner { padding: 0px; }
 #admin_videolisting_row .approve_reject a.feature, #admin_videolisting_row .approve_reject a.approve, #admin_videolisting_row .approve_reject a { height: 40px; width: 160px; padding: 0px; border: 0px; line-height: 40px; }
 #admin_videolisting_row .approve_reject a.feature { background: #631919; }
 #admin_videolisting_row .approve_reject a.approve { background: #0E3A3C; }
@@ -311,17 +357,14 @@ body#tier.account ul#new_admin_nav li#admin_account a:active, body#admin.admin_d
 /*Fixing the pre-tablet mode version of the ridiculous video listing*/
 @media screen and (max-width: 960px) {
 .incomingvids #admin_leftpane {
-	width: 63.8% !important;
+	width: 61% !important;
 }
 .incomingvids #admin_rightpane {
-	width: 24.3% !important;
+	width: 38.3% !important;
 	right: 0px !important;
 }
+#admin_rightpane ul.meta_listing li.item { max-height: 140px; overflow: hidden; }
 }
-
-/*Fixing the stupid overlay... The Miro people seemed to forget that z-index requires absolute positioning =___= */
-.incomingvids > div:last-child { z-index: -1 !important; }
-
 
 /*All of the tabs in the admin submenus*/
 #admin_subnav {
@@ -340,14 +383,15 @@ body#tier.account ul#new_admin_nav li#admin_account a:active, body#admin.admin_d
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
 	border: none;
 	color: #444444;
-	transition-property: background;
-	transition-duration: 1s;
-	transition-timing-function: linear;
+	transition: background 1s;
+	-moz-transition: background 1s;
+	-webkit-transition: background 1s;
 }
 #admin_subnav li a span {
 	border: 0px;
 	padding: 0px 9px;
 }
+/*Active one*/
 body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulkedit, #admin.category_admin a.categories, #admin.themes a.themes, #admin.settings a.settings, #admin.widget_settings a.widget_settings, #admin.searches a.watched, #admin.incomingvids #admin_subnav a.sub, #admin.managesources a.watched, #user_profile.user_profile #admin_subnav a.profile, #user_profile.notifications a.notifications, #goodies.widgetcreater a.widget, #goodies.bookmarklet a.bookmarklet, #goodies.playlists a.playlists {
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
 	border: none;
@@ -361,10 +405,12 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 .plain_button span { color: #EEEEEE; }
 .add, .add:hover, .reject_button, .reject_button:hover, .approve_button, .approve_button:hover, .plain_button, .plain_button:hover {
 	background: none;
+	color: #EEEEEE;
+	padding: 0px;
 }
 
 .incomingvids .reject_button, .incomingvids .approve_button, .incomingvids .plain_button {
-	margin: 10px 0 25px 0px;
+	margin: 10px 10px 10px 0px;
 }
 
 .add span, .add span:hover, .add:hover span, .approve_button span, .approve_button span:hover, .approve_button:hover span, .reject_button span, .reject_button span:hover, .reject_button:hover span, .plain_button span, .plain_button span:hover, .plain_button:hover span {
@@ -391,13 +437,16 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 .plain_button span, .plain_button span:hover, .plain_button:hover span {
 	background: #643B17;
 }
-.settings .approve_button {
-	margin: 10px 0px;
+.approve_button {
+	margin: 10px 0px 0px 0px;
 }
-.user_profile .approve_button, .user_profile .plain_button, .notifications .approve_button { margin: 10px 0px 0px 0px; }
-
+.user_profile .approve_button, .user_profile .plain_button, .notifications .approve_button { margin: 15px 10px 0px 0px; }
+.edit_feed .approve_button {
+	margin-right: 10px;
+}
 
 /*Fixing the paginator*/
+.pag { padding: 0px 0px 15px 0px; }
 .pag li a {
 	background: #641917;
 	border: none;
@@ -436,8 +485,113 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 	color: #ccc;
 }
 
+/*Fixing the dropdowns and stuff*/
+.bulkedit_controls { padding: 0px; width: auto; }
+#admin.bulkedit .search_sources select.behave, form.search_sources select.behave, .search_sources select.behave, form.search_sources select[name=category] { margin: 0px 10px 5px 0px; }
+form.search_sources .small_field { margin: 0px; }
+#labels .only_show { padding: 0px !important; }
+.only_show * { height: auto; line-height: 22px; }
+
+/*Fixing the overlays*/
+.simple_overlay {
+	left: 50% !important;
+	margin-left: -320px !important;
+}
+.editable .simple_overlay h2 {
+	line-height: normal !important;
+	margin-top: 0px !important;
+}
+.editable .simple_overlay .input_field .done, .editable .simple_overlay .input_field .done:hover {
+	background: none;
+	padding: 0px;
+}
+.editable .simple_overlay .input_field .done span, .editable .simple_overlay .input_field .done span:hover {
+	background: #0E3A3C;
+	padding: 8px 22px;
+	border-radius: 5px;
+	text-shadow: none;
+	color: #EEEEEE;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+.editable .simple_overlay .input_field .done span:hover { color: #5c86a0 }
+
+.simple_overlay .input_field ul li label:first-child, .simple_overlay .input_field ul li label {
+	width: auto;
+	margin-right: 15px;
+}
+.simple_overlay .input_field ul li input[type=text], .simple_overlay .input_field ul li textarea {
+	width: 96%;
+}
+.incomingvids .editable .simple_overlay .input_field {
+	width: 100%;
+}
+.incomingvids .simple_overlay .input_field ul li input[type=text], .incomingvids .simple_overlay .input_field ul li textarea {
+	width: 96%;
+	direction: ltr;
+}
+.incomingvids .simple_overlay form[action="/admin/edit_attributes/video/105/categories/"] .scrollable input[name="categories"] {
+	width: 20px;
+}
+.simple_overlay span.form_help {
+	padding: 0px;
+}
+.simple_overlay .input_field ul li.scrollable.right, .simple_overlay .input_field ul li.scrollable {
+	border: none;
+	width: 45% !important;
+	display: block;
+}
+
+/*THIS IS RIDICULOUS. TEXT DIRECTION RIGHT TO LEFT WITH ALL OF THE OVERLAP. Z-INDEX WUT. MIRO WHYYYYYY*/
+.simple_overlay .thumbnail_changer {
+	width: auto !important;
+	padding-top: 10px !important;
+}
+.simple_overlay .thumbnail_changer .thumbnail {
+	float: none !important;
+	margin: 0px auto;
+}
+.simple_overlay .thumbnail_changer .form {
+	width: 100% !important;
+	padding: 0px !important;
+	margin: 10px 0px 0px !important;
+}
+.simple_overlay .thumbnail_changer .form p {
+	height: auto !important;
+	width: 100% !important;
+	margin: 0px !important;
+}
+.simple_overlay .thumbnail_changer .form p label {
+	width: auto !important;
+	margin-right: 10px;
+	line-height: normal !important;
+}
+.simple_overlay .thumbnail_changer .form p label:first-child {
+	width: 100% !important;
+}
+.simple_overlay .thumbnail_changer .form * {
+	direction: ltr;
+	display: block !important;
+}
+.simple_overlay .thumbnail_changer .form  p:first-child a {
+	display: inline-block;
+}
+.simple_overlay .thumbnail_changer .form  p:first-child input:nth-child(3), .simple_overlay .thumbnail_changer .form  p:first-child label:nth-child(4) {
+	display: inline !important;
+	float: none;
+}
+.simple_overlay .thumbnail_changer .form p:nth-child(2) input {
+	width: 98.5%;
+}
+.simple_overlay .thumbnail_changer .form  p:first-child a, .simple_overlay .thumbnail_changer .form  p:first-child input:nth-child(3), .simple_overlay .thumbnail_changer .form  p:first-child #id_thumbnail {
+	margin-bottom: 10px;
+}
+
+
+
 /*Footer*/
 #admin_footer {
+	width: 100%;
 	max-width: 960px;
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/footer_bg1.jpg) repeat;
 	margin: 10px auto;
@@ -445,10 +599,13 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 }
 
 #admin_footer > .clear {
-	width: 440px;
+	width: 222px;
 	text-align: center;
 	margin: 0px auto;
 }
+
+#admin_footer ul li { display: inline; margin: 2px 7px; }
+#admin_footer ul li:nth-child(2), #admin_footer ul li:last-child { display: none; }
 
 #admin_footer > .clear > li > a, #footer_help {
 	font-family: 'Helvetica Neue', Georgia;
@@ -471,17 +628,26 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 
 /*Mobile mode engaged*/
 @media screen and (max-width: 740px) {
+html {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+}
+
 #header {
 	width: 100%;
 	padding: 0px;
 }
 
-#wrapper, #admin.admin_dash #content, #admin.user_admin #content, #admin.comments #content {
+#header * { z-index: 1; }
+
+#wrapper, #admin.admin_dash #content, #admin.user_admin #content, #admin.comments #content, #content {
 	margin: 0px !important;
-	min-height: 375px;
+	min-height: 348px;
 	width: 100%;
 	position: relative;
 	transition: left 0.3s linear;
+	-moz-transition: left 0.3s linear;
+	-webkit-transition: left 0.3s linear;
+	border: none;
 }
 
 #admin.admin_dash #content, #content {
@@ -492,44 +658,27 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 	width: 100%;
 }
 
-.admin_nav_btn { display: block; }
-
-#admin_nav_open {
-	display: inline;
+.admin_nav_btn {
+	display: block;
 	position: absolute;
 	left: 20px;
-}
-
-#admin_nav_close {
-	position: absolute;
-	left: 75px;
-	top: 460px;
-	color: #444444;
-}
-#admin_nav_close:hover {
-	color: #5c86a0;
+	cursor: pointer;
+	z-index: 1;
 }
 
 #user_panel { display: inline; }
 
 #admin_off_nav {
-	height: 375px;
+	height: 348px;
 	width: 175px;
 	overflow: hidden;
 	position: fixed;
 	top: 0px;
 	left: -175px;
 	transition: left 0.3s linear;
+	-moz-transition: left 0.3s linear;
+	-webkit-transition: left 0.3s linear;
 	padding-top: 129px;
-}
-
-#admin_off_nav:target {
-	left: 0%;
-}
-
-#admin_off_nav:target + #wrapper {
-	left: 175px !important;
-	overflow: hidden;
 }
 
 #admin_footer {
@@ -542,17 +691,72 @@ body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulke
 }
 
 #admin_subnav {
-	margin: 10px 0px 0px 0px;
-	max-width: 300px;
+	float:left;
+	left: 0px;
+	top: 0px;
+	margin: 0px;
+	width: 100%;
 }
 
 #admin_subnav li {
-	margin: 0px 0px 0px 10px;
+	margin: 0px;
+	display: inline;
 }
 
 #admin_subnav li a {
+	background: #641917;
+	margin: 0px 5px 5px 0px;
+	padding: 0px 7px;
 	-webkit-border-radius: 0px;
 }
+.incomingvids #admin_subnav li a { padding: 0px; }
 
+#admin_subnav li:first-child a {
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+#admin_subnav li:last-child a {
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#admin_subnav li a span {
+	color: #EEEEEE;
+	font-weight: normal;
+	text-shadow: none;
+}
+/*Active one*/
+body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulkedit, #admin.category_admin a.categories, #admin.themes a.themes, #admin.settings a.settings, #admin.widget_settings a.widget_settings, #admin.searches a.watched, #admin.incomingvids #admin_subnav a.sub, #admin.managesources a.watched, #user_profile.user_profile #admin_subnav a.profile, #user_profile.notifications a.notifications, #goodies.widgetcreater a.widget, #goodies.bookmarklet a.bookmarklet, #goodies.playlists a.playlists {
+	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+}
+#admin_subnav li a:hover {
+	background: #744947;
+}
+
+.simple_overlay {
+	right: 6.75% !important;
+	left: 6.75% !important;
+	top: -10px !important;
+	width: auto !important;
+	margin: 0px !important;
+}
+.incomingvids .simple_overlay {
+	top: 83.3px !important;
+}
+
+.simple_overlay form.input_field {
+	width: 100%;
+}
+.editable .simple_overlay .input_field ul li input, .editable .simple_overlay .input_field ul li textarea {
+	width: 96%;
+}
 
 }

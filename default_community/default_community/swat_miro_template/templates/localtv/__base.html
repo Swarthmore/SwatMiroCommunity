@@ -7,12 +7,17 @@
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<!-- Swarthmore favicon -->
 	<link rel="icon" type="image/ico" href="../../static/favicon.ico"/>
 
 	{% block meta %}
@@ -26,6 +31,7 @@
 	{% block styles %}
 		{#% compress css %#}
 			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.3/build/cssreset/cssreset-min.css">
+			<!-- Virtually all styling was done in screen.css and swat-style.css -->
 			<link rel="stylesheet" type="text/css" href="{% static 'localtv/front/stylesheets/screen.css' %}" media="screen" />
 			<link rel="stylesheet" type="text/css" href="{% static 'swat-style.css' %}" media="screen" />
 			
@@ -61,6 +67,12 @@
 			<script src="{% static 'localtv/front/js/jquery-1.7.2.min.js' %}"></script>
 			<script src="{% static 'localtv/front/js/jquery.cycle.js' %}"></script>
 			<script src="{% static 'localtv/front/js/jquery.infinitescroll.js' %}"></script>
+<<<<<<< HEAD
+=======
+			<!-- I don't think fitvids works with object tag videos, but this include can at least
+				 be a reminder to find alternatives -->
+			<!-- <script src="{% static 'localtv/front/js/jquery.fitvids.js' %}"></script> -->
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 			<script src="{% static 'localtv/front/js/bootstrap.tooltip.js' %}"></script>
 			<script src="{% static 'localtv/front/js/bootstrap.popover.js' %}"></script>
 			<script src="{% static 'localtv/front/js/localtv.dropdown.js' %}"></script>

@@ -5,10 +5,18 @@
   {% if not request.is_ajax %}
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}localtv/css/admin/reset.css"/>
     <link rel="styleSheet" type="text/css" href="{{ STATIC_URL }}localtv/css/admin/admin.css" />
     <link rel="styleSheet" type="text/css" href="{{ STATIC_URL }}localtv/css/admin/new_admin.css" />
     <link rel="styleSheet" type="text/css" href="{% static 'localtv/css/overlay.css' %}" />
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'localtv/css/admin/reset.css' %}" />
+    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/admin.css' %}" />
+    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/admin/new_admin.css' %}" />
+    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/overlay.css' %}" />
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
     <link rel="stylesheet" type="text/css" href="{% static 'swat-admin.css' %}" media="screen" />
 <!--[if lt IE 8]>
    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/msie7.css' %}" />
@@ -33,6 +41,21 @@
           })();
         </script>
       {% endif %}
+      
+      <script>
+      $(document).ready(function(){
+      	$(".admin_nav_btn").toggle(
+      			function(){
+      				$("#admin_off_nav").css("left","0px");
+      				$("#wrapper").css("left","175px");
+      			},
+      			function(){
+      				$("#admin_off_nav").css("left","-175px");
+      				$("#wrapper").css("left","0px");	
+      			}
+      	);
+      });
+      </script>
     <title>{% block title %}{% trans "Admin" %} – {{ site_settings.site.name }}{% endblock title %}</title>
     {% block extrahead %}
     {% endblock extrahead %}
@@ -65,12 +88,11 @@
               <span class="site_name">{{ site_settings.site.name }}</span>
             </a>
         </div><!-- // logo -->
-      	<a class="admin_nav_btn" id="admin_nav_open" href="#admin_off_nav">≡</a>
+      	<div class="admin_nav_btn">≡</div>
         </div><!-- // clear -->
       </div><!-- // header -->
       <div id="admin_off_nav">
       	{% block nav %}{% include "localtv/admin/new_header.html" %}{% endblock %}
-      	<a class="admin_nav_btn" id="admin_nav_close" href="#header">&lt;</a>
       </div><!-- // admin_off_nav -->
 	  <div id="wrapper">
       <div id="content">

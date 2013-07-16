@@ -52,7 +52,7 @@
 }
 
 /*Getting rid of that awkward underlining in the title*/
-h1 a:hover {
+a:hover {
 	border-bottom: none;
 }
 
@@ -70,7 +70,10 @@ h1 a:hover {
 	z-index: 1337;
 	border: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 .nav-item a, .nav-item a:hover {
 	color: #EEEEEE;
 	font-family: Georgia;
@@ -97,7 +100,10 @@ h1 a:hover {
 	/*-webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15);*/
 	width: 110px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 .nav-browse .browse-box-section:first-child {
 	top: 30px;
 	z-index: 1335;
@@ -118,6 +124,7 @@ h1 a:hover {
 	top: 0px;
 	width: 80px;
 	z-index: 1338;
+<<<<<<< HEAD
 }
 .nav-auth > .dropdown-list > li:last-child {
 	padding: 9px 10px 5px 10px;
@@ -125,6 +132,15 @@ h1 a:hover {
 	width: 80px;
 	z-index: 1337;
 }
+=======
+}
+.nav-auth > .dropdown-list > li:last-child {
+	padding: 9px 10px 5px 10px;
+	top: 30px;
+	width: 80px;
+	z-index: 1337;
+}
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 
 .nav-item-dropdown.open > a { -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); }
 
@@ -169,7 +185,7 @@ html, body {
 }
 
 /*Hide footer's navigational items*/
-.footer-nav-item {
+.miro-footer .footer-nav-item, .footer-nav li {
 	display: none;
 }
 
@@ -186,7 +202,11 @@ html, body {
 .pod-header, .page-header {
 	margin: 0px;
 	padding: 0px;
+<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+=======
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 	height: 45px;
 	border: none;
 	
@@ -207,7 +227,11 @@ html, body {
 /*Fixing the hideous search bar D: */
 #search {
 	margin: 18px 20px 0px 0px;
+<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat;
+=======
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 }
 #search #search_field {
 	width: 168px;
@@ -253,6 +277,48 @@ html, body {
 	color: #EEEEEE;
 }
 
+/*Video submission form fixes*/
+.x-large > label { line-height: 24px; position: absolute; width: auto; }
+.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; }
+form .controls { display: inline-block; margin-left: 0px; }
+form[action="/submit_video/"] .controls { margin-left: 100px; }
+form > .form-actions { padding: 0px; width: 55px; margin: 0px auto; }
+form[action="/submit_video/scraped/"] > ul > li { height: 29px; list-style-type: none; }
+form[action="/submit_video/scraped/"] > ul > li > label { line-height: 29px; }
+form[action="/submit_video/scraped/"] > ul > li > label > input {
+	vertical-align: bottom; width: 29px;
+    cursor:pointer;
+
+}
+
+.control-group-tags { margin-top: 20px; }
+.control-group > label { line-height: 29px; margin-right: 20px; vertical-align: top; }
+.control-group > .controls { display: inline-block; margin-left: 0px; width: 60%; }
+.controls > input { width: 100%; }
+
+/*Login page fixes*/
+.login-page .page-content { border: 1px solid #dfdfdf; }
+.login-page form .controls { display: block; width: 100%; }
+.login-page .tabs {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	border: none;
+}
+.login-page .tabs > li > a {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	border: none;
+	color: #444444;
+	text-shadow: 0 1px 0 #FFF;
+	font-weight: bold;
+	margin: 0px 5px -1px 0px;
+	transition: background 1s;
+	-moz-transition: background 1s;
+	-webkit-transition: background 1s;
+}
+.login-page .tabs > li.active > a, .login-page .tabs > li:hover > a { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat; }
+.login-page #main > .container { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat; box-shadow: none; }
+.login-page #main .tab-content { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat; box-shadow: none; }
+@media screen and (max-width: 740px) { .login-page .tabs { margin-top: 0px; } }
+
 /*Hide the social media thing...*/
 .social-media-share {
 	display: none;
@@ -275,7 +341,11 @@ html, body {
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
+<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+=======
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 	color: #EEEEEE;
 	display: inline-block;
 	border-radius: 5px;
@@ -302,7 +372,11 @@ button, button:hover, .button-wide, .button-wide:hover {
 	background: none;
 	box-shadow: none;
 	text-shadow: none;
+<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+=======
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 	color: #EEEEEE;
 	cursor: pointer;
 }
@@ -329,6 +403,7 @@ button:hover, .button-wide:hover {
 	color: #EEEEEE;
 }
 
+<<<<<<< HEAD
 /*Fixes for video submission*/
 .x-large > label { line-height: 24px; position: absolute; width: auto; }
 .x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; margin-left: 100px; }
@@ -369,6 +444,17 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 .login-page #main > .container { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat; box-shadow: none; }
 .login-page #main .tab-content { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat; box-shadow: none; }
 @media screen and (max-width: 740px) { .login-page .tabs { margin-top: 0px; } }
+=======
+/*Resizing the grid items for consistency with the playlist button*/
+.grid-3 .grid-item .grid-item-header > h1 { max-height: 81px; overflow: hidden; }
+.grid-3 .grid-item .grid-item-link { height: 255px; }
+@media screen and (max-width: 960px) {
+.grid-1 .grid-item .grid-item-link, .grid-3 .grid-item .grid-item-link, .grid-4 .grid-item .grid-item-link { height: 27.27%; }
+}
+@media screen and (max-width: 740px) {
+.grid-1 .grid-item .grid-item-header > h1, .grid-3 .grid-item .grid-item-header > h1, .grid-4 .grid-item .grid-item-header > h1 { max-height: 54px; overflow: hidden; }
+}
+>>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 
 /*
  *
@@ -393,7 +479,6 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 
 
 
-
 /*
  *
  *Media Query Time! :D 
@@ -401,15 +486,7 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
  */
  
 /*Resizing font to make it more readable*/
-@media screen and (min-width: 741px) and (max-width: 1020px) { .grid-1 .grid-item .grid-item-header > h1, .grid-4 .grid-item .grid-item-header > h1 { font-size: 12px; line-height: 20px; } }
-@media screen and (min-width: 401px) and (max-width: 520px) { h3, .grid-item .grid-item-header > h1 { font-size: 12px; line-height: 20px; } }
 @media screen and (max-width: 400px) { .nav-item a { font-size: 12px; } . }
-
-/*Shrink grid a bit before tablet mode*/
-@media screen and (max-width: 1020px) and (min-width: 741px) {
-	.home-page .grid-3 > li { width: 50%; float: left; }
-	.home-page .grid > li:nth-child(even) { clear: right; padding-left: 20px;}
-	.home-page .grid > li:nth-child(odd) { clear: left; padding-left: 20px; } }
 
 /*"More Videos" move early*/
 @media screen and (max-width: 940px) and (min-width: 741px) { .video-detail .col-one-quarter { display: block; width: 100%; } .video-detail .col-three-quarters { width: 100%; } .video-detail .grid-1 .grid-item { width: 50%; display: inline-block; } .video-detail .grid-1 > li:nth-child(even) { float: right; } .video-detail .grid-1 > li:nth-child(odd) { float: left; } }

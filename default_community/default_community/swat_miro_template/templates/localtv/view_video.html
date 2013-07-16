@@ -36,14 +36,14 @@
 {% block scripts %}
 	{{ block.super }}
 	{% if current_video.contestvideo_set %}
-		<script src="{% static 'localtv/js/localtv.contests.js' %}"></script>
+		<script src="{{ STATIC_URL}}localtv/js/localtv.contests.js"></script>
 	{% endif %}
 {% endblock %}
 
 {% block styles %}
 	{{ block.super }}
 	{% if current_video.contestvideo_set %}
-		<link rel="stylesheet" type="text/css" href="{% static 'localtv/stylesheets/localtv.contests.screen.css' %}" media="screen" />
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}localtv/css/localtv.contests.screen.css" media="screen" />
 	{% endif %}
 {% endblock %}
 
@@ -70,14 +70,7 @@
 			</div>
 		</header>
 		<div class="precontent-content">
-			<div class="container video-player">
-				
-				<!-- Convenient and simple responsive design for videos -->
-				<script src="{% static 'localtv/front/js/jquery.fitvids.js' %}"></script>
-				<script>
-					$('.precontent-content').fitvids();
-				</script>
-				
+			<div class="container video-player">				
 				<div class="video-embedded-widget">
 					{% include "localtv/_video_embed.html" %}
 				</div>
@@ -88,19 +81,23 @@
 
 {% block main %}
 	
+	<!-- Playlist addition form. To change the form, see localtv/playlist_form.html -->
 	{% if playlists != None %} 
-		<!-- Playlist addition form -->
 		{% with video=current_video %}
 			{% include "localtv/playlist_form.html" %}
 		{% endwith %}
 	{% endif %}
 
 
-	
+	<!-- "Read More" section -->
 	<div class="padded">
 		<section class="video-details">
+		
+			<!-- Video description -->
 			{{ current_video.description|safe }}
 			<div class="extra-details">
+			
+				<!-- Categories -->
 				{% if current_video.categories.count > 0 %}
 					<div class="video-full-categories compact">
 						{% with current_video as instance %}
@@ -109,14 +106,16 @@
 					</div>{# /.video-full-categories #}
 				{% endif %}
 					
-					<!-- Show playlists the video is in -->
+				<!-- Video playlists -->
 				{% if current_video.playlists.count > 0 %}
-				<div class="compact"><h4>{% trans "In the playlists" %}:</h4>
+				<div class="compact"><h4>{% trans "Playlists" %}:</h4>
 					{% for playlist in playlists %}
 						<a href="/playlists/{{ playlist.id }}">{{ playlist }}</a>
 					{% endfor %}
 				</div>
 				{% endif %}
+				
+				<!-- Video tags -->
 				{% if current_video.tags %}
 					<div class="video-full-tags compact">
 						{% with current_video as instance %}
@@ -124,6 +123,8 @@
 						{% endwith %}
 					</div>{# /.video-full-tags #}
 				{% endif %}
+				
+				<!-- Some admin-only information -->
 				{% if user_is_admin %}
 					{% if current_video.submitter %}<div class="compact"><h4>{% trans "Submitted by" %}:</h4> {{ current_video.submitter }}</div>{% endif %}
 					{% if current_video.search %}<div class="compact"><h4>{% trans "From search" %}:</h4> {{ current_video.search }}</div>{% endif %}
@@ -134,6 +135,8 @@
 			</div>
 		</section>{# /.video-details #}
 	</div>
+	
+	<!-- Disqus comments -->
 	<div class="padded">
 		{# Disqus comments #}
     	{% load disqus_tags %}
@@ -144,6 +147,7 @@
 	</div>
 {% endblock %}
 
+<!-- More videos sidebar (I think) -->
 {% block side %}
 	<div class="right-sidebar">
 		{% for module in sidebar_modules %}

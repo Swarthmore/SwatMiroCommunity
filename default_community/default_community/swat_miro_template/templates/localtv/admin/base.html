@@ -5,10 +5,10 @@
   {% if not request.is_ajax %}
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="{% static 'localtv/css/admin/reset.css' %}" />
-    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/admin.css' %}" />
-    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/admin/new_admin.css' %}" />
-    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/overlay.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}localtv/css/admin/reset.css"/>
+    <link rel="styleSheet" type="text/css" href="{{ STATIC_URL }}localtv/css/admin/admin.css" />
+    <link rel="styleSheet" type="text/css" href="{{ STATIC_URL }}localtv/css/admin/new_admin.css" />
+    <link rel="styleSheet" type="text/css" href="{% static 'localtv/css/overlay.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'swat-admin.css' %}" media="screen" />
 <!--[if lt IE 8]>
    <link rel="StyleSheet" type="text/css" href="{% static 'localtv/css/msie7.css' %}" />

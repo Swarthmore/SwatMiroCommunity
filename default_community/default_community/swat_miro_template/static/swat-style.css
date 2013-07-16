@@ -68,23 +68,79 @@ h1 a:hover {
 .nav-item {
 	position: relative;
 	z-index: 1337;
-	border: 1px solid transparent;
+	border: none;
 }
-.nav-item a {
+
+.nav-item a, .nav-item a:hover {
 	color: #EEEEEE;
 	font-family: Georgia;
+	margin-right: 0px;
+	margin-left: 0px;
 	text-transform: uppercase;
 }
 
-.nav-about a:hover, .nav-submit a:hover {
-	color: #EEEEEE;
+.browse-box-section h1 a, .nav-item-dropdown.open > a {
+	background: #EEEEEE;
+	border: none;
+	border-radius: 0px;
 }
+.dropdown-box, .dropdown-list { min-width: 0px; }
+
+.browse-box-section, .nav-auth > .dropdown-list > li {
+	background: #EEEEEE;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	margin: 0px;
+	padding: 9px 10px;
+	position: absolute;
+	/*-webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15);*/
+	width: 110px;
+}
+
+.nav-browse .browse-box-section:first-child {
+	top: 30px;
+	z-index: 1335;
+}
+.nav-browse .browse-box-section:nth-child(2) {
+	top: 127px;
+	z-index: 1334;
+}
+.nav-browse .browse-box-section:last-child {
+	padding: 9px 10px 5px 10px;
+	top: 0px;
+	z-index: 1336;
+}
+.nav-browse .browse-box-section:last-child > h1 { margin-bottom: 0px; }
+.nav-auth > .dropdown-list > li > a { padding: 0px; }
+.nav-auth > .dropdown-list > li:first-child {
+	padding: 9px 10px 5px 10px;
+	top: 0px;
+	width: 80px;
+	z-index: 1338;
+}
+.nav-auth > .dropdown-list > li:last-child {
+	padding: 9px 10px 5px 10px;
+	top: 30px;
+	width: 80px;
+	z-index: 1337;
+}
+
+.nav-item-dropdown.open > a { -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); }
+
+.open > .dropdown-box, .open > .dropdown-list {
+	top: 18px;
+	background: none;
+	border: 0px;
+	border-radius: 0px;
+	margin-left: 0px;
+	min-width: 0px;
+	padding: 0px;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0); -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0); box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0);
+}
+
 .browse-box-section h1 a, .browse-box-section ul li a {
 	color: #444444;
-}
-.dropdown-box, .dropdown-list {
-	min-width: 0px;
-	overflow: hidden;
 }
 
 /* Manage playlists */
@@ -130,7 +186,7 @@ html, body {
 .pod-header, .page-header {
 	margin: 0px;
 	padding: 0px;
-	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
 	height: 45px;
 	border: none;
 	
@@ -151,7 +207,7 @@ html, body {
 /*Fixing the hideous search bar D: */
 #search {
 	margin: 18px 20px 0px 0px;
-	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat;
 }
 #search #search_field {
 	width: 168px;
@@ -203,44 +259,54 @@ html, body {
 }
 
 /*Add to Playlist stuff! :D*/
-.video-detail .playlists {
+.playlists {
+	display: inline-block;
 	width: auto;
-	text-align: center;
-	padding: 18px 20px 0px 20px;
 	margin: 0px auto;
 }
-.video-detail .playlist_select {
-	min-width: 80px;
-	width: auto;
-	margin-right: 20px;
-	display: inline-block;
+.playlist_form {
+	margin: 15px 0px 0px 20px;
 }
-.video-detail .playlist_submit {
+.playlist_select {
 	width: auto;
-	height: 29px;
-	padding: 4.5px 9px;
-	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+}
+.playlist_submit {
+	font-size: 12px;
+	width: auto;
+	height: 24px;
+	padding: 0px 9px;
+	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
 	color: #EEEEEE;
 	display: inline-block;
 	border-radius: 5px;
 	border-color: #a2a2a2;
 }
-.video-detail .playlist_submit:hover {
-	color: #5C86A0;
-}
 .playlist-videos .playlist-description {
 	display: none;
 }
+.grid-item .playlist_form {
+	margin: 0px;
+	text-align: center;
+}
+.grid-item .playlists, .grid-item .playlist_submit {
+	margin: 0px auto;
+	display: block;
+}
+.grid-item .playlist_select {
+	display: inline-block;
+	margin: 0px auto 5px;
+}
 
 /*Beautiful buttons! :) */
-.button-wide, .button-wide:hover {
+button, button:hover, .button-wide, .button-wide:hover {
 	background: none;
 	box-shadow: none;
 	text-shadow: none;
-	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
 	color: #EEEEEE;
+	cursor: pointer;
 }
-.button-wide:hover {
+button:hover, .button-wide:hover {
 	color: #5C86A0;
 }
 
@@ -252,21 +318,57 @@ html, body {
 	text-align: center;
 }
 
-/*Fixes for video submission*/
-.row-nested > .col-one-quarter {
-	width: 25%;
-	float: left;
-	margin-right: 20px;
-	
+/*Random fixes*/
+.pod-header h1 {
+	margin-bottom: 0px;
 }
-.row-nested > .col-three-quarters {
-	width: 71%;
-	float: right;
+.video-detail-header {
+	padding-left: 20px;
 }
-.col-one-quarter > .thumbnail > img {
-	width: 100%;
+.precontent-header .title {
+	color: #EEEEEE;
 }
 
+/*Fixes for video submission*/
+.x-large > label { line-height: 24px; position: absolute; width: auto; }
+.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; margin-left: 100px; }
+form .controls { display: inline-block; margin-left: 0px; }
+form[action="/submit_video/"] .controls { margin-left: 100px; }
+form > .form-actions { padding: 0px; width: 55px; margin: 0px auto; }
+form[action="/submit_video/scraped/"] > ul > li { height: 29px; list-style-type: none; }
+form[action="/submit_video/scraped/"] > ul > li > label { line-height: 29px; }
+form[action="/submit_video/scraped/"] > ul > li > label > input {
+	vertical-align: bottom; width: 29px;
+    cursor:pointer;
+
+}
+
+.control-group-tags { margin-top: 20px; }
+.control-group > label { line-height: 29px; margin-right: 20px; vertical-align: top; }
+.control-group > .controls { display: inline-block; margin-left: 0px; width: 80%; }
+.controls > input { width: 100%; }
+
+/*Login page fixes*/
+.login-page form .controls { display: block; width: 100%; }
+.login-page .tabs {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	border: none;
+}
+.login-page .tabs > li > a {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
+	border: none;
+	color: #444444;
+	text-shadow: 0 1px 0 #FFF;
+	font-weight: bold;
+	margin: 0px 5px -1px 0px;
+	transition: background 1s;
+	-moz-transition: background 1s;
+	-webkit-transition: background 1s;
+}
+.login-page .tabs > li.active > a, .login-page .tabs > li:hover > a { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat; }
+.login-page #main > .container { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat; box-shadow: none; }
+.login-page #main .tab-content { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat; box-shadow: none; }
+@media screen and (max-width: 740px) { .login-page .tabs { margin-top: 0px; } }
 
 /*
  *

@@ -265,6 +265,9 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 }
 
 .control-group-tags { margin-top: 20px; }
+.control-group-categories li { list-style-type: none; }
+.control-group-categories ul li label { text-align: left; line-height: 32px;  }
+.control-group-categories input.category-check { float: left; width: auto; margin: 0 .8em 0 0; clear: left;}
 .control-group > label { line-height: 29px; margin-right: 20px; vertical-align: top; }
 .control-group > .controls { display: inline-block; margin-left: 0px; width: 80%; }
 .controls > input { width: 100%; }

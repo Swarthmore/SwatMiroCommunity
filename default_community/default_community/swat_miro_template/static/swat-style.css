@@ -70,10 +70,7 @@ a:hover {
 	z-index: 1337;
 	border: none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 .nav-item a, .nav-item a:hover {
 	color: #EEEEEE;
 	font-family: Georgia;
@@ -100,10 +97,7 @@ a:hover {
 	/*-webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15);*/
 	width: 110px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 .nav-browse .browse-box-section:first-child {
 	top: 30px;
 	z-index: 1335;
@@ -124,7 +118,6 @@ a:hover {
 	top: 0px;
 	width: 80px;
 	z-index: 1338;
-<<<<<<< HEAD
 }
 .nav-auth > .dropdown-list > li:last-child {
 	padding: 9px 10px 5px 10px;
@@ -132,15 +125,7 @@ a:hover {
 	width: 80px;
 	z-index: 1337;
 }
-=======
-}
-.nav-auth > .dropdown-list > li:last-child {
-	padding: 9px 10px 5px 10px;
-	top: 30px;
-	width: 80px;
-	z-index: 1337;
-}
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
+
 
 .nav-item-dropdown.open > a { -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); }
 
@@ -165,7 +150,6 @@ a:hover {
 	padding: 5px;
 	border-radius: 5px;
 }
-
 
 
 /*Main background*/
@@ -202,11 +186,7 @@ html, body {
 .pod-header, .page-header {
 	margin: 0px;
 	padding: 0px;
-<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
-=======
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 	height: 45px;
 	border: none;
 	
@@ -227,12 +207,8 @@ html, body {
 /*Fixing the hideous search bar D: */
 #search {
 	margin: 18px 20px 0px 0px;
-<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat;
-=======
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
-}
+	
 #search #search_field {
 	width: 168px;
 	height: 28px;
@@ -297,7 +273,7 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 .controls > input { width: 100%; }
 
 /*Login page fixes*/
-.login-page .page-content { border: 1px solid #dfdfdf; }
+
 .login-page form .controls { display: block; width: 100%; }
 .login-page .tabs {
 	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
@@ -341,11 +317,7 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
-<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
-=======
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 	color: #EEEEEE;
 	display: inline-block;
 	border-radius: 5px;
@@ -372,11 +344,7 @@ button, button:hover, .button-wide, .button-wide:hover {
 	background: none;
 	box-shadow: none;
 	text-shadow: none;
-<<<<<<< HEAD
 	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
-=======
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 	color: #EEEEEE;
 	cursor: pointer;
 }
@@ -392,59 +360,21 @@ button:hover, .button-wide:hover {
 	text-align: center;
 }
 
-/*Random fixes*/
-.pod-header h1 {
-	margin-bottom: 0px;
-}
-.video-detail-header {
-	padding-left: 20px;
-}
-.precontent-header .title {
-	color: #EEEEEE;
-}
-
-<<<<<<< HEAD
 /*Fixes for video submission*/
-.x-large > label { line-height: 24px; position: absolute; width: auto; }
-.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; margin-left: 100px; }
-form .controls { display: inline-block; margin-left: 0px; }
-form[action="/submit_video/"] .controls { margin-left: 100px; }
-form > .form-actions { padding: 0px; width: 55px; margin: 0px auto; }
-form[action="/submit_video/scraped/"] > ul > li { height: 29px; list-style-type: none; }
-form[action="/submit_video/scraped/"] > ul > li > label { line-height: 29px; }
-form[action="/submit_video/scraped/"] > ul > li > label > input {
-	vertical-align: bottom; width: 29px;
-    cursor:pointer;
-
+.row-nested > .col-one-quarter {
+	width: 25%;
+	float: left;
+	margin-right: 20px;
+	
+}
+.row-nested > .col-three-quarters {
+	width: 71%;
+	float: right;
+}
+.col-one-quarter > .thumbnail > img {
+	width: 100%;
 }
 
-.control-group-tags { margin-top: 20px; }
-.control-group > label { line-height: 29px; margin-right: 20px; vertical-align: top; }
-.control-group > .controls { display: inline-block; margin-left: 0px; width: 80%; }
-.controls > input { width: 100%; }
-
-/*Login page fixes*/
-.login-page form .controls { display: block; width: 100%; }
-.login-page .tabs {
-	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
-	border: none;
-}
-.login-page .tabs > li > a {
-	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat;
-	border: none;
-	color: #444444;
-	text-shadow: 0 1px 0 #FFF;
-	font-weight: bold;
-	margin: 0px 5px -1px 0px;
-	transition: background 1s;
-	-moz-transition: background 1s;
-	-webkit-transition: background 1s;
-}
-.login-page .tabs > li.active > a, .login-page .tabs > li:hover > a { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat; }
-.login-page #main > .container { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_body1.jpg) repeat; box-shadow: none; }
-.login-page #main .tab-content { background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat; box-shadow: none; }
-@media screen and (max-width: 740px) { .login-page .tabs { margin-top: 0px; } }
-=======
 /*Resizing the grid items for consistency with the playlist button*/
 .grid-3 .grid-item .grid-item-header > h1 { max-height: 81px; overflow: hidden; }
 .grid-3 .grid-item .grid-item-link { height: 255px; }
@@ -454,7 +384,6 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 @media screen and (max-width: 740px) {
 .grid-1 .grid-item .grid-item-header > h1, .grid-3 .grid-item .grid-item-header > h1, .grid-4 .grid-item .grid-item-header > h1 { max-height: 54px; overflow: hidden; }
 }
->>>>>>> 679458e4f014eb4360235f014df324a7b0836a34
 
 /*
  *

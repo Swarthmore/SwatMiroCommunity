@@ -126,7 +126,6 @@ a:hover {
 	z-index: 1337;
 }
 
-
 .nav-item-dropdown.open > a { -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.15); }
 
 .open > .dropdown-box, .open > .dropdown-list {
@@ -150,7 +149,6 @@ a:hover {
 	padding: 5px;
 	border-radius: 5px;
 }
-
 
 /*Main background*/
 html, body {
@@ -186,7 +184,7 @@ html, body {
 .pod-header, .page-header {
 	margin: 0px;
 	padding: 0px;
-	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
 	height: 45px;
 	border: none;
 	
@@ -207,8 +205,8 @@ html, body {
 /*Fixing the hideous search bar D: */
 #search {
 	margin: 18px 20px 0px 0px;
-	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat;
-	
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+}
 #search #search_field {
 	width: 168px;
 	height: 28px;
@@ -255,7 +253,7 @@ html, body {
 
 /*Video submission form fixes*/
 .x-large > label { line-height: 24px; position: absolute; width: auto; }
-.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; }
+.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; margin-left: 100px;}
 form .controls { display: inline-block; margin-left: 0px; }
 form[action="/submit_video/"] .controls { margin-left: 100px; }
 form > .form-actions { padding: 0px; width: 55px; margin: 0px auto; }
@@ -264,12 +262,11 @@ form[action="/submit_video/scraped/"] > ul > li > label { line-height: 29px; }
 form[action="/submit_video/scraped/"] > ul > li > label > input {
 	vertical-align: bottom; width: 29px;
     cursor:pointer;
-
 }
 
 .control-group-tags { margin-top: 20px; }
 .control-group > label { line-height: 29px; margin-right: 20px; vertical-align: top; }
-.control-group > .controls { display: inline-block; margin-left: 0px; width: 60%; }
+.control-group > .controls { display: inline-block; margin-left: 0px; width: 80%; }
 .controls > input { width: 100%; }
 
 /*Login page fixes*/
@@ -317,11 +314,24 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
-	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
 	color: #EEEEEE;
 	display: inline-block;
 	border-radius: 5px;
 	border-color: #a2a2a2;
+	cursor: pointer;
+}
+.playlist_submit:hover {
+	font-size: 12px;
+	width: auto;
+	height: 24px;
+	padding: 0px 9px;
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+	color: lightblue;
+	display: inline-block;
+	border-radius: 5px;
+	border-color: #a2a2a2;
+	cursor: pointer;
 }
 .playlist-videos .playlist-description {
 	display: none;
@@ -344,7 +354,7 @@ button, button:hover, .button-wide, .button-wide:hover {
 	background: none;
 	box-shadow: none;
 	text-shadow: none;
-	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
 	color: #EEEEEE;
 	cursor: pointer;
 }
@@ -405,8 +415,6 @@ button:hover, .button-wide:hover {
 .col-three-fifths { width: 60%; }
 .col-four-fifths { width: 80%; }
 }
-
-
 
 /*
  *

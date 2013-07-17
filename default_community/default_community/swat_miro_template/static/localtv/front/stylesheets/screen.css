@@ -6,7 +6,6 @@ ol, ul, { list-style: none; }
 
 /* Playlist form dropdown menu */       
 
-
 table { border-collapse: collapse; border-spacing: 0; }
 
 caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
@@ -457,6 +456,11 @@ ol > li { list-style-type: decimal; }
 .extra-details h4 { font-size: 11px; line-height: 18px; }
 
 .watch-video-button::after { content: "▶"; display: inline-block; margin-left: 0.5em; }
+
+/*
+.icon-32-sprite, .icon-32-miro, .icon-32-rss, .icon-32 { background: url('/static/localtv/front/images/icon-32-s81446525c0.png') no-repeat; }
+.icon-16-sprite, .icon-16-miro, .icon-16-rss, .icon-16 { background: url('/static/localtv/front/images/icon-16-sa5e1b6bd67.png') no-repeat; }
+*/
 
 .icon-32-miro { background-position: 0 -32px; }
 

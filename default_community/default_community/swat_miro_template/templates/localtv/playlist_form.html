@@ -3,7 +3,7 @@
 {% load swattags %} <!-- Might not be necessary -->
 <div class="playlist_form">
 		<!-- If you read this, PLEASE restyle the playlist select menu. It's hideous (but a royal pain to properly restlye). -->
-		<form id="playlist_form_{{video.id}}" action="/playlist/add/{{video.id}}" method="POST" class="playlists">{% csrf_token %}
+		<form id="playlist_form_{{video.id}}" action="" method="POST" class="playlists">{% csrf_token %}
 			<select name="playlist" class="playlist_select">
 				<option value="-1" data-skip="1">Select Playlist</option>
 				{% for playlist in playlists %}			
@@ -16,24 +16,22 @@
 			</select>
 
 		<!-- "Add to Playlist" input-functioning-as-a-button -->
-		<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit" cursor="pointer"/>
+		<!-- <input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit" cursor="pointer"/> -->
+		<button  id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit">Add</button>
 
 		<!-- Handle click events -->
 		<script>
 			$('#add_to_playlist_{{video.id}}').click(function(){
-				console.log("Hello");
-				console.log($('#playlist_form_{{video.id}}').serialize());
 				if ($('#playlist_form_{{video.id}}').val() != -1) {
-					$.post("/playlists/add/{{video.id}}",
+					$.post("/miro/playlists/add/{{video.id}}",
 					$('#playlist_form_{{video.id}}').serialize(),
 					function(data, textStatus, jqXHR){
-						//console.log(textStatus);
+						console.log(textStatus);
 						if (textStatus === "success") {
 							document.location.reload();
 						}
 					});
-				}
-										
+				}						
 			});
 		</script>		
 	</form>

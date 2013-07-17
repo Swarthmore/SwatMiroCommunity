@@ -184,7 +184,7 @@ html, body {
 .pod-header, .page-header {
 	margin: 0px;
 	padding: 0px;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
 	height: 45px;
 	border: none;
 	
@@ -309,29 +309,50 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 .playlist_select {
 	width: auto;
 }
+
+/*Submit to category button*/
+/* 
+    I don't know why this button is off-center within its container.
+ */
+#submit-to-category {
+	margin-left: 20px;
+	background: black;
+}
+
+/*Beautiful buttons! :) */
+button, button:hover, .button-wide, .button-wide:hover {
+	background: none;
+	box-shadow: none;
+	text-shadow: none;
+	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+	color: #EEEEEE;
+	cursor: pointer;
+}
+button:hover, .button-wide:hover {
+	color: #5C86A0;
+}
+
 .playlist_submit {
 	font-size: 12px;
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
 	color: #EEEEEE;
 	display: inline-block;
 	border-radius: 5px;
 	border-color: #a2a2a2;
-	cursor: pointer;
 }
 .playlist_submit:hover {
 	font-size: 12px;
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
 	color: lightblue;
 	display: inline-block;
 	border-radius: 5px;
 	border-color: #a2a2a2;
-	cursor: pointer;
 }
 .playlist-videos .playlist-description {
 	display: none;
@@ -342,24 +363,10 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 }
 .grid-item .playlists, .grid-item .playlist_submit {
 	margin: 0px auto;
-	display: block;
 }
 .grid-item .playlist_select {
 	display: inline-block;
 	margin: 0px auto 5px;
-}
-
-/*Beautiful buttons! :) */
-button, button:hover, .button-wide, .button-wide:hover {
-	background: none;
-	box-shadow: none;
-	text-shadow: none;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
-	color: #EEEEEE;
-	cursor: pointer;
-}
-button:hover, .button-wide:hover {
-	color: #5C86A0;
 }
 
 /*Fixes for the "no search results" page*/

@@ -205,7 +205,7 @@ html, body {
 /*Fixing the hideous search bar D: */
 #search {
 	margin: 18px 20px 0px 0px;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat;
 }
 #search #search_field {
 	width: 168px;
@@ -320,6 +320,9 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 #submit-to-category {
 	margin-left: 20px;
 	background: black;
+	color: white;
+	height: 29px;
+	width: 144.09375px; /*Got this from Computed Styles (see inspector)*/
 }
 
 /*Beautiful buttons! :) */
@@ -327,12 +330,24 @@ button, button:hover, .button-wide, .button-wide:hover {
 	background: none;
 	box-shadow: none;
 	text-shadow: none;
+	width: 200px;
+	height: 47px;	
 	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
-	color: #EEEEEE;
+	color: white;
 	cursor: pointer;
 }
 button:hover, .button-wide:hover {
 	color: #5C86A0;
+}
+
+#all-new-videos {
+	width: 100%;
+}
+
+#submit-video {
+	width: 100%;
+	background: gainsboro;
+	color: black;
 }
 
 .playlist_submit {
@@ -340,9 +355,10 @@ button:hover, .button-wide:hover {
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
-	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
-	color: #EEEEEE;
+	background: lightgray;
+	color: black;
 	display: inline-block;
+	border: none;
 	border-radius: 5px;
 	border-color: #a2a2a2;
 }
@@ -351,11 +367,10 @@ button:hover, .button-wide:hover {
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
-	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
-	color: lightblue;
+	/*background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;*/
 	display: inline-block;
 	border-radius: 5px;
-	border-color: #a2a2a2;
+	border-color: black;
 }
 .playlist-videos .playlist-description {
 	display: none;

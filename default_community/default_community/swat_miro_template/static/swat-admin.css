@@ -735,7 +735,7 @@ html {
 }
 /*Active one*/
 body#tier.settings a.tier, #admin.flatpages a.flatpages, #admin.bulkedit a.bulkedit, #admin.category_admin a.categories, #admin.themes a.themes, #admin.settings a.settings, #admin.widget_settings a.widget_settings, #admin.searches a.watched, #admin.incomingvids #admin_subnav a.sub, #admin.managesources a.watched, #user_profile.user_profile #admin_subnav a.profile, #user_profile.notifications a.notifications, #goodies.widgetcreater a.widget, #goodies.bookmarklet a.bookmarklet, #goodies.playlists a.playlists {
-	background: url(http://23.23.177.220:9997/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat;
 }
 #admin_subnav li a:hover {
 	background: #744947;

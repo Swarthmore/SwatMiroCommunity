@@ -7,9 +7,11 @@
 		<a href="{% url 'localtv_about' %}">{% trans 'About' %}</a>
 	</li>
 	{% if site_settings.display_submit_button or request.user_is_admin %}
-		<li class="nav-item nav-submit">
-			<a href="{% url 'localtv_submit_video' %}">{% trans 'Submit' %}</a>
-		</li>
+		{% if request.user.is_authenticated %}
+			<li class="nav-item nav-submit">
+				<a href="{% url 'localtv_submit_video' %}">{% trans 'Submit' %}</a>
+			</li>
+		{% endif %}
 	{% endif %}
 	{% if browse_modules %}
 		<li class="nav-item nav-item-dropdown nav-browse">
@@ -19,7 +21,11 @@
 					{% include module %}
 				{% endfor %}
 				<section class="browse-box-section">
-					<h1><a href="{%url 'localtv_playlist_index' %}">{% trans "Playlists" %}</a></h1>
+					{% if request.user.is_authenticated %}
+						<h1><a href="{%url 'localtv_playlist_index' %}">{% trans "Playlists" %}</a></h1>
+					{% else %}
+						<h1><a href="">{% trans "Playlists" %}</a></h1>
+					{% endif %}
 				</section>
 			</div>
 		</li>

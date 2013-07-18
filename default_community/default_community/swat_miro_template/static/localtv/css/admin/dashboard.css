@@ -18,7 +18,10 @@
   letter-spacing: -1px;
   padding: 0 0 0 48px;
   font-weight: bold;
-  background: transparent url(../../images/admin/icon_dash_activity.png) 0 0 no-repeat;
+  /*
+    For some reason, this file doesn't exist in either production or development remote file systems
+    background: transparent url(../../images/admin/icon_dash_activity.png) 0 0 no-repeat;
+  */
   float: left;
 }
 

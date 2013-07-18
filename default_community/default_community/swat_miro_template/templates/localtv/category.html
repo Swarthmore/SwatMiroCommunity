@@ -11,11 +11,13 @@
 {% block top %}
 	<header class="page-header">
 		<h1 class="page-title">{{ category.name }}</h1>
-		<button type="button" id="submit-to-category" onclick="location.href='{% url 'localtv_submit_video' %}categories/{{category.slug}}';"">Submit to this category</button>
 		
+		<!-- Video submission restricted -->
+		{% if request.user.is_authenticated %}
+		<button type="button" id="submit-to-category" 
+				onclick="location.href='{% url 'localtv_submit_video' %}categories/{{category.slug}}';"">Submit to this category</button>
+		{% endif %}
 	
- 
-		
 		<div class="page-actions">
 			<ul class="action-list">
 				<li><a class="rss" href="{% url 'localtv_feeds_category' category.slug %}">RSS</a></li>

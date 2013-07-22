@@ -1,13 +1,17 @@
 {% load i18n %}{% load url from future %}
 {% if categories %}
 <section class="browse-box-section">
-	<h1><a href="{% url 'localtv_category_index' %}">{% trans 'Categories' %}</a></h1>
-	<ul>
-		{% for category in categories %}
-			<li>
-				<a href="{{ category.get_absolute_url }}">{{ category }}</a>
-			</li>
-		{% endfor %}
-	</ul>
+	
+	{% if request.user.is_authenticated %}
+		<h1><a href="{% url 'localtv_category_index' %}">{% trans 'Categories' %}</a></h1>
+		<ul>
+			{% for category in categories %}
+				<li>
+					<a href="{{ category.get_absolute_url }}">{{ category }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	
 </section>
 {% endif %}

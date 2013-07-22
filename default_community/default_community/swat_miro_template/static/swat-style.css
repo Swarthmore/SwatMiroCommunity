@@ -336,8 +336,23 @@ button, button:hover, .button-wide, .button-wide:hover {
 	color: white;
 	cursor: pointer;
 }
+
 button:hover, .button-wide:hover {
 	color: #5C86A0;
+}
+
+.login {
+	height: 30px;
+	width: 70px;
+	background: #e4dfcb;
+	color: black;
+	border: none;
+}
+.login:hover {
+	height: 30px;
+	width: 70px;
+	background: #ddd7bd;
+	color: black;	
 }
 
 #all-new-videos {
@@ -345,9 +360,17 @@ button:hover, .button-wide:hover {
 }
 
 #submit-video {
-	width: 100%;
-	background: gainsboro;
+	height: 30px;
+	width: 70px;
+	background: #e4dfcb;
 	color: black;
+	border: none;
+}
+#submit-video:hover {
+	height: 30px;
+	width: 70px;
+	background: #ddd7bd;
+	color: black;	
 }
 
 .playlist_submit {
@@ -456,7 +479,7 @@ button:hover, .button-wide:hover {
 /*Removing a completely random and annoying padding thing*/
 @media screen and (max-width: 960px) { #container > #header > .container { padding: 0px; } }
 
-/*TABLET MODE ENGAGED*/
+/*Accommodate tablet mode*/
 @media screen and (max-width: 740px) {
 
 #header {

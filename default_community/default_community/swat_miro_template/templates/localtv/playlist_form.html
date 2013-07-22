@@ -1,7 +1,16 @@
 <!-- This form contains the dropdown menu and button used to add videos to playlists -->
 
+<!--<link rel="stylesheet" type="text/css" href="css/styles.css" />
+<link rel="stylesheet" type="text/css" href="css/splashscreen.css" />
+
+<script src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.4.min.js"></script>
+<script src="js/jquery.splashscreen.js"></script>
+<script src="js/script.js"></script>-->
+
+
 {% load swattags %} <!-- Might not be necessary -->
 <div class="playlist_form">
+	
 		<!-- If you read this, PLEASE restyle the playlist select menu. It's hideous (but a royal pain to properly restlye). -->
 		<form id="playlist_form_{{video.id}}" action="" method="POST" class="playlists">{% csrf_token %}
 			<select name="playlist" class="playlist_select">
@@ -16,26 +25,29 @@
 			</select>
 
 		<!-- "Add to Playlist" button -->
-		<button id="add_to_playlist_{{video.id}}" type="submit" value="Add" class="playlist_submit">Add</button>
-
+		<button id="add_to_playlist_{{video.id}}" type="submit" value="Add" class="playlist_submit">
+			Add
+		</button>
+		
 		<!-- Handle click events -->
 		<script>
-			$(document).ready(function(){
-				$('#playlist_form_{{video.id}}').submit(function() {
-					if ($('.playlist_select', this).val() != -1) {
+			$(document).ready(function(){				
+				$('#playlist_form_{{video.id}}').submit(function() {					
+					if ($('.playlist_select', this).val() != -1) {	
 						$.post("/miro/playlists/add/{{video.id}}",
-							$(this).serialize(),
-								function(data, textStatus, jqXHR){
-										if (textStatus === "success") {
-											document.location.reload();
-										}
-								}
+								$(this).serialize(),
+									function(data, textStatus, jqXHR){
+											if (textStatus === "success") {										
+												document.location.reload();
+											}
+									}
 						);
 					}
 					return false;
 				});
 			});			
-		</script>		
+		</script>	
+		
 	</form>
 </div>
 

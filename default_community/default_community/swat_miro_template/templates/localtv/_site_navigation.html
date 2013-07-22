@@ -48,7 +48,7 @@
 				</li>
 				{% endif %}
 				<li class="nav-logout">
-					<a href="{% url 'auth_logout' %}?next={{ request.META.PATH_INFO }}">{% trans 'Logout' %}</a>
+					<a href="/{% url 'auth_logout' %}?next=/miro/">{% trans 'Logout' %}</a>
 				</li>
 			</ul>
 		</li>

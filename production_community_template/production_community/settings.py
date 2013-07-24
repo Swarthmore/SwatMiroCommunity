@@ -35,6 +35,8 @@ AUTH_METHOD = 'cas'
 
 
 DB = os.environ.get('DB')
+# Force mysql in production
+DB = 'mysql'
 if DB == 'mysql':
     DATABASES = {
         'default': {
@@ -229,7 +231,7 @@ INSTALLED_APPS = (
 )
 
 if COMMENTS_ENABLED:
-	INSTALLED_APPS = ('disqus',)
+	INSTALLED_APPS += ('disqus',)
 	# disqus keys
 	DISQUS_PUBLIC_KEY = 'Rar4vj0zdEt4dQFtMHHZbHNQjAGUyeRWAv60mNJHfLqGvMh8R4uxmOhyJoo6JY8x'
 	DISQUS_SECRET_KEY = 'i1nlbupybvKk5whgGuLIF0hTOc0bovjSVJiIz6ktqsZvGBUk9Jmv5Ai7qKmyHtbn'

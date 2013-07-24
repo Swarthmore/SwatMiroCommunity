@@ -68,9 +68,9 @@
           <div id="user_panel">
             {% if request.user.is_authenticated %}
               <span>logged in as {{ request.user.username }}</span>
-              <a href="{% url 'auth_logout' %}?next={{ request.META.PATH_INFO }}">Sign Out</a>
+              <a href="{% url 'auth_logout' %}?next={% url 'localtv_index' %}">LOGOUT</a>
               {% else %}
-              <a href="{% url 'auth_login' %}?next={{ request.META.PATH_INFO }}" title="Please Sign In"><span>Sign In</span></a>
+              <a href="{% url 'auth_login' %}?next={{ request.META.PATH_INFO }}" title="Please Sign In"><span>LOGIN</span></a>
             {% endif %}
           </div><!-- // user_pane -->
         <div id="logo">

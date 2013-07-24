@@ -27,7 +27,7 @@
 	{% block styles %}
 		{#% compress css %#}
 			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.3/build/cssreset/cssreset-min.css">
-			<!-- Virtually all styling was done in screen.css and swat-style.css -->
+			<!-- Virtually all styling is done in screen.css and swat-style.css -->
 			<link rel="stylesheet" type="text/css" href="{% static 'localtv/front/stylesheets/screen.css' %}" media="screen" />
 			<link rel="stylesheet" type="text/css" href="{% static 'swat-style.css' %}" media="screen" />
 			
@@ -64,9 +64,6 @@
 			<script src="{% static 'localtv/front/js/jquery.cycle.js' %}"></script>
 			<script src="{% static 'localtv/front/js/jquery.history.js' %}"></script>
 			<script src="{% static 'localtv/front/js/jquery.infinitescroll.js' %}"></script>
-			<!-- I don't think fitvids works with object tag videos, but this include can at least
-				 be a reminder to find alternatives -->
-			<!-- <script src="{% static 'localtv/front/js/jquery.fitvids.js' %}"></script> -->
 			<script src="{% static 'localtv/front/js/bootstrap.tooltip.js' %}"></script>
 			<script src="{% static 'localtv/front/js/bootstrap.popover.js' %}"></script>
 			<script src="{% static 'localtv/front/js/localtv.dropdown.js' %}"></script>

@@ -36,14 +36,14 @@
 {% block scripts %}
 	{{ block.super }}
 	{% if current_video.contestvideo_set %}
-		<script src="{% static 'localtv/js/localtv.contests.js' %}"></script>
+		<script src="{{ STATIC_URL}}localtv/js/localtv.contests.js"></script>
 	{% endif %}
 {% endblock %}
 
 {% block styles %}
 	{{ block.super }}
 	{% if current_video.contestvideo_set %}
-		<link rel="stylesheet" type="text/css" href="{% static 'localtv/stylesheets/localtv.contests.screen.css' %}" media="screen" />
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}localtv/css/localtv.contests.screen.css" media="screen" />
 	{% endif %}
 {% endblock %}
 
@@ -91,28 +91,30 @@
 
 	<!-- "Read More" section -->
 	<div class="padded">
-		<section class="video-details">
-		
+		<section class="video-details">		
 			<!-- Video description -->
 			{{ current_video.description|safe }}
 			<div class="extra-details">
-			
-				<!-- Categories -->
-				{% if current_video.categories.count > 0 %}
-					<div class="video-full-categories compact">
-						{% with current_video as instance %}
-							{% include "localtv/inline_edit/video_categories.html" %}
-						{% endwith %}
-					</div>{# /.video-full-categories #}
-				{% endif %}
-					
-				<!-- Video playlists -->
-				{% if current_video.playlists.count > 0 %}
-				<div class="compact"><h4>{% trans "Playlists" %}:</h4>
-					{% for playlist in playlists %}
-						<a href="/playlists/{{ playlist.id }}">{{ playlist }}</a>
-					{% endfor %}
-				</div>
+				{% if request.user.is_authenticated %}
+					<!-- Categories -->
+					{% if current_video.categories.count > 0 %}
+						<div class="video-full-categories compact">
+							{% with current_video as instance %}
+								{% include "localtv/inline_edit/video_categories.html" %}
+							{% endwith %}
+						</div>{# /.video-full-categories #}
+					{% endif %}
+				
+					<!-- Video playlists -->
+					{% if current_video.playlists.count > 0 %}
+						<div class="compact"><h4>{% trans "Playlists" %}:</h4>
+							{% for playlist in playlists %}
+								{% if playlist in current_video.playlists.all %}
+									<a href="/playlists/{{ playlist.id }}">{{ playlist.name }}</a>
+								{% endif %}
+							{% endfor %}
+						</div>
+					{% endif %}
 				{% endif %}
 				
 				<!-- Video tags -->
@@ -134,16 +136,22 @@
 				{% endif %}
 			</div>
 		</section>{# /.video-details #}
+
 	</div>
 	
 	<!-- Disqus comments -->
 	<div class="padded">
 		{# Disqus comments #}
-    	{% load disqus_tags %}
-		{% set_disqus_developer 1 %}
-		{% disqus_show_comments %}
-		{% load swattags %}
-		{{ disqus_sso|safe }}
+    	
+    	{% if request.user.is_authenticated %}
+    		{% load disqus_tags %}
+			{% set_disqus_developer 1 %}
+			{% disqus_show_comments %}
+			{% load swattags %}
+			{{ disqus_sso|safe }}
+    	{% endif %}
+		
+
 	</div>
 {% endblock %}
 

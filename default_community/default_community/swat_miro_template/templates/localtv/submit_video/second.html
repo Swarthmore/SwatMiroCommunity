@@ -5,6 +5,7 @@
 {% block inner_form %}
 	{% with field=form.url %}{% include "localtv/_form_field.html" %}{% endwith %}
 	{% with field=form.tags %}{% include "localtv/_form_field.html" %}{% endwith %}
+	{% with field=form.categories %}{% include "localtv/_form_field.html" %}{% endwith %}
 	{% if form.contact %}
 		{% with field=form.contact %}{% include "localtv/_form_field.html" %}{% endwith %}
 	{% endif %}

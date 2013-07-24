@@ -28,6 +28,7 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 {% block main %}
 	<header class="page-header">
 		<h1 class="page-title">{% trans "Login" %}</h1>
+		<link type="text/css" rel="stylesheet" link="{{ STATIC_URL }}swat-style.css"/>
 	</header>
 	
 	<div class="page-content">
@@ -53,14 +54,12 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 					<div class="col-one-half">
 						<div class="padded">
 							<h3>Login</h3>
-							<form action="{{ settings.LOGIN_URL }}{% if next %}?next={{ next }}{% endif %}" method="post">
+							<form action="/miro/{{ settings.LOGIN_URL }}{% if next %}?next={% url localtv_index %}{% endif %}" method="post">
 								{% csrf_token %}
 								{% include "localtv/_form_inner.html" %}
-							
-							
 								<div class="control-group">
 									<div class="controls">
-										<button>Login</button>
+										<button class="login">Login</button>
 										<a href="{% url auth_password_reset %}">Forgot your password?</a>
 									</div>
 								</div>
@@ -101,7 +100,7 @@ along with Miro Community.  If not, see <http://www.gnu.org/licenses/>.
 							
 								<div class="control-group">
 									<div class="controls">
-										<button>Sign Up</button>
+										<button class="login">Sign Up</button>
 									</div>
 								</div>
 							</form>

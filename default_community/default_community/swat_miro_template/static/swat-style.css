@@ -184,7 +184,7 @@ html, body {
 .pod-header, .page-header {
 	margin: 0px;
 	padding: 0px;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
 	height: 45px;
 	border: none;
 	
@@ -205,7 +205,7 @@ html, body {
 /*Fixing the hideous search bar D: */
 #search {
 	margin: 18px 20px 0px 0px;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat;
+	background: url(localtv/front/images/classy_fabric.png?1345840025) repeat;
 }
 #search #search_field {
 	width: 168px;
@@ -253,7 +253,7 @@ html, body {
 
 /*Video submission form fixes*/
 .x-large > label { line-height: 24px; position: absolute; width: auto; }
-.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; }
+.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; margin-left: 100px;}
 form .controls { display: inline-block; margin-left: 0px; }
 form[action="/submit_video/"] .controls { margin-left: 100px; }
 form > .form-actions { padding: 0px; width: 55px; margin: 0px auto; }
@@ -265,6 +265,9 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 }
 
 .control-group-tags { margin-top: 20px; }
+.control-group-categories li { list-style-type: none; }
+.control-group-categories ul li label { text-align: left; line-height: 32px;  }
+.control-group-categories input.category-check { float: left; width: auto; margin: 0 .8em 0 0; clear: left;}
 .control-group > label { line-height: 29px; margin-right: 20px; vertical-align: top; }
 .control-group > .controls { display: inline-block; margin-left: 0px; width: 80%; }
 .controls > input { width: 100%; }
@@ -309,16 +312,88 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 .playlist_select {
 	width: auto;
 }
+
+/*Submit to category button*/
+/* 
+    I don't know why this button is off-center within its container.
+ */
+#submit-to-category {
+	margin-left: 20px;
+	background: black;
+	color: white;
+	height: 29px;
+	width: 144.09375px; /*Got this from Computed Styles (see inspector)*/
+}
+
+/*Beautiful buttons! :) */
+button, button:hover, .button-wide, .button-wide:hover {
+	background: none;
+	box-shadow: none;
+	text-shadow: none;
+	width: 200px;
+	height: 47px;	
+	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
+	color: white;
+	cursor: pointer;
+}
+
+button:hover, .button-wide:hover {
+	color: #5C86A0;
+}
+
+.login {
+	height: 30px;
+	width: 70px;
+	background: #e4dfcb;
+	color: black;
+	border: none;
+}
+.login:hover {
+	height: 30px;
+	width: 70px;
+	background: #ddd7bd;
+	color: black;	
+}
+
+#all-new-videos {
+	width: 100%;
+}
+
+#submit-video {
+	height: 30px;
+	width: 70px;
+	background: #e4dfcb;
+	color: black;
+	border: none;
+}
+#submit-video:hover {
+	height: 30px;
+	width: 70px;
+	background: #ddd7bd;
+	color: black;	
+}
+
 .playlist_submit {
 	font-size: 12px;
 	width: auto;
 	height: 24px;
 	padding: 0px 9px;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
-	color: #EEEEEE;
+	background: lightgray;
+	color: black;
 	display: inline-block;
+	border: none;
 	border-radius: 5px;
 	border-color: #a2a2a2;
+}
+.playlist_submit:hover {
+	font-size: 12px;
+	width: auto;
+	height: 24px;
+	padding: 0px 9px;
+	/*background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;*/
+	display: inline-block;
+	border-radius: 5px;
+	border-color: black;
 }
 .playlist-videos .playlist-description {
 	display: none;
@@ -329,24 +404,10 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 }
 .grid-item .playlists, .grid-item .playlist_submit {
 	margin: 0px auto;
-	display: block;
 }
 .grid-item .playlist_select {
 	display: inline-block;
 	margin: 0px auto 5px;
-}
-
-/*Beautiful buttons! :) */
-button, button:hover, .button-wide, .button-wide:hover {
-	background: none;
-	box-shadow: none;
-	text-shadow: none;
-	background: url(http://23.23.177.220:9001/static/localtv/front/images/classy_fabric.png?1345840025) repeat, #2b2d2d;
-	color: #EEEEEE;
-	cursor: pointer;
-}
-button:hover, .button-wide:hover {
-	color: #5C86A0;
 }
 
 /*Fixes for the "no search results" page*/
@@ -418,7 +479,7 @@ button:hover, .button-wide:hover {
 /*Removing a completely random and annoying padding thing*/
 @media screen and (max-width: 960px) { #container > #header > .container { padding: 0px; } }
 
-/*TABLET MODE ENGAGED*/
+/*Accommodate tablet mode*/
 @media screen and (max-width: 740px) {
 
 #header {

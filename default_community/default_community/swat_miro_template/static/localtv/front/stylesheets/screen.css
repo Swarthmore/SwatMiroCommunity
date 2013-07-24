@@ -115,7 +115,7 @@ blockquote { padding-left: 0.75em; margin-left: 0.5em; border-left: 0.25em solid
 
 #main { overflow: hidden; *zoom: 1; }
 
-.button, .button-wide, .button-dark, button, .pagetabs a, .pagetabs .ellipse span { border: 1px solid; text-align: center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; line-height: 18px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; margin: 0; padding: 4.5px 9px; height: 29px; display: inline-block; overflow: hidden; }
+.button, .button-wide, .button-dark, button, .pagetabs a, .pagetabs .ellipse span { border: 1px solid; text-align: center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; border-radius: 5px; margin: 0; padding: 4.5px 9px; height: 29px; display: inline-block; overflow: hidden; }
 
 .button-wide { display: block; line-height: 36px; height: 47px; }
 
@@ -533,9 +533,9 @@ input:focus, textarea:focus { border-color: #344f6d; -webkit-box-shadow: 0 0 6px
 .pagetabs .ellipse span:hover, .pagetabs .ellipse span:active { color: #777777; border-color: #c4c4c4; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bbbbbb), color-stop(100%, #a2a2a2)); background: -webkit-linear-gradient(#bbbbbb, #a2a2a2); background: -moz-linear-gradient(#bbbbbb, #a2a2a2); background: -o-linear-gradient(#bbbbbb, #a2a2a2); background: linear-gradient(#bbbbbb, #a2a2a2); -webkit-box-shadow: 0 1px 0 0 white inset; -moz-box-shadow: 0 1px 0 0 white inset; box-shadow: 0 1px 0 0 white inset; }
 
 .pod-header, .page-header { background-color: #eeeeee; background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #eeeeee), color-stop(100%, #e1e1e1)); background-image: -webkit-linear-gradient(#eeeeee, #e1e1e1); background-image: -moz-linear-gradient(#eeeeee, #e1e1e1); background-image: -o-linear-gradient(#eeeeee, #e1e1e1); background-image: linear-gradient(#eeeeee, #e1e1e1); border-bottom-color: #d4d4d4; border-top-color: #e1e1e1; color: #222222; }
-.pod-header a, .page-header a { color: #222222; }
+.pod-header a, .page-header a { color: #344f6d; }
 
-.pod-actions a, .page-actions a, .action-list a { color: #555555; }
+.pod-actions a, .page-actions a, .action-list a { color: #555555; display: none; }
 .pod-actions a:hover, .page-actions a:hover, .action-list a:hover { color: #222222; }
 
 .message { background-color: #eeeeee; border-color: #bbbbbb; text: #222222; }
@@ -581,3 +581,4 @@ input:focus, textarea:focus { border-color: #344f6d; -webkit-box-shadow: 0 0 6px
 #footer a:hover { color: #4e9eda; }
 
 .quiet { color: #999999; }
+Status API Training Shop Blog About © 2013 GitHub, Inc. Terms Privacy Security Contact 

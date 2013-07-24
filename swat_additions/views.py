@@ -19,7 +19,6 @@ class CatSubmitURLView(SubmitURLView):
 		return form_class(initial={'categories': urlCategories})
 		
 class CatSubmitVideoView(SubmitVideoView):
-	form_class = forms.CatScrapedSubmitVideoForm
 	categories_list = []
 	
 	def get(self, request, *args, **kwargs):
@@ -46,9 +45,3 @@ class CatSubmitVideoView(SubmitVideoView):
 		initial.update({'categories': self.categories_list})
 		return initial
 		
-"""
-	def get_form(self, form_class):
-		# Initialize the form with initial category values 
-		print self.kwargs
-		return form_class()
-"""

@@ -5,7 +5,7 @@ import secretkey
 
 _PROJECT_DIR = os.path.dirname(__file__)
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = ()
@@ -20,7 +20,7 @@ DB_USER = "miro_db_user"
 DB_PASSWORD = "miro_db_pass"
 
 # Path to the homepage in the URL 
-URL_PATH = ""
+URL_PATH = "/miro"
 
 # Set to true to enable comments
 COMMENTS_ENABLED = True
@@ -36,7 +36,7 @@ AUTH_METHOD = 'cas'
 
 DB = os.environ.get('DB')
 # Force mysql in production
-# DB = 'mysql'
+DB = 'mysql'
 if DB == 'mysql':
     DATABASES = {
         'default': {
@@ -89,7 +89,7 @@ else:
 SECRET_KEY = secretkey.SECRET_KEY
 
 # (optional) required only if using 'cas' or 'both' authentication methods above
-CAS_SERVER_URL = 'https://idp.test.swarthmore.edu:8443/cas/'
+CAS_SERVER_URL = 'https://login.swarthmore.edu:8443/cas/'
 CAS_REDIRECT_URL = '/'
 CAS_VERSION = '2'
 
@@ -147,7 +147,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(_PROJECT_DIR, 'swat_miro_template/static'),
+    os.path.join(_PROJECT_DIR, '../../default_community/default_community/swat_miro_template/static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -183,7 +183,7 @@ MIDDLEWARE_CLASSES = (
 if AUTH_METHOD == 'cas':
     MIDDLEWARE_CLASSES += ('django_cas.middleware.CASMiddleware',)
     
-ROOT_URLCONF = 'default_community.urls'
+ROOT_URLCONF = 'production_community.urls'
 
 UPLOADTEMPLATE_MEDIA_ROOT = MEDIA_ROOT + 'uploadtemplate/'
 UPLOADTEMPLATE_MEDIA_URL = MEDIA_URL + 'uploadtemplate/'
@@ -194,7 +194,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(_PROJECT_DIR, 'swat_miro_template/templates'),
+    os.path.join(_PROJECT_DIR, '../../default_community/default_community/swat_miro_template/templates'),
 )
 
 INSTALLED_APPS = (
@@ -264,9 +264,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 # For debugging, don't redirect mistyped urls
-APPEND_SLASH = False
+APPEND_SLASH = True
 
-LOGIN_REDIRECT_URL = URL_PATH + "/"
+LOGIN_REDIRECT_URL = URL_PATH
 
 AUTHENTICATION_BACKENDS = (
     'localtv.auth_backends.MirocommunityBackend',

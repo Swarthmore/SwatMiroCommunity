@@ -141,6 +141,7 @@ tr.grey {
 
 #content h2, .add { min-width: 0px; margin-top: 10px; margin-bottom: 10px; }
 #content h2 { line-height: 30px; }
+.incomingvids #content h2 { line-height: normal; }
 
 /*Fixing settings*/
 .settings .input_field > ul > li:nth-child(15) > label:first-child, .settings .input_field > ul > li:nth-child(10) > label:first-child, .settings .input_field > ul > li:nth-child(11) > label:first-child, .settings .input_field > ul > li:nth-child(12) > label:first-child, .settings .input_field > ul > li:nth-child(13) > label:first-child, .settings .input_field > ul > li:nth-child(14) > label:first-child {
@@ -174,6 +175,8 @@ tr.grey {
 body.admin_dash #content, #content {
 	max-width: 765px;
 	width: calc(100% - 242px);
+	width: -webkit-calc(100% - 242px);
+	width: -moz-calc(100% - 242px);
 	float: right;
 	min-height: 0px;
 	margin: 35px 20px 0px 0px !important;
@@ -598,13 +601,13 @@ form.search_sources .small_field { margin: 0px; }
 }
 
 #admin_footer > .clear {
-	width: 334px;
+	width: 222px;
 	text-align: center;
 	margin: 0px auto;
 }
 
 #admin_footer ul li { display: inline; margin: 2px 7px; }
-#admin_footer ul li:last-child { display: none; }
+#admin_footer ul li:nth-child(2), #admin_footer ul li:last-child { display: none; }
 
 #admin_footer > .clear > li > a, #footer_help {
 	font-family: 'Helvetica Neue', Georgia;
@@ -627,6 +630,10 @@ form.search_sources .small_field { margin: 0px; }
 
 /*Mobile mode engaged*/
 @media screen and (max-width: 740px) {
+html {
+	background: url(http://www.swarthmore.edu/PreBuilt/styles/images/bg_container1.jpg) repeat;
+}
+
 #header {
 	width: 100%;
 	padding: 0px;
@@ -642,6 +649,7 @@ form.search_sources .small_field { margin: 0px; }
 	transition: left 0.3s linear;
 	-moz-transition: left 0.3s linear;
 	-webkit-transition: left 0.3s linear;
+	border: none;
 }
 
 #admin.admin_dash #content, #content {

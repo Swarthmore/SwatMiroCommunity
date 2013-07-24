@@ -43,7 +43,7 @@ def get_disqus_sso(request):
     if not request.user.is_authenticated():
 		# User is not logged in, return without doing anything
 		# Where are read-only comments handled?
-        return "User: not logged in"
+        return
     else:
         # Get user data
         email = str(request.user.email)

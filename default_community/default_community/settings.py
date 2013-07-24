@@ -5,20 +5,45 @@ import secretkey
 
 _PROJECT_DIR = os.path.dirname(__file__)
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = ()
 
 MANAGERS = ADMINS
 
+#------------ IMPORTANT SITE SPECIFIC VARIABLES ------------
+
+# Set the MySQL database config varaibles
+DB_NAME = "miro_db_name"
+DB_USER = "miro_db_user"
+DB_PASSWORD = "miro_db_pass"
+
+# Path to the homepage in the URL 
+# /miro for production server
+URL_PATH = ""
+
+# Set to true to enable comments
+COMMENTS_ENABLED = True
+
+# Set the authentication method here options are:
+# 'cas' = use CAS SSO login only
+# 'miro' = use the default Miro login
+# 'both' = allow both cas and Miro (local) logins
+AUTH_METHOD = 'cas'
+
+#------------ No need to edit below this line ---------------
+
+# DB = 'mysql' --> production
+
 DB = os.environ.get('DB')
 if DB == 'mysql':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'mirocommunity_test',
-            'USER': 'root',
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
             'TEST_CHARSET': 'utf8',
             'TEST_COLLATION': 'utf8_general_ci',
         }
@@ -63,14 +88,8 @@ else:
 # ****IMPORTANT**** imported secret key from secretkey.py (file not included in GIT repo for security reasons)
 SECRET_KEY = secretkey.SECRET_KEY
 
-# Set the authentication method here options are:
-# 'cas' = use CAS SSO login only
-# 'miro' = use the default Miro login
-# 'both' = allow both cas and Miro (local) logins
-AUTH_METHOD = 'both'
-
 # (optional) required only if using 'cas' or 'both' authentication methods above
-CAS_SERVER_URL = 'https://idp.test.swarthmore.edu:8443/cas/'
+CAS_SERVER_URL = 'https://login.swarthmore.edu:8443/cas/'
 CAS_REDIRECT_URL = '/'
 CAS_VERSION = '2'
 
@@ -111,7 +130,7 @@ MEDIA_ROOT = os.path.join(_PROJECT_DIR, 'media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/media/'
+MEDIA_URL = URL_PATH + '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -121,7 +140,7 @@ STATIC_ROOT = os.path.join(_PROJECT_DIR, 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = URL_PATH + '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -209,8 +228,14 @@ INSTALLED_APPS = (
     'mptt',
     'django_nose',
     'swat_additions',
-    'disqus',
 )
+
+if COMMENTS_ENABLED:
+	INSTALLED_APPS += ('disqus',)
+	# disqus keys
+	DISQUS_PUBLIC_KEY = 'Rar4vj0zdEt4dQFtMHHZbHNQjAGUyeRWAv60mNJHfLqGvMh8R4uxmOhyJoo6JY8x'
+	DISQUS_SECRET_KEY = 'i1nlbupybvKk5whgGuLIF0hTOc0bovjSVJiIz6ktqsZvGBUk9Jmv5Ai7qKmyHtbn'
+	DISQUS_WEBSITE_SHORTNAME = 'swatmiro'
 
 if os.environ.get('MIGRATIONS'):
     if 'south' not in INSTALLED_APPS:
@@ -218,11 +243,11 @@ if os.environ.get('MIGRATIONS'):
         INSTALLED_APPS = INSTALLED_APPS[:-1] + ('south',) + INSTALLED_APPS[-1:]
     SOUTH_TESTS_MIGRATE = True
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+#TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 # Webdriver test settings
-TEST_BROWSER = 'Firefox'
-TEST_RESULTS_DIR = os.path.join(_PROJECT_DIR, 'webdriver_results')
+#TEST_BROWSER = 'Firefox'
+#TEST_RESULTS_DIR = os.path.join(_PROJECT_DIR, 'webdriver_results')
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
@@ -239,10 +264,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 # For debugging, don't redirect mistyped urls
-APPEND_SLASH = False
+APPEND_SLASH = True
 
-
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = URL_PATH
 
 AUTHENTICATION_BACKENDS = (
     'localtv.auth_backends.MirocommunityBackend',
@@ -272,11 +296,6 @@ FLOWPLAYER_JS_URL = STATIC_URL + 'localtv/js/extern/flowplayer-3.2.4.min.js'
 
 CACHE_BACKEND = 'locmem://'
 
-# disqus keys
-DISQUS_PUBLIC_KEY = 'Rar4vj0zdEt4dQFtMHHZbHNQjAGUyeRWAv60mNJHfLqGvMh8R4uxmOhyJoo6JY8x'
-DISQUS_SECRET_KEY = 'i1nlbupybvKk5whgGuLIF0hTOc0bovjSVJiIz6ktqsZvGBUk9Jmv5Ai7qKmyHtbn'
-DISQUS_WEBSITE_SHORTNAME = 'swatmiro'
-
 # vimeo keys
 VIMEO_API_KEY = None
 VIMEO_API_SECRET = None
@@ -293,4 +312,3 @@ ACCOUNT_ACTIVATION_DAYS = 7
 
 # django-tagging
 FORCE_LOWERCASE_TAGS = True
-

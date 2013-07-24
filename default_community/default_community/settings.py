@@ -183,7 +183,7 @@ MIDDLEWARE_CLASSES = (
 if AUTH_METHOD == 'cas':
     MIDDLEWARE_CLASSES += ('django_cas.middleware.CASMiddleware',)
     
-ROOT_URLCONF = 'default_community.urls'
+ROOT_URLCONF = os.path.basename(os.path.dirname(__file__)) + '.urls'
 
 UPLOADTEMPLATE_MEDIA_ROOT = MEDIA_ROOT + 'uploadtemplate/'
 UPLOADTEMPLATE_MEDIA_URL = MEDIA_URL + 'uploadtemplate/'

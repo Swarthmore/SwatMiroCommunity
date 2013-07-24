@@ -89,7 +89,7 @@ else:
 SECRET_KEY = secretkey.SECRET_KEY
 
 # (optional) required only if using 'cas' or 'both' authentication methods above
-CAS_SERVER_URL = 'https://login.swarthmore.edu:8443/cas/'
+CAS_SERVER_URL = 'https://idp.test.swarthmore.edu:8443/cas/'
 CAS_REDIRECT_URL = '/'
 CAS_VERSION = '2'
 

@@ -15,12 +15,12 @@ MANAGERS = ADMINS
 #------------ IMPORTANT SITE SPECIFIC VARIABLES ------------
 
 # Set the MySQL database config varaibles
-DB_NAME = "miro_engin"
-DB_USER = "miro_engin"
-DB_PASSWORD = "ch33v3rMiroSite"
+DB_NAME = "{dbname}"
+DB_USER = "{dbuser}"
+DB_PASSWORD = "{dbpassword}"
 
 # Path to the homepage in the URL 
-URL_PATH = ""
+URL_PATH = "{urlpath}"
 
 # Set to true to enable comments
 COMMENTS_ENABLED = True

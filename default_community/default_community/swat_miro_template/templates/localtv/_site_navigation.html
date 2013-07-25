@@ -53,13 +53,13 @@
 				</li>
 				{% endif %}
 				<li class="nav-logout">
-					<a href="/{% url 'auth_logout' %}?next=/miro/">{% trans 'Logout' %}</a>
+					<a href="{% url 'auth_logout' %}?next={% url 'localtv_index' %}">{% trans 'Logout' %}</a>
 				</li>
 			</ul>
 		</li>
 	{% else %}{# if not request.user.is_authenticated #}
 		<li class="nav-item nav-login">
-			<a href="{% url 'auth_login' %}?next={{ request.META.PATH_INFO }}">{% trans 'Login' %}</a>
+			<a href="{% url 'auth_login' %}?next={% url 'localtv_index' %}">{% trans 'Login' %}</a>
 		</li>
 	{% endif %}
 </ul>

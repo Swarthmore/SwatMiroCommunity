@@ -15,12 +15,12 @@ MANAGERS = ADMINS
 #------------ IMPORTANT SITE SPECIFIC VARIABLES ------------
 
 # Set the MySQL database config varaibles
-DB_NAME = "miro_db_name"
-DB_USER = "miro_db_user"
-DB_PASSWORD = "miro_db_pass"
+DB_NAME = "{dbname}"
+DB_USER = "{dbuser}"
+DB_PASSWORD = "{dbpassword}"
 
 # Path to the homepage in the URL 
-URL_PATH = "/miro"
+URL_PATH = "{urlpath}"
 
 # Set to true to enable comments
 COMMENTS_ENABLED = True
@@ -183,7 +183,7 @@ MIDDLEWARE_CLASSES = (
 if AUTH_METHOD == 'cas':
     MIDDLEWARE_CLASSES += ('django_cas.middleware.CASMiddleware',)
     
-ROOT_URLCONF = 'production_community.urls'
+ROOT_URLCONF = os.path.basename(os.path.dirname(__file__)) + '.urls'
 
 UPLOADTEMPLATE_MEDIA_ROOT = MEDIA_ROOT + 'uploadtemplate/'
 UPLOADTEMPLATE_MEDIA_URL = MEDIA_URL + 'uploadtemplate/'
@@ -266,7 +266,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # For debugging, don't redirect mistyped urls
 APPEND_SLASH = True
 
-LOGIN_REDIRECT_URL = URL_PATH
+LOGIN_REDIRECT_URL = URL_PATH + '/'
 
 AUTHENTICATION_BACKENDS = (
     'localtv.auth_backends.MirocommunityBackend',

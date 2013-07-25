@@ -22,7 +22,7 @@ class CatSubmitVideoView(SubmitVideoView):
 	categories_list = []
 	
 	def get(self, request, *args, **kwargs):
-		print "self.form_class",self.form_class
+		#print "self.form_class",self.form_class
 		# Pulls in categories from request, and splits
 		if "categories" in request.GET:
 			temp_categories = request.GET["categories"].split('/')

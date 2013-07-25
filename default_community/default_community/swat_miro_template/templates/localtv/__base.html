@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	
 	<!-- Swarthmore favicon -->
-	<link rel="icon" type="image/ico" href="../../static/favicon.ico"/>
+	<link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}"/>
 
 	{% block meta %}
 		<meta name="description" content="{% if site_settings.about_html|striptags %}{{ site_settings.about_html|striptags }}{% else %}A Video Community for {{ site_settings.site.name }}{% endif %}">
@@ -27,9 +27,10 @@
 	{% block styles %}
 		{#% compress css %#}
 			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.10.3/build/cssreset/cssreset-min.css">
-			<!-- Virtually all styling was done in screen.css and swat-style.css -->
-			<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}localtv/front/stylesheets/screen.css" media="screen" />
-			<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}swat-style.css" media="screen" />
+
+			<!-- Virtually all styling is done in screen.css and swat-style.css -->
+			<link rel="stylesheet" type="text/css" href="{% static 'localtv/front/stylesheets/screen.css' %}" media="screen" />
+			<link rel="stylesheet" type="text/css" href="{% static 'swat-style.css' %}" media="screen" />
 			
 			{% if site_settings.css %}
 				<style type="text/css">

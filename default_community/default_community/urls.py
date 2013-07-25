@@ -73,5 +73,6 @@ urlpatterns += (
         url(r'^', include('localtv.contrib.contests.urls')),
         url(r'^', include('localtv.urls')),
         url(r'^help/$', 'swat_additions.views.help', name='localtv_help')
-    )  
+    )      
 )
+

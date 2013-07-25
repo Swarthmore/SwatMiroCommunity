@@ -11,9 +11,8 @@ def categoriesField():
 	# Defines a categories field for SubmitVideoFormBase
 	# Possible error
 	allCats = models.Category.objects.filter(site=settings.SITE_ID)
-	#CAT_CHOICES = [(thisCat.id,thisCat.name) for thisCat in allCats] # LIST COMPREHENSIONS! :D
-	return forms.MultipleChoiceField(required=False, choices=allCats, widget=forms.CheckboxSelectMultiple(attrs={"class":"category-check"}),
-		label="Categories (optional)", help_text=("You may optionally categorize this video."))
+	CAT_CHOICES = [(thisCat.id,thisCat.name) for thisCat in allCats] # LIST COMPREHENSIONS! :D
+	return forms.MultipleChoiceField(required=False, choices=CAT_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={"class":"category-check"}),label="Categories (optional)", help_text=("You may optionally categorize this video."))
 		
 def updateCatIndex(instance):
 	instance._update_index = True
@@ -27,7 +26,7 @@ class CatSubmitURLForm(SubmitURLForm):
 
 class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
 	categories = categoriesField()
-		 
+	
 	def save(self, commit=True):
 		instance = super(ScrapedSubmitVideoForm, self).save(commit=True)
 		#Update the search index here 

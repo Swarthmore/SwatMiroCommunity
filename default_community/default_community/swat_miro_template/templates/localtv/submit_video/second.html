@@ -5,11 +5,14 @@
 {% block inner_form %}
 	{% with field=form.url %}{% include "localtv/_form_field.html" %}{% endwith %}
 	{% with field=form.tags %}{% include "localtv/_form_field.html" %}{% endwith %}
-	{% with field=form.categories %}{% include "localtv/_form_field.html" %}{% endwith %}
+	{% if form.categories %}
+		{% with field=form.categories %}{% include "localtv/_form_field.html" %}{% endwith %}
+	{% endif %}
 	{% if form.contact %}
 		{% with field=form.contact %}{% include "localtv/_form_field.html" %}{% endwith %}
 	{% endif %}
 	{% if not user_is_admin %}
 		{% with field=form.notes %}{% include "localtv/_form_field.html" %}{% endwith %}
 	{% endif %}
+	
 {% endblock %}

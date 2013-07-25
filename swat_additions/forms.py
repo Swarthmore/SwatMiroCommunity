@@ -5,14 +5,16 @@ from localtv import models
 from localtv.models import Video
 from django.conf import settings
 from haystack import connections
+from django.db import transaction
 
-
+	
 def categoriesField():
 	# Defines a categories field for SubmitVideoFormBase
-	# Possible error
+	return forms.MultipleChoiceField(required=False, choices=catChoices(), widget=forms.CheckboxSelectMultiple(attrs={"class":"category-check"}),label="Categories (optional)", help_text=("You may optionally categorize this video."))
+
+def catChoices():
 	allCats = models.Category.objects.filter(site=settings.SITE_ID)
-	CAT_CHOICES = [(thisCat.id,thisCat.name) for thisCat in allCats] # LIST COMPREHENSIONS! :D
-	return forms.MultipleChoiceField(required=False, choices=CAT_CHOICES, widget=forms.CheckboxSelectMultiple(attrs={"class":"category-check"}),label="Categories (optional)", help_text=("You may optionally categorize this video."))
+	return [(thisCat.id,thisCat.name) for thisCat in allCats] # LIST COMPREHENSIONS! :D
 		
 def updateCatIndex(instance):
 	instance._update_index = True
@@ -27,6 +29,10 @@ class CatSubmitURLForm(SubmitURLForm):
 class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
 	categories = categoriesField()
 	
+	def __init__(self, *args, **kwargs):
+		super(ScrapedSubmitVideoForm, self).__init__(*args, **kwargs)
+		self.fields['categories'].choices = catChoices()
+		
 	def save(self, commit=True):
 		instance = super(ScrapedSubmitVideoForm, self).save(commit=True)
 		#Update the search index here 
@@ -36,6 +42,10 @@ class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
 class CatEmbedSubmitVideoForm(EmbedSubmitVideoForm):
 	categories = categoriesField()
 	
+	def __init__(self, *args, **kwargs):
+		super(EmbedSubmitVideoForm, self).__init__(*args, **kwargs)
+		self.fields['categories'].choices = catChoices()
+		
 	def save(self, commit=True):
 		instance = super(EmbedSubmitVideoForm, self).save(commit=True)
 		#Update the search index here 
@@ -45,6 +55,10 @@ class CatEmbedSubmitVideoForm(EmbedSubmitVideoForm):
 class CatDirectLinkSubmitVideoForm(DirectLinkSubmitVideoForm):
 	categories = categoriesField()
 	
+	def __init__(self, *args, **kwargs):
+		super(DirectLinkSubmitVideoForm, self).__init__(*args, **kwargs)
+		self.fields['categories'].choices = catChoices()
+		
 	def save(self, commit=True):
 		instance = super(DirectLinkSubmitVideoForm, self).save(commit=True)
 		#Update the search index here 

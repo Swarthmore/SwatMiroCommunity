@@ -30,9 +30,9 @@ class CatScrapedSubmitVideoForm(ScrapedSubmitVideoForm):
 	categories = categoriesField()
 	
 	def __init__(self, *args, **kwargs):
-		super(ScrapedSubmitVideoForm, self).__init__(*args, **kwargs)
+		super(CatScrapedSubmitVideoForm, self).__init__(*args, **kwargs)
 		self.fields['categories'].choices = catChoices()
-		
+				
 	def save(self, commit=True):
 		instance = super(ScrapedSubmitVideoForm, self).save(commit=True)
 		#Update the search index here 
@@ -43,7 +43,7 @@ class CatEmbedSubmitVideoForm(EmbedSubmitVideoForm):
 	categories = categoriesField()
 	
 	def __init__(self, *args, **kwargs):
-		super(EmbedSubmitVideoForm, self).__init__(*args, **kwargs)
+		super(CatEmbedSubmitVideoForm, self).__init__(*args, **kwargs)
 		self.fields['categories'].choices = catChoices()
 		
 	def save(self, commit=True):
@@ -56,9 +56,9 @@ class CatDirectLinkSubmitVideoForm(DirectLinkSubmitVideoForm):
 	categories = categoriesField()
 	
 	def __init__(self, *args, **kwargs):
-		super(DirectLinkSubmitVideoForm, self).__init__(*args, **kwargs)
+		super(CatDirectLinkSubmitVideoForm, self).__init__(*args, **kwargs)
 		self.fields['categories'].choices = catChoices()
-		
+				
 	def save(self, commit=True):
 		instance = super(DirectLinkSubmitVideoForm, self).save(commit=True)
 		#Update the search index here 

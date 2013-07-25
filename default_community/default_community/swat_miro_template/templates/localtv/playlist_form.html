@@ -34,7 +34,7 @@
 			$(document).ready(function(){				
 				$('#playlist_form_{{video.id}}').submit(function() {					
 					if ($('.playlist_select', this).val() != -1) {	
-						$.post("/playlists/add/{{video.id}}",
+						$.post("/miro/playlists/add/{{video.id}}",
 								$(this).serialize(),
 									function(data, textStatus, jqXHR){
 											if (textStatus === "success") {										

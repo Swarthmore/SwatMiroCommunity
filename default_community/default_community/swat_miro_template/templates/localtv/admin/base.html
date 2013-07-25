@@ -70,7 +70,7 @@
               <a href="{% url 'auth_logout' %}?next={% url 'localtv_index' %}">Logout</a>
 
               {% else %}
-              <a href="{% url 'auth_login' %}?next={{ request.META.PATH_INFO }}" title="Please Sign In"><span>Login</span></a>
+              <a href="{% url 'auth_login' %}?next={% url localtv_index %}" title="Please Sign In"><span>Login</span></a>
             {% endif %}
           </div><!-- // user_pane -->
         <div id="logo">

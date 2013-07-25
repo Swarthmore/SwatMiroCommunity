@@ -1,0 +1,31 @@
+
+WSGIDaemonProcess {processid} python-path={fullprojectpath}
+
+Alias {baseurl}/robots.txt /var/www/django/src/swatmirocommunity/default_community/default_community/swat_miro_template/static/robots.txt
+Alias {baseurl}/favicon.ico /var/www/django/src/swatmirocommunity/default_community/default_community/swat_miro_template/static/favicon.ico
+
+Alias {baseurl}/media/ {fullprojectpath}/{projectname}/media/
+Alias {baseurl}/static/ /var/www/django/src/swatmirocommunity/default_community/default_community/swat_miro_template/static/
+
+WSGIScriptAlias {baseurl} {fullprojectpath}/{projectname}/wsgi.py process-group={processid} application-group=%{GLOBAL}
+
+<Directory {fullprojectpath}/{projectname}/media>
+Order deny,allow
+Allow from all
+</Directory>
+
+<Directory {fullprojectpath}/{projectname}>
+        <Files wsgi.py>
+                  Order allow,deny
+                  Allow from all
+        </Files>
+</Directory>
+
+#To lock down the site with CAS add the following
+<Location {baseurl}>
+	  <IfModule mod_auth_cas.c>
+	  	    AuthType CAS
+		    AuthName "Swarthmore SSO"
+		    Require valid-user
+	</IfModule>
+</Location>

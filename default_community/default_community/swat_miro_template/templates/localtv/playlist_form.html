@@ -23,16 +23,18 @@
 					{% endif %}
 				{% endfor %}
 			</select>
-	<!-- "Add to Playlist" input-functioning-as-a-button -->
-	<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>		
 
+		<!-- "Add to Playlist" button -->
+		<button id="add_to_playlist_{{video.id}}" type="submit" value="Add" class="playlist_submit">
+			Add
+		</button>
 		
 		<!-- Handle click events -->
 		<script>
 			$(document).ready(function(){				
 				$('#playlist_form_{{video.id}}').submit(function() {					
 					if ($('.playlist_select', this).val() != -1) {	
-						$.post("/miro/playlists/add/{{video.id}}",
+						$.post("/playlists/add/{{video.id}}",
 								$(this).serialize(),
 									function(data, textStatus, jqXHR){
 											if (textStatus === "success") {										
@@ -47,6 +49,5 @@
 		</script>	
 		
 	</form>
-
 </div>
 

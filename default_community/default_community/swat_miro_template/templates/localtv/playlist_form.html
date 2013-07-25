@@ -23,9 +23,11 @@
 					{% endif %}
 				{% endfor %}
 			</select>
-	<!-- "Add to Playlist" input-functioning-as-a-button -->
-	<input id="add_to_playlist_{{video.id}}" type="button" value="Add to Playlist" class="playlist_submit"/>		
 
+		<!-- "Add to Playlist" button -->
+		<button id="add_to_playlist_{{video.id}}" type="submit" value="Add" class="playlist_submit">
+			Add
+		</button>
 		
 		<!-- Handle click events -->
 		<script>
@@ -47,6 +49,5 @@
 		</script>	
 		
 	</form>
-
 </div>
 

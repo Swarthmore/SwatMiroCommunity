@@ -6,6 +6,11 @@
 	<li class="nav-item nav-about">
 		<a href="{% url 'localtv_about' %}">{% trans 'About' %}</a>
 	</li>
+	
+	<li class="nav-item nav-help">
+	<a href="{% url 'localtv_help' %}">{% trans 'Help' %}</a>
+	</li>
+	
 	{% if site_settings.display_submit_button or request.user_is_admin %}
 		{% if request.user.is_authenticated %}
 			<li class="nav-item nav-submit">

@@ -44,4 +44,8 @@ class CatSubmitVideoView(SubmitVideoView):
 		#print "CATEGORIES", self.categories_list
 		initial.update({'categories': self.categories_list})
 		return initial
-		
+
+def help(request):
+    return render_to_response(
+        'localtv/help.html',
+        {}, context_instance=RequestContext(request))

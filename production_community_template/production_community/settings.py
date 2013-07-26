@@ -1,4 +1,4 @@
-# Settings for testing Miro Community on travis-ci.org
+# Settings for production Miro Community on clips.swarthmore.edu
 
 import os
 import secretkey
@@ -27,9 +27,10 @@ COMMENTS_ENABLED = True
 
 # Set the authentication method here options are:
 # 'cas' = use CAS SSO login only
+# 'private' = will use the auth from apache (will make entire site password protected)
 # 'miro' = use the default Miro login
 # 'both' = allow both cas and Miro (local) logins
-AUTH_METHOD = 'cas'
+AUTH_METHOD = '{authmethod}'
 
 #------------ No need to edit below this line ---------------
 
@@ -182,8 +183,11 @@ MIDDLEWARE_CLASSES = (
 
 if AUTH_METHOD == 'cas':
     MIDDLEWARE_CLASSES += ('django_cas.middleware.CASMiddleware',)
-    
-ROOT_URLCONF = os.path.basename(os.path.dirname(__file__)) + '.urls'
+
+if AUTH_METHOD == 'private':
+    MIDDLEWARE_CLASSES += ('django.contrib.auth.middleware.RemoteUserMiddleware',)
+ 
+ROOT_URLCONF = 'default_community.urls'
 
 UPLOADTEMPLATE_MEDIA_ROOT = MEDIA_ROOT + 'uploadtemplate/'
 UPLOADTEMPLATE_MEDIA_URL = MEDIA_URL + 'uploadtemplate/'
@@ -276,6 +280,9 @@ AUTHENTICATION_BACKENDS = (
 
 if AUTH_METHOD == 'cas' or AUTH_METHOD == 'both':
     AUTHENTICATION_BACKENDS += ('django_cas.backends.CASBackend',)
+
+if AUTH_METHOD == 'private':
+    AUTHENTICATION_BACKENDS += ('django.contrib.auth.backends.RemoteUserBackend',)
     
 SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
 SOCIAL_AUTH_PIPELINE = (

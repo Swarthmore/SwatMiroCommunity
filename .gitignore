@@ -8,3 +8,4 @@ secretkey.py
 media/
 whoosh_index/
 *.egg-info
+default_community/default_community/settings.py

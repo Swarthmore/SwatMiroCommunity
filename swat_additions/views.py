@@ -49,3 +49,9 @@ def help(request):
     return render_to_response(
         'localtv/help.html',
         {}, context_instance=RequestContext(request))
+
+# logout for use with cas
+def swat_logout(request):
+	logout(request)
+	request.delete_cookie('MOD_AUTH_CAS')
+	return redirect('django_cas.views.logout')	

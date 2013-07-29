@@ -64,3 +64,32 @@ class CatDirectLinkSubmitVideoForm(DirectLinkSubmitVideoForm):
 		#Update the search index here 
 		updateCatIndex(instance)
 		return instance
+
+class AlwaysActiveSubmitVideoFormBase(SubmitVideoFormBase):
+    def __init__(self, *args, **kwargs):
+        super(AlwaysActiveSubmitVideoFormBase, self).__init__(*args, **kwargs)
+        self.request = request
+        print "self.request:",request
+        site_settings = SiteSettings.objects.get_current()
+
+        # HACK for backwards-compatibility
+		#         if 'thumbnail_url' in self.fields:
+		#             self.fields['thumbnail'] = self.fields['thumbnail_url']
+    
+    def save(self, commit=True):
+        instance = super(SubmitVideoFormBase, self).save(commit=True)
+        print "instance:",instance
+		# Checks for admin settings - is the body of the first if really necessary?
+        if self.request.user.is_authenticated():
+            self.instance.user = self.request.user
+            self.instance.contact = self.request.user.email
+            print "User is authenticated"
+        if self.request.user_is_admin():
+            print "User is admin"
+            instance.status = Video.ACTIVE
+        return instance
+        	
+        if 'website_url' in self.fields:
+            # Then this was a form which required a website_url - i.e. a direct
+            # file submission. TODO: Find a better way to mark this?
+            instance.try_to_get_file_url_data()

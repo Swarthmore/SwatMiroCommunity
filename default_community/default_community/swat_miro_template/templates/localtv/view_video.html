@@ -143,13 +143,13 @@
 	<div class="padded">
 		{# Disqus comments #}
     	
-    	{% if request.user.is_authenticated %}
-    		{% load disqus_tags %}
-			{% set_disqus_developer 1 %}
+		{% load swattags %}
+    		{% if comments_enabled %}
+		{% load disqus_tags %}
 			{% disqus_show_comments %}
-			{% load swattags %}
 			{{ disqus_sso|safe }}
-    	{% endif %}
+		{% endif %}
+		
 		
 
 	</div>

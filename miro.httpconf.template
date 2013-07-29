@@ -1,5 +1,5 @@
 
-WSGIDaemonProcess {processid} python-path=/var/www/django/src/swatmirocommunity/{projectname}
+WSGIDaemonProcess {processid} python-path=/var/www/django/src/swatmirocommunity/default_community:/var/www/django/src/swatmirocommunity/{projectname}
 
 Alias {baseurl}/robots.txt /var/www/django/src/swatmirocommunity/default_community/default_community/swat_miro_template/static/robots.txt
 Alias {baseurl}/favicon.ico /var/www/django/src/swatmirocommunity/default_community/default_community/swat_miro_template/static/favicon.ico
@@ -21,11 +21,11 @@ Allow from all
         </Files>
 </Directory>
 
-#To lock down the site with CAS add the following
+#To lock down the site with CAS uncomment the following
 <Location {baseurl}>
 	  <IfModule mod_auth_cas.c>
-	  	    AuthType CAS
-		    AuthName "Swarthmore SSO"
-		    Require valid-user
+	  {htauth}AuthType CAS
+	  {htauth}AuthName "Swarthmore SSO"
+	  {htauth}Require valid-user
 	</IfModule>
 </Location>

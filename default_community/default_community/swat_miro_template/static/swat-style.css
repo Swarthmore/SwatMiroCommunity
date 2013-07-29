@@ -253,7 +253,7 @@ html, body {
 
 /*Video submission form fixes*/
 .x-large > label { line-height: 24px; position: absolute; width: auto; }
-.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; }
+.x-large > .controls > input { font-size: 18px; line-height: 24px; height: 24px; margin-left: 10%; }
 form .controls { display: inline-block; margin-left: 0px; }
 form[action="/submit_video/"] .controls { margin-left: 100px; }
 form > .form-actions { padding: 0px; width: 55px; margin: 0px auto; }

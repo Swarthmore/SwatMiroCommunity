@@ -13,7 +13,7 @@
 		<h1 class="page-title">{{ category.name }}</h1>
 		
 		<!-- Video submission restricted -->
-		{% if request.user.is_authenticated %}
+		{% if request.user.is_authenticated and site_settings.display_submit_button %}
 		<button type="button" id="submit-to-category" 
 				onclick="location.href='{% url 'localtv_submit_video' %}categories/{{category.slug}}';"">Submit to this category</button>
 		{% endif %}

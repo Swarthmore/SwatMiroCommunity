@@ -17,7 +17,7 @@ from localtv.playlists.models import Playlist, PlaylistItem
 from localtv.models import SiteSettings
 
 def swatcontext(request):
-    "Returns context variables helpful for swarthmore's workflow."
+    #"Returns context variables helpful for swarthmore's workflow."
     return {
             'authmethod': settings.AUTH_METHOD,
             'authnextpage': settings.CAS_REDIRECT_URL,
@@ -41,26 +41,28 @@ def get_playlists(request):
 def get_disqus_sso(request):
 
     
-    if not request.user.is_authenticated():
-		# User is not logged in, return without doing anything
-		# Where are read-only comments handled?
-        return
-    else:
+    if request.user.is_authenticated():
         # Get user data
-        email = str(request.user.email)
-        uname = str(request.user.username)
-        id = request.user.id
+        full_name = uname = str(request.user.username)
+        if request.user.get_full_name:
+            full_name = str(request.user.get_full_name)
+        if request.user.email:
+            email = str(request.user.email)
+        else:
+            email = uname + "@swarthmore.edu"
+        uid = request.user.id
         full_name = request.user.get_full_name()
-        #return "Username:",uname,"Email:",email,"ID:",id
     
 	
-    # create a JSON packet of our data attributes
-    data = simplejson.dumps({
-        'id': id,
-        'username': uname,
-        'email': email,
-    })
-    
+        # create a JSON packet of our data attributes
+        data = simplejson.dumps({
+            'id': uname,
+            'username': full_name,
+            'email': email,
+        })
+    else:
+        data = simplejson.dumps({})
+
     # encode the data to base64
     message = base64.b64encode(data)
     # generate a timestamp for signing the message
@@ -73,10 +75,10 @@ def get_disqus_sso(request):
     return """<script type="text/javascript">
     var disqus_config = function() {
         this.page.remote_auth_s3 = "%(message)s %(sig)s %(timestamp)s";
-        this.page.api_key = "%(pub_key)s";
-        
-    }
+        this.page.api_key = "%(pub_key)s";      
+    };
     </script>""" % dict(
+        dbg=data,
         message=message,
         timestamp=timestamp,
         sig=sig,

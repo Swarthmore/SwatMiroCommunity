@@ -20,7 +20,7 @@ DB_USER = "miro_db_user"
 DB_PASSWORD = "miro_db_pass"
 
 # Path to the homepage in the URL 
-URL_PATH = ""
+URL_PATH = "/miro"
 
 # Set to true to enable comments
 COMMENTS_ENABLED = True

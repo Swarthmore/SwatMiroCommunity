@@ -234,12 +234,11 @@ INSTALLED_APPS = (
     'swat_additions',
 )
 
-if COMMENTS_ENABLED:
-	INSTALLED_APPS += ('disqus',)
-	# disqus keys
-	DISQUS_PUBLIC_KEY = 'Rar4vj0zdEt4dQFtMHHZbHNQjAGUyeRWAv60mNJHfLqGvMh8R4uxmOhyJoo6JY8x'
-	DISQUS_SECRET_KEY = 'i1nlbupybvKk5whgGuLIF0hTOc0bovjSVJiIz6ktqsZvGBUk9Jmv5Ai7qKmyHtbn'
-	DISQUS_WEBSITE_SHORTNAME = 'swatmiro'
+INSTALLED_APPS += ('disqus',)
+# disqus keys
+DISQUS_PUBLIC_KEY = 'Rar4vj0zdEt4dQFtMHHZbHNQjAGUyeRWAv60mNJHfLqGvMh8R4uxmOhyJoo6JY8x'
+DISQUS_SECRET_KEY = 'i1nlbupybvKk5whgGuLIF0hTOc0bovjSVJiIz6ktqsZvGBUk9Jmv5Ai7qKmyHtbn'
+DISQUS_WEBSITE_SHORTNAME = 'swatmiro'
 	
 if os.environ.get('MIGRATIONS'):
     if 'south' not in INSTALLED_APPS:

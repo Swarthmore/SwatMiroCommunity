@@ -12,7 +12,15 @@ urlpatterns = (
     static(settings.UPLOADTEMPLATE_MEDIA_URL,document_root=settings.UPLOADTEMPLATE_MEDIA_ROOT)
 )
 
-if settings.AUTH_METHOD == 'cas' or settings.AUTH_METHOD == 'private':
+if settings.AUTH_METHOD == 'cas':
+    urlpatterns += (
+        patterns('',
+            url(r'^accounts/login/$', 'django_cas.views.login'),
+            url(r'^accounts/logout/$', 'django_cas.views.logout'),
+        )
+    )
+
+if settings.AUTH_METHOD == 'private':
     urlpatterns += (
         patterns('',
             url(r'^accounts/login/$', 'django_cas.views.login'),

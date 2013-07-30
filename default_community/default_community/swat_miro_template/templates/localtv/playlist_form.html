@@ -9,45 +9,48 @@
 
 
 {% load swattags %} <!-- Might not be necessary -->
-<div class="playlist_form">
+{% if playlists|length > 0 %}
+	<div class="playlist_form">
+			<!-- If you read this, PLEASE skin the playlist select menu. It's hideous (but a royal pain to properly restlye). -->
+			<form id="playlist_form_{{video.id}}" action="" method="POST" class="playlists">{% csrf_token %}
+				<select name="playlist" class="playlist_select">
+					<option value="-1" data-skip="1">Select Playlist</option>
+					{% for playlist in playlists %}			
+						{% if playlist not in object.playlists.all %}
+							<option value="{{ playlist.pk }}" data-html-text="{{ playlist.name }}">{{ playlist.name }}</option>
+						{% else %}
+							<option value="{{ playlist.pk }}" disabled="disabled">{{ playlist.name }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
 	
-		<!-- If you read this, PLEASE restyle the playlist select menu. It's hideous (but a royal pain to properly restlye). -->
-		<form id="playlist_form_{{video.id}}" action="" method="POST" class="playlists">{% csrf_token %}
-			<select name="playlist" class="playlist_select">
-				<option value="-1" data-skip="1">Select Playlist</option>
-				{% for playlist in playlists %}			
-					{% if playlist not in object.playlists.all %}
-						<option value="{{ playlist.pk }}" data-html-text="{{ playlist.name }}">{{ playlist.name }}</option>
-					{% else %}
-						<option value="{{ playlist.pk }}" disabled="disabled">{{ playlist.name }}</option>
-					{% endif %}
-				{% endfor %}
-			</select>
-
-		<!-- "Add to Playlist" button -->
-		<button id="add_to_playlist_{{video.id}}" type="submit" value="Add" class="playlist_submit">
-			Add
-		</button>
-		
-		<!-- Handle click events -->
-		<script>
-			$(document).ready(function(){				
-				$('#playlist_form_{{video.id}}').submit(function() {					
-					if ($('.playlist_select', this).val() != -1) {	
-						$.post("/miro/playlists/add/{{video.id}}",
-								$(this).serialize(),
-									function(data, textStatus, jqXHR){
-											if (textStatus === "success") {										
-												document.location.reload();
-											}
-									}
-						);
-					}
-					return false;
-				});
-			});			
-		</script>	
-		
-	</form>
-</div>
-
+			<!-- "Add to Playlist" button -->
+			<button id="add_to_playlist_{{video.id}}" type="submit" value="Add" class="playlist_submit">
+				Add
+			</button>
+			
+			<!-- Handle click events -->
+			<!-- 
+				NOTE: For development server testing, remove the "/miro" from the POST request.
+				It's only there so that the push to GitHub doesn't screw up the website.
+			-->
+			<script>
+				$(document).ready(function(){				
+					$('#playlist_form_{{video.id}}').submit(function() {					
+						if ($('.playlist_select', this).val() != -1) {	
+							$.post("/miro/playlists/add/{{video.id}}",
+									$(this).serialize(),
+										function(data, textStatus, jqXHR){
+												if (textStatus === "success") {										
+													document.location.reload();
+												}
+										}
+							);
+						}
+						return false;
+					});
+				});			
+			</script>
+		</form>
+	</div>
+{% endif %}

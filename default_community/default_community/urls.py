@@ -76,9 +76,6 @@ urlpatterns += (
     )
 )
 
-urlpatterns += (
-	
-)
 
 urlpatterns += (
     patterns('',

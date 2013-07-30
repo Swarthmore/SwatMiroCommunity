@@ -16,9 +16,9 @@
 	{% if site_settings.display_submit_button or request.user_is_admin %}
 		{% if request.user.is_authenticated %}
 			<div id = "admin_help">	
-				<h2>Admin Documentation<h2>
+				<h1><u>Administrator Documentation</u><h1>
 
-				<h3>Admin roles & privileges:</h3>
+				<h3>Administrator privileges</h3>
 				<ul class = "helper">
 				<li>Create categories
 				<li>Add videos to categories
@@ -28,7 +28,7 @@
 				<li>Add new user &/or admin accounts
 				</ul>
 
-				<h3>Creating Categories:</h3>
+				<h3>Creating Categories</h3>
 				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
@@ -39,7 +39,7 @@
 				<li>Click ‘Add Category’ to save your new Category</li>
 				</ul>
 
-				<h3>Adding Videos to Categories:</h3>
+				<h3>Adding Videos to Categories</h3>
 				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
@@ -51,7 +51,7 @@
 				<li>Click the ‘Save Changes’ button to save your changes</li>
 				</ul>
 			
-				<h3>Creating Playlists:</h3>
+				<h3>Creating Playlists</h3>
 				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
@@ -62,7 +62,7 @@
 				<li>Click the ‘Add Playlist’ button to save your new playlist</li>
 				</ul>
 
-				<h3>Configuring General Site Settings:</h3>
+				<h3>Configuring General Site Settings</h3>
 				<ul>
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
@@ -81,8 +81,7 @@
 				<li>Otherwise, mouse over each video in the queue and select ‘Feature’, ‘Approve’, ‘Reject’ for individual video moderation</li>
 				</ul>
 
-
-				<h3>Add New User/Admin Accounts:</h3>
+				<h3>Add New User/Admin Accounts</h3>
 				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
@@ -95,12 +94,9 @@
 					{% endif %}
 	{% endif %}
 			<div id = "user_help">	
-				<h2>Swarthmore Miro Community End User Documentation</h2>
-<p>Purpose
-The purpose of Swarthmore’s Miro Community is to curate various media for classroom use. Student projects can be showcased and teaching materials made readily available.</p>
+				<h1><u>End User Documentation</u></h1>
 
 <h3>End User Privileges</h3>
-<p>Authenticated, non-admin end users can do the following:</p>
 <ul>
 <li>View and comment on videos</li>
 <li>Create and submit videos to private playlists</li>
@@ -123,24 +119,22 @@ The purpose of Swarthmore’s Miro Community is to curate various media for clas
 <li>Requires login credentials</li>
 </ul>
 
-<h3>Submitting a Video</h3>
+<h3>Submitting a Video (requires login)</h3>
 <ul>
-<li>Requires login credentials<li>
 <li><u>Direct Submission</u></li>
 <li>In the upper-right corner of the screen, click “Submit”</li>
 <li>Input the video URL and click “Submit”</li>
-<li>If an admin approves the video, it will be displayed in the video grid</li>
+<li>If an admin approves the video, it will be displayed in the video grid</li><br>
 <li><u>Category Submission: submission link method</u></li>
-<li>If an admin provides a submission link, just click the link and submit a video URL as if following the direct submission method</li>
+<li>If an admin provides a submission link, just click the link and submit a video URL as if following the direct submission method</li><br>
 <li><u>Category Submission: category page submission method</u></li>
 <li>Click “Browse” in upper-right hand corner of screen.</li>
 <li>Click either “Categories” or any of the categories listed underneath</li>
 <li>Click the “Submit to this Category” button and follow the steps for direct submission.</li>
 </ul>
 
-<h3>Creating a Playlist</h3>
+<h3>Creating a Playlist (requires login)</h3>
 <ul>
-<li>Requires login credentials</li>
 <li>From the main page (the video grid), click “Browse” in the upper right area of the screen.</li>
 <li>Click “Playlists”</li>
 <li>Click “Add Playlist,” fill out the fields in the window that appears, and click the newly-formed “Add Playlist” button.</li>
@@ -148,7 +142,7 @@ The purpose of Swarthmore’s Miro Community is to curate various media for clas
 <li>Playlists can be modified with the Edit and View options</li>
 </ul>
 
-<h3>Adding Videos to Playlists</h3>
+<h3>Adding Videos to Playlists (requires login)</h3>
 <ul>
 <li>Requires login credentials</li>
 <li>Locate the video to be added</li>
@@ -157,36 +151,26 @@ The purpose of Swarthmore’s Miro Community is to curate various media for clas
 <li>After a short time, the page will refresh to confirm video submission to the playlist</li>
 </ul>
 
-<h3>Creating a Profile</h3>
+<h3>Creating a Profile (requires login)</h3>
 <ul>
-<li>Requires login credentials</li>
 <li>Log in and click the drop-down menu under your username (upper-right corner of screen)</li>
 <li>Click “Profile”</li>
 <li>The profile page should be the default display. Fill in the fields and click “Save Changes.”</li>
 <li>To view your profile, click “View Profile.” Alternatively, click “About” when viewing the main video grid or the video viewing page.</li>
 </ul>
 
-<h3>Changing Email Notification Settings</h3>
+<h3>Changing Email Notification Settings (requires login)</h3>
 <ul>
-<li>Requires login credentials</li>
 <li>Follow the steps for creating a profile, but click the “Notifications” tab</li>
 <li>Toggle the checkboxes to change Email notification settings</li>
 </ul>	
 </div>
-		
-		
-		
-		
 	</div>
-
-
 	<div class="pod">
-		
 		<header class="pod-header">
 			<h1 class="pod-title">{% trans "Powered by Swarthmore" %}</h1>
 		</header>
 		<div class="pod-content" >
-
 			</p>
 		</div>
 	</div>

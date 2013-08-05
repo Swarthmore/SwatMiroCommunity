@@ -76,6 +76,7 @@ urlpatterns += (
     )
 )
 
+
 urlpatterns += (
     patterns('',
         url(r'^', include('localtv.contrib.contests.urls')),

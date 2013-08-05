@@ -1,4 +1,4 @@
-{% extends "localtv/__layouts/50_50.html" %}
+{% extends "localtv/__layouts/100.html" %}
 
 {% load i18n uploadtemplate daguerre %}
 
@@ -12,11 +12,44 @@
 			<h1 class="pod-title">{% trans "Help" %}</h1>
 		</header>
 		<div class="pod-content">
-			<div id = "help">	
-				<h2>Documentation<h2>
+	<h1><u>Swarthmore Miro Community FAQ & User Guide </u></h1>
+	
+	{% if site_settings.display_submit_button or request.user_is_admin %}
+		{% if request.user.is_authenticated %}
+			<h2>For admins:</h2>
+			<ul>
+			<li><a href ="#admin_privileges">- What are the main admin privileges?</a></li>
+			<li><a href = "#admin_create_cat">- How do I create categories?</a></li>
+			<li><a href = "#admin_add_vid">- How can I add videos to categories?</a></li>
+			<li><a href = "#admin_create_playlist">- How can I create a playlist?</a></li>
+			<li><a href = "#admin_custom_settings">- How do I customize settings in my Swarthmore Miro site?</a></li>
+			<li><a href = "#admin_moderate_queue">- How do I moderate videos in the moderation queue?</a></li>
+			<li><a href = "#admin_add_account">- How do I add a new User/Admin account to my Miro site</a></li>
+			</ul>					
+									{% endif %}
+	{% endif %}
+	
+			<h2>For End Users:</h2>
+			<ul>
+			<li><a href= "#user_privileges">- What are my end user privileges?</a></li>
+			<li><a href = "#user_log">- How do I log in and log out?</a></li>
+			<li><a href = "#user_comments">- How do I view and comment on videos?</a></li>
+			<li><a href = "#user_submit">- How do I submit a video?</a></li>
+			<li><a href = "#user_playlist">- How can I create a playlist?</a></li>
+			<li><a href = "#user_add_vid">- How can I add videos to a playlist?</a></li>
+			<li><a href = "#user_create_profile">- How can I create a profile on the Swarthmore Miro site?</a></li>
+			<li><a href = "#user_change_email">- How do I change email notification settings?</a></li>
+			</ul>
+			
+	
+	{% if site_settings.display_submit_button or request.user_is_admin %}
+		{% if request.user.is_authenticated %}
+			
+			<div id = "admin_help">	
+				<h2><u>Administrator Documentation</u><h2>
 
-				<h3>Admin roles & privileges:</h3>
-				<ul>
+				<h3 id ="admin_privileges">Administrator privileges</h3>
+				<ul class = "helper">
 				<li>Create categories
 				<li>Add videos to categories
 				<li>Create playlists
@@ -25,8 +58,8 @@
 				<li>Add new user &/or admin accounts
 				</ul>
 
-				<h3>Creating Categories:</h3>
-				<ol>
+				<h3 id ="admin_create_cat">Creating Categories</h3>
+				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
 				<li>Click on ‘Videos’ in the left hand panel of the ‘Admin’ page</li>
@@ -34,10 +67,10 @@
 				<li>Click the ‘Add Category’ button</li>
 				Input the information for your new category i.e. <i> Category Name, Category Slug, Thumbnail, Description, Parent</i></li>
 				<li>Click ‘Add Category’ to save your new Category</li>
-				</ol>
+				</ul>
 
-				<h3>Adding Videos to Categories:</h3>
-				<ol>
+				<h3 id = "admin_add_vid" >Adding Videos to Categories</h3>
+				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
 				<li>Click on ‘Videos’ in the left hand panel of the ‘Admin’ page</li>
@@ -46,10 +79,10 @@
 				<li>Click the ’Edit’ link under the video you want to categorize, and a small window should titled ‘Editing’ should pop up</li>
 				<li>Scroll down to the bottom of the page and ‘check’ the categories you want the video to be in</li>
 				<li>Click the ‘Save Changes’ button to save your changes</li>
-				</ol>
+				</ul>
 			
-				<h3>Creating Playlists:</h3>
-				<ol>
+				<h3 id = "admin_create_playlist" >Creating Playlists</h3>
+				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
 				<li>Click on ‘Goodies’ at the bottom of the left hand panel on the ‘Admin’ page</li>
@@ -57,65 +90,113 @@
 				<li>Click the ‘Add Playlist’ button and a page titled ‘Add a Playlist’ should pop up</li>
 				<li>Input the information for your new playlist i.e. Name, Slug, Description</li>
 				<li>Click the ‘Add Playlist’ button to save your new playlist</li>
-				</ol>
+				</ul>
 
-				<h3>Configuring General Site Settings:</h3>
-				<ol>
+				<h3 id = "admin_custom_settings" >Configuring General Site Settings</h3>
+				<ul>
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
 				<li>Click on ‘Settings’ in the left hand panel of the ‘Admin’ page</li>
 				<li>Modify the settings to suit your needs i.e. change Site Title, add Site Tagline, Logo Image, Background, Custom CSS, About Us Page, Sidebar Blurb, Footer Blurb.</li>
 				<li>Configure Additional Site Settings at the bottom of the page if necessary</li>
 				<li>Click ‘Save Changes’ to save your changes</li>
-				</ol>
+				</ul>
 
-				<h3>Moderate Videos In Moderation Queue</h3>
-				<ol>
+				<h3 id = "admin_moderate_queue" >Moderate Videos In Moderation Queue</h3>
+				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
 				<li>Click on ‘Videos’ in the left hand panel of the ‘Admin’ page</li>
 				<li>Click the the ‘Approve All Videos on this page’ button, ‘Reject All Videos on This Page’ button or ‘Clear Entire Queue’ button to carry out a bulk video moderation</li>
 				<li>Otherwise, mouse over each video in the queue and select ‘Feature’, ‘Approve’, ‘Reject’ for individual video moderation</li>
-				</ol>
+				</ul>
 
-
-				<h3>Add New User/Admin Accounts:</h3>
-				<ol>
+				<h3 id = "admin_add_account">Add New User/Admin Accounts</h3>
+				<ul class = "helper">
 				<li>Click on your username in the top right hand corner of the screen</li>
 				<li>Select ‘Admin’ in the dropdown menu</li>
 				<li>Click on ‘Users’ in the left hand panel of the ‘Admin’ page</li>
 				<li>Click the ‘Add User’ button</li>
 				<li>Input the new user’s information and specify if the account is an admin account or not</li>
 				<li>Click the ‘Add User’ button to save the new user’s information</li>
-				</ol>
+				</ul>
 			</div>
-			{% if site_settings.logo %}
-				<figure class="figure-left">
-					<img class="logo" alt="{{ site_settings.site.name }} Logo" src="{% adjust site_settings.logo.name width=480 height=160 adjustment="fit" %}" />
-				</figure>
-			{% endif %}
-			{% autoescape off %}
-				{{ site_settings.help_html }}
-			{% endautoescape %}
-			
-			
-		</div>
-		
-		
-	</div>{# /.pod #}
-{% endblock %}
+					{% endif %}
+	{% endif %}
+	
+			<div id = "user_help">	
+				<h2><u>End User Documentation</u></h2>
 
-{% block side %}
-	<div class="pod">
-		
-		<header class="pod-header">
-			<h1 class="pod-title">{% trans "Powered by Swarthmore" %}</h1>
-		</header>
-		<div class="pod-content" >
+<h3 id = "user_privileges">End User Privileges</h3>
+<ul>
+<li>View and comment on videos</li>
+<li>Create and submit videos to private playlists</li>
+<li>Submit admin-approved videos to the website for display</li>
+<li>Create a profile and change Email notification settings</li>
+</ul>
 
-			</p>
-		</div>
+<h3 id = "user_log" >Logging in & out</h3>
+<ul>
+<li>Click “Login” in the upper-right corner of the screen</li>
+<li>Click “Swarthmore Login” and enter your network credentials</li>
+<li>Notice that the “Login” option is now a drop-down menu</li>
+<li>This menu contains links to your profile and to logging out</li>
+</ul>
+
+<h3 id = "user_comments">Viewing & Commenting on Videos</h3>
+<ul>
+<li>To view a video, click on its thumbnail</li>
+<li>To leave a comment on a video, use the Disqus commenting mechanism below the video</li>
+<li>Requires login credentials</li>
+</ul>
+
+<h3 id ="user_submit">Submitting a Video (requires login)</h3>
+<ul>
+<li><u>Direct Submission</u></li>
+<li>In the upper-right corner of the screen, click “Submit”</li>
+<li>Input the video URL and click “Submit”</li>
+<li>If an admin approves the video, it will be displayed in the video grid</li><br>
+<li><u>Category Submission: submission link method</u></li>
+<li>If an admin provides a submission link, just click the link and submit a video URL as if following the direct submission method</li><br>
+<li><u>Category Submission: category page submission method</u></li>
+<li>Click “Browse” in upper-right hand corner of screen.</li>
+<li>Click either “Categories” or any of the categories listed underneath</li>
+<li>Click the “Submit to this Category” button and follow the steps for direct submission.</li>
+</ul>
+
+<h3 id = "user_playlist">Creating a Playlist (requires login)</h3>
+<ul>
+<li>From the main page (the video grid), click “Browse” in the upper right area of the screen.</li>
+<li>Click “Playlists”</li>
+<li>Click “Add Playlist,” fill out the fields in the window that appears, and click the newly-formed “Add Playlist” button.</li>
+<li>Note: Making playlists public requires admin approval</li>
+<li>Playlists can be modified with the Edit and View options</li>
+</ul>
+
+<h3 id = "user_add_vid">Adding Videos to Playlists (requires login)</h3>
+<ul>
+<li>Requires login credentials</li>
+<li>Locate the video to be added</li>
+<li>Expand the drop-down menu and locate the video you want to add</li>
+<li>Click “Add”</li>
+<li>After a short time, the page will refresh to confirm video submission to the playlist</li>
+</ul>
+
+<h3 id = "user_create_profile">Creating a Profile (requires login)</h3>
+<ul>
+<li>Log in and click the drop-down menu under your username (upper-right corner of screen)</li>
+<li>Click “Profile”</li>
+<li>The profile page should be the default display. Fill in the fields and click “Save Changes.”</li>
+<li>To view your profile, click “View Profile.” Alternatively, click “About” when viewing the main video grid or the video viewing page.</li>
+</ul>
+
+<h3 id = "user_change_email">Changing Email Notification Settings (requires login)</h3>
+<ul>
+<li>Follow the steps for creating a profile, but click the “Notifications” tab</li>
+<li>Toggle the checkboxes to change Email notification settings</li>
+</ul>	
+</div>
 	</div>
-			{# /.pod #}
+		{# /.pod #}
 {% endblock %}
 

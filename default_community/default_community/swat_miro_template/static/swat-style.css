@@ -573,10 +573,14 @@ button:hover, .button-wide:hover {
 
 .pod-content { padding: 0px; }
 
+.pod{margin-left: 10px;}
+
 .precontent-header .title {
 	font-size: 14px;
 	margin-right: 5px;
 }
+
+
 
 .precontent-header h2 {
 	font-size: 11px;
@@ -606,5 +610,9 @@ button:hover, .button-wide:hover {
 .col-one-half > .pod > .pod-content {
 	margin: 20px 18px;
 } 
+
+.help{
+	margin-left:10px;
+	}
 
 }

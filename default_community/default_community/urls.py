@@ -19,6 +19,14 @@ if settings.AUTH_METHOD == 'cas':
             url(r'^accounts/logout/$', 'django_cas.views.logout'),
         )
     )
+
+if settings.AUTH_METHOD == 'private':
+    urlpatterns += (
+        patterns('',
+            url(r'^accounts/login/$', 'django_cas.views.login'),
+            url(r'^accounts/logout/$', 'swat_additions.views.swat_logout'),
+        )
+    )
     
 if settings.AUTH_METHOD == 'both':
     # TODO change template to present users with their login options
@@ -67,6 +75,7 @@ urlpatterns += (
         name='localtv_submit_directlink_video'),
     )
 )
+
 
 urlpatterns += (
     patterns('',

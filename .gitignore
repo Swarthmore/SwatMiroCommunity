@@ -1,3 +1,4 @@
+.gitignore
 .project
 *.log
 *.pot
@@ -8,4 +9,5 @@ secretkey.py
 media/
 whoosh_index/
 *.egg-info
-default_community/default_community/settings.py
+engin_community/
+fmst_community/

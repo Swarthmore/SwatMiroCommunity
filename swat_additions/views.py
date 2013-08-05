@@ -2,11 +2,13 @@
 # from django.views.generic import FormView
 from swat_additions import forms
 from localtv.submit_video.views import SubmitURLView, SubmitVideoView
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from localtv import models
 from django.conf import settings
 from tagging.utils import parse_tag_input
+from django_cas.views import _logout_url, _redirect_url
+from django.http import HttpResponseRedirect
 
 class CatSubmitURLView(SubmitURLView):
 	form_class = forms.CatSubmitURLForm
@@ -49,3 +51,9 @@ def help(request):
     return render_to_response(
         'localtv/help.html',
         {}, context_instance=RequestContext(request))
+
+# logout for use with cas
+def swat_logout(request):	 
+	response = HttpResponseRedirect(_logout_url(request))
+	response.delete_cookie(key='MOD_AUTH_CAS')
+	return response

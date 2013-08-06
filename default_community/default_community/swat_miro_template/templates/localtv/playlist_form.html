@@ -9,7 +9,7 @@
 
 
 {% load swattags %} <!-- Might not be necessary -->
-{% if playlists|length > 0 and request.user.is_admin %}
+{% if playlists|length > 0 %}
 	<div class="playlist_form">
 		
 			<!-- If you read this, PLEASE restyle the playlist select menu. It's hideous (but a royal pain to properly restlye). -->
@@ -33,13 +33,8 @@
 			
 			<!-- Handle click events -->
 			<!-- 
-<<<<<<< HEAD
 				NOTE: For production server testing, keep the "miro/" in the POST request.
 				The production server has a different path than the development server.
-=======
-				NOTE: For development server testing, remove the "/miro" from the POST request.
-				It's only there so that the push to GitHub doesn't screw up the website.
->>>>>>> f404f6a6729d225281ad532c2f0391e43daab856
 			-->
 			<script>
 				$(document).ready(function(){				

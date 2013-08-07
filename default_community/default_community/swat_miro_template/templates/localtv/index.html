@@ -1,4 +1,4 @@
-{% extends "localtv/__layouts/100.html" %}
+{% extends "localtv/__layouts/75_25.html" %}
 
 {% load uploadtemplate cache i18n daguerre %}
 {% load url from future %}
@@ -63,7 +63,7 @@
 		</div>{# /.pod-content #}
 		<div class="pod-footer">
 			<ul class="pod-footer-actions">
-				<li><a id="all-new-videos" class="button-wide continue" href="{% url 'localtv_list_new' %}">{% trans "All New Videos" %}</a></li>
+				<li><a class="button-wide continue" href="{% url 'localtv_list_new' %}">{% trans "All New Videos" %}</a></li>
 			</ul>
 		</div>
 	</div>{# /.pod #}

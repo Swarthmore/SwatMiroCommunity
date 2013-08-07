@@ -315,14 +315,14 @@ form[action="/submit_video/scraped/"] > ul > li > label > input {
 
 /*Submit to category button*/
 /* 
-    I don't know why this button is off-center within its container.
+    I don't know why this button is vertically off-center within its container.
  */
 #submit-to-category {
 	margin-left: 20px;
 	background: black;
 	color: white;
-	height: 29px;
-	width: 144.09375px; /*Got this from Computed Styles (see inspector)*/
+	height: 70%;
+	width: 20%;
 }
 
 /*Beautiful buttons! :) */

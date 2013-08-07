@@ -330,7 +330,7 @@ button, button:hover, .button-wide, .button-wide:hover {
 	background: none;
 	box-shadow: none;
 	text-shadow: none;
-	width: 200px;
+	width: 100%;
 	height: 47px;	
 	background: url(localtv/front/images/classy_fabric.png) repeat, #2b2d2d;
 	color: white;

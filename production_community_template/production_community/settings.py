@@ -34,6 +34,8 @@ AUTH_METHOD = '{authmethod}'
 
 #------------ No need to edit below this line ---------------
 
+# fix the session cookie path to avoid conflicts with other django sites
+SESSION_COOKIE_PATH = URL_PATH
 
 DB = os.environ.get('DB')
 # Force mysql in production
